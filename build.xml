@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <project name="DnD Management" basedir="." default="default">
+=======
+<project name="buggy" basedir="." default="default">
+>>>>>>> master
 
   <!--inputs-->
   <property name="main.src.dir" value="src/main/java"/>
