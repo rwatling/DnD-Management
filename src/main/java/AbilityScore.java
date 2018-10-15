@@ -1,12 +1,13 @@
-package main.java;
-
 public class AbilityScore extends Attribute {
 	
-	public AbilityScore() {
+	String title;
+	int score;
+	int mod;
+	
+	public void AbilityScore() {
 		setType("AbilityScore");
 	}
 	
-	String title;
 	public void setTitle(String t) {
 		title = t;
 	}
@@ -15,12 +16,23 @@ public class AbilityScore extends Attribute {
 		return title;
 	}
 	
-	int score;
 	public void setScore(int i) {
 		score = i;
+		int dif;
+		if (score % 2 == 0) {
+			dif = score - 10;
+		}
+		else {
+			dif = score - 9;
+		}
+		mod = score - (dif / 2) - 10;
 	}
 	
-	public int getScore(int i) {
+	public int getScore() {
 		return score;
+	}
+	
+	public int getMod() {
+		return mod;
 	}
 }
