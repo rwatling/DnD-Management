@@ -1,3 +1,5 @@
+package main.java;
+
 public class AbilityScore extends Attribute {
 	
 	String title;
