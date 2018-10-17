@@ -2,7 +2,7 @@ import java.util.*;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-public class AttributeTest {
+public class ProjectTest {
 	
 	@Test
 	public void titleAbilityTest () {
