@@ -3,6 +3,8 @@ import java.util.*;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
+import main.java.AbilityScore;
+
 public class ProjectTest {
 	
 	@Test
