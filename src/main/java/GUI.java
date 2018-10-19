@@ -56,15 +56,25 @@ public class GUI extends Application {
 		 nameCombo.getItems().addAll(pcNameList);
 		 
 		 Text t = new Text("Choose a Character: ");
-		 t.setFont(new Font("Consolas", 24));
-		 Text t1 = new Text("New Character");
-		 t1.setFont(new Font("Consolas", 24));
-		 Button newPCBtn = new Button("",t1);
+		 t.setFont(getFont());
+		 
 		 Button dummy = new Button("");
 		 dummy.setPrefSize(50, 24);
 		 dummy.setVisible(false);
-		 newPCBtn.setBackground(new Background(new BackgroundFill(Color.LIGHTGREEN, new CornerRadii(2), new Insets(0))));
-		 choosePane.getChildren().addAll(t, nameCombo, dummy, newPCBtn);
+		 
+		 Text t1 = new Text("Open");
+		 t1.setFont(getFont());
+		 Button openBtn = new Button("", t1);
+		 
+		 Button dummy1 = new Button("");
+		 dummy1.setPrefSize(50, 24);
+		 dummy1.setVisible(false);
+		 
+		 Text t2 = new Text("New Character");
+		 t2.setFont(getFont());
+		 Button newPCBtn = new Button("",t2);
+		 
+		 choosePane.getChildren().addAll(t, nameCombo, dummy, openBtn, dummy1, newPCBtn);
 		 choosePane.setAlignment(Pos.CENTER);
 		 
 		 BorderPane root = new BorderPane();
@@ -76,5 +86,9 @@ public class GUI extends Application {
 		 primaryStage.setTitle("D&D Manager");
 		 primaryStage.setScene(scene);
 		 primaryStage.show();
+	 }
+	 
+	 private Font getFont() {
+		 return new Font("Consolas", 24);
 	 }
  }
