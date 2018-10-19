@@ -17,15 +17,25 @@ public class Inventory {
 	 * @return The original item.
 	 */
 	public Item addToInventory(Item myItem) {
-		if (myItem.getQuantity() > 0) {
-			myItem.setQuantity(myItem.getQuantity() + 1);
-		} else {
+		if (myInventory.isEmpty()) {
+			myInventory.add(myItem);
+			return myItem;
+		}
+		
+		//if (myItem.getQuantity() > 0) {
+		//	myItem.setQuantity(myItem.getQuantity() + 1);
+		//} else {
 			int index = 0;
-			while (myItem.getName().compareToIgnoreCase(myInventory.get(index).getName()) > 0) { // While the new item's name comes before the current index's item's name.
+			while (myItem.getName().compareToIgnoreCase(myInventory.get(index).getName()) >= 0) { // While the new item's name comes before the current index's item's name, or the new item is already in the inventory.
+				if (myItem.getName().compareToIgnoreCase(myInventory.get(index).getName()) == 0) { // If the item is already in the inventory, combine the quantities.
+					myInventory.get(index).setQuantity(myInventory.get(index).getQuantity() + myItem.getQuantity());
+					myItem.setQuantity(myInventory.get(index).getQuantity());
+					return myItem;
+				}
 				index++;
 			}
 			myInventory.add(index, myItem);
-		}
+		//}
 		
 		return myItem;
 	}
