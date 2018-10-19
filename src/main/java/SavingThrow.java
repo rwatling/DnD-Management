@@ -2,11 +2,14 @@ package main.java;
 
 public class SavingThrow extends Attribute {
 	
+	String title;
+	int mod;
+	boolean profcy = false;
+	
 	public void SavingThrow() {
 		setType("SavingThrow");
 	}
 	
-	String title;
 	public void setTitle(String t) {
 		title = t;
 	}
@@ -15,7 +18,6 @@ public class SavingThrow extends Attribute {
 		return title;
 	}
 	
-	int mod;
 	public void setMod(int i) {
 		mod = i;
 	}
@@ -24,7 +26,10 @@ public class SavingThrow extends Attribute {
 		return mod;
 	}
 	
-	boolean profcy = false;
+	public boolean getProfcy() {
+		return profcy;
+	}
+	
 	public void setProfcy(boolean b) {
 		profcy = b;
 	}
