@@ -2,10 +2,7 @@
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-import main.java.AbilityScore;
-import main.java.SavingThrow;
-import main.java.Class;
-import main.java.Skill;
+import main.java.*;
 
 public class ProjectTest {
 	
@@ -39,5 +36,27 @@ public class ProjectTest {
 	
 	// INVENTORY TESTS ---------------------------------------------------------
 	
+	@Test
+	public void itemGettersSettersTest() {
+		Item myItem = new Item("testItem", 5);
+		assertEquals("testItem", myItem.getName());
+		assertEquals(5, myItem.getQuantity());
+		myItem.setName("testItem2");
+		myItem.setQuantity(10);
+		assertEquals("testItem2", myItem.getName());
+		assertEquals(10, myItem.getQuantity());
+	}
 	
+	@Test
+	public void inventoryAddToInventoryTest() {
+		Inventory myInventory = new Inventory();
+		
+		Item myItem1 = new Item("testItem", 5);
+		assertEquals(myItem1, myInventory.addToInventory(myItem1));
+		assertEquals(5, myItem1.getQuantity());
+		
+		Item myItem2 = new Item("testItem", 5);
+		assertEquals(myItem2, myInventory.addToInventory(myItem2));
+		assertEquals(10, myItem2.getQuantity());
+	}
 }
