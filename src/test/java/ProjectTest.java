@@ -27,6 +27,13 @@ public class ProjectTest {
 		assertEquals(2, dex.getMod());
 	}
 	
+	@Test
+	public void savingThrowGettersSettersTest() {
+		SavingThrow intel = new SavingThrow();
+		intel.setTitle("Intelligence");
+		assertEquals("Intelligence", intel.getTitle);
+	}
+	
 	// INVENTORY TESTS ---------------------------------------------------------
 	
 	

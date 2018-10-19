@@ -1,6 +1,7 @@
 package main.java;
 
 public class Attribute {
+	
 	String type;
 	
 	public String getType () {
