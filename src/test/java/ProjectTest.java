@@ -2,14 +2,11 @@
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-import main.java.AbilityScore;
-import main.java.SavingThrow;
-import main.java.Class;
-import main.java.Skill;
+import main.java.*;
 
 public class ProjectTest {
 	
-	// ABILITY SCORE TESTS-------------------------------------------------------
+	// ATTRIBUTE TESTS-------------------------------------------------------
 	
 	@Test
 	public void titleAbilityTest () {
@@ -35,6 +32,30 @@ public class ProjectTest {
 		SavingThrow intel = new SavingThrow();
 		intel.setTitle("Intelligence");
 		assertEquals("Intelligence", intel.getTitle());
+		intel.setMod(2);
+		assertEquals(2, intel.getMod());
+		intel.setProfcy(true);
+		assertEquals(true, intel.getProfcy());
+		assertEquals(4, intel.getMod());
+	}
+	
+	@Test
+	public void titleClassTest() {
+		GameClass pali = new GameClass();
+		pali.setTitle("Paladin");
+		assertEquals("Paladin", pali.getTitle());
+	}
+	
+	@Test
+	public void skillGettersSettersTest() {
+		Skill stealth = new Skill();
+		stealth.setTitle("Stealth");
+		assertEquals("Stealth", stealth.getTitle());
+		stealth.setMod(2);
+		assertEquals(2, stealth.getMod());
+		stealth.setProfcy(true);
+		assertEquals(true, stealth.getProfcy());
+		assertEquals(4, stealth.getMod());
 	}
 	
 	// INVENTORY TESTS ---------------------------------------------------------

@@ -10,20 +10,23 @@ public class SavingThrow extends Attribute {
 		setType("SavingThrow");
 	}
 	
-	public void setTitle(String t) {
-		title = t;
-	}
-	
 	public String getTitle() {
 		return title;
 	}
 	
-	public void setMod(int i) {
-		mod = i;
+	public void setTitle(String t) {
+		title = t;
 	}
 	
 	public int getMod() {
 		return mod;
+	}
+	
+	public void setMod(int i) {
+		mod = i;
+		if (profcy) {
+			mod += 2;
+		}
 	}
 	
 	public boolean getProfcy() {
@@ -32,5 +35,6 @@ public class SavingThrow extends Attribute {
 	
 	public void setProfcy(boolean b) {
 		profcy = b;
+		setMod(getMod());
 	}
 }
