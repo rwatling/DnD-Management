@@ -10,12 +10,16 @@ public class AbilityScore extends Attribute {
 		setType("AbilityScore");
 	}
 	
+	public String getTitle() {
+		return title;
+	}
+	
 	public void setTitle(String t) {
 		title = t;
 	}
 	
-	public String getTitle() {
-		return title;
+	public int getScore() {
+		return score;
 	}
 	
 	public void setScore(int i) {
@@ -28,10 +32,6 @@ public class AbilityScore extends Attribute {
 			dif = score - 9;
 		}
 		mod = score - (dif / 2) - 10;
-	}
-	
-	public int getScore() {
-		return score;
 	}
 	
 	public int getMod() {
