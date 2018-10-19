@@ -3,6 +3,9 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import main.java.AbilityScore;
+import main.java.SavingThrow;
+import main.java.Class;
+import main.java.Skill;
 
 public class ProjectTest {
 	
@@ -31,7 +34,7 @@ public class ProjectTest {
 	public void savingThrowGettersSettersTest() {
 		SavingThrow intel = new SavingThrow();
 		intel.setTitle("Intelligence");
-		assertEquals("Intelligence", intel.getTitle);
+		assertEquals("Intelligence", intel.getTitle());
 	}
 	
 	// INVENTORY TESTS ---------------------------------------------------------
