@@ -1,5 +1,7 @@
 package main.java;
 
+import main.java.*;
+
 public class PC {
 	Class pcClass = new Class();
 	AbilityScore pcAbilityScore = new AbilityScore();
