@@ -2,11 +2,11 @@ package main.java;
 
 public class SavingThrow extends Attribute {
 	
-	String title;
-	int mod;
-	boolean profcy = false;
+	String title;				// variable title denotes which saving throw the object contains
+	int mod;					// the modifier for the saving throw, based off of the corresponding ability score and proficiency
+	boolean profcy = false;		// the boolean denoting whether the PC has proficiency in this saving throw
 	
-	public void SavingThrow() {
+	public SavingThrow() {
 		setType("SavingThrow");
 	}
 	
@@ -22,10 +22,10 @@ public class SavingThrow extends Attribute {
 		return mod;
 	}
 	
-	public void setMod(int i) {
+	public void setMod(int i) {	// setMod method will be called whenever corresponding ability score is set or proficiency is gained/lost
 		mod = i;
 		if (profcy) {
-			mod += 2;
+			mod += 2;			// we add the proficiency bonus if the PC has proficiency in this saving throw
 		}
 	}
 	
@@ -35,6 +35,6 @@ public class SavingThrow extends Attribute {
 	
 	public void setProfcy(boolean b) {
 		profcy = b;
-		setMod(getMod());
+		setMod(getMod());		// modifier must be re-evaluated when proficiency is gained/lost
 	}
 }

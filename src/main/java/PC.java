@@ -3,7 +3,7 @@ package main.java;
 import main.java.*;
 
 public class PC {
-	Class pcClass = new Class();
+	GameClass pcClass = new GameClass();
 	AbilityScore pcAbilityScore = new AbilityScore();
 	Inventory pcInventory = new Inventory();
 	SavingThrow pcSaveThrow = new SavingThrow();

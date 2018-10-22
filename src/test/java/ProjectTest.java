@@ -18,6 +18,7 @@ public class ProjectTest {
 	@Test
 	public void abilityScoreAndModTest () {
 		AbilityScore dex = new AbilityScore();
+		assertEquals("AbilityScore", dex.getType());
 		dex.setTitle("Dexterity");
 		dex.setScore(14);
 		assertEquals(14, dex.getScore());
@@ -30,6 +31,7 @@ public class ProjectTest {
 	@Test
 	public void savingThrowGettersSettersTest() {
 		SavingThrow intel = new SavingThrow();
+		assertEquals("SavingThrow", intel.getType());
 		intel.setTitle("Intelligence");
 		assertEquals("Intelligence", intel.getTitle());
 		intel.setMod(2);
@@ -42,6 +44,7 @@ public class ProjectTest {
 	@Test
 	public void titleClassTest() {
 		GameClass pali = new GameClass();
+		assertEquals("Class", pali.getType());
 		pali.setTitle("Paladin");
 		assertEquals("Paladin", pali.getTitle());
 	}
@@ -49,6 +52,7 @@ public class ProjectTest {
 	@Test
 	public void skillGettersSettersTest() {
 		Skill stealth = new Skill();
+		assertEquals("Skill", stealth.getType());
 		stealth.setTitle("Stealth");
 		assertEquals("Stealth", stealth.getTitle());
 		stealth.setMod(2);
