@@ -22,37 +22,38 @@ public class Inventory {
 			return myItem;
 		}
 		
-		//if (myItem.getQuantity() > 0) {
-		//	myItem.setQuantity(myItem.getQuantity() + 1);
-		//} else {
-			int index = 0;
-			while (myItem.getName().compareToIgnoreCase(myInventory.get(index).getName()) >= 0) { // While the new item's name comes before the current index's item's name, or the new item is already in the inventory.
-				if (myItem.getName().compareToIgnoreCase(myInventory.get(index).getName()) == 0) { // If the item is already in the inventory, combine the quantities.
-					myInventory.get(index).setQuantity(myInventory.get(index).getQuantity() + myItem.getQuantity());
-					myItem.setQuantity(myInventory.get(index).getQuantity());
-					return myItem;
-				}
-				index++;
+		int index = 0;
+		while (index < myInventory.size() && myItem.getName().compareToIgnoreCase(myInventory.get(index).getName()) >= 0) { // While the new item's name comes before the current index's item's name, or the new item is already in the inventory.
+			if (myItem.getName().equalsIgnoreCase(myInventory.get(index).getName())) { // If the item is already in the inventory, combine the quantities.
+				myInventory.get(index).setQuantity(myInventory.get(index).getQuantity() + myItem.getQuantity());
+				myItem.setQuantity(myInventory.get(index).getQuantity());
+				return myItem;
 			}
-			myInventory.add(index, myItem);
-		//}
+			index++;
+		}
+		myInventory.add(index, myItem);
 		
 		return myItem;
 	}
 	
 	/**
-	 * Decreases the quantity of the item sent in by 1.
-	 * If there is only 1 item, it is removed from the inventory.
+	 * Removes the quantity of the item given from the inventory.
+	 * If the item then has 0 quantity, it is removed from the list.
 	 * @param myItem The item to remove from the ArrayList
-	 * @return The original item.
+	 * @return The original item, or null if the item wasn't in the inventory to begin with.
 	 */
 	public Item removeFromInventory(Item myItem) {
-		if (myItem.getQuantity() > 1) { // If there is 1 or less of this item in the inventory
-			myItem.setQuantity(myItem.getQuantity() - 1); // Decrease the quantity by 1.
-		} else {
-			myInventory.remove(myItem); // Remove the item
+		int index = 0;
+		while (index < myInventory.size()) {
+			if (myInventory.get(index).getName().equals(myItem.getName())) {
+				myInventory.get(index).setQuantity(myInventory.get(index).getQuantity() - myItem.getQuantity());
+				if (myInventory.get(index).getQuantity() < 1) {
+					myInventory.remove(index);
+					return myItem;
+				}
+			}
+			index++;
 		}
-		
-		return myItem;
+		return null;
 	}
 }
