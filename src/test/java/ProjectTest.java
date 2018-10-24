@@ -62,6 +62,14 @@ public class ProjectTest {
 		assertEquals(4, stealth.getMod());
 	}
 	
+	@Test
+	public void titleRaceTest() {
+		Race tief = new Race();
+		assertEquals("Race", tief.getType());
+		tief.setTitle("Tiefling");
+		assertEquals("Tiefling", tief.getTitle());
+	}
+	
 	// INVENTORY TESTS ---------------------------------------------------------
 	
 	@Test
