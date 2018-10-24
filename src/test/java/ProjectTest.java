@@ -94,7 +94,6 @@ public class ProjectTest {
 	@Test
 	public void inventoryRemoveFromInventoryTest() {
 		Inventory myInventory = new Inventory();
-		ArrayList<Item> testList = new ArrayList<Item>();
 		
 		Item myItem1 = new Item("testItem", 5);
 		assertEquals(myItem1, myInventory.addToInventory(myItem1));
@@ -108,5 +107,32 @@ public class ProjectTest {
 		Item myItem4 = new Item("testItem3", 16);
 		assertEquals(myItem4, myInventory.addToInventory(myItem4));
 		
+		ArrayList<Item> testList = new ArrayList<Item>();
+		testList.add(0, myItem4);
+		testList.add(0, myItem3);
+		testList.add(0, myItem2);
+		testList.add(0, myItem1);
+		
+		assertEquals(testList, myInventory.getInventory());
+		
+		myInventory.removeFromInventory(myItem3);
+		testList.remove(myItem3);
+		
+		assertEquals(testList, myInventory.getInventory());
+		
+		myInventory.removeFromInventory(myItem1);
+		testList.remove(myItem1);
+		
+		assertEquals(testList, myInventory.getInventory());
+		
+		myInventory.removeFromInventory(myItem4);
+		testList.remove(myItem4);
+		
+		assertEquals(testList, myInventory.getInventory());
+		
+		myInventory.removeFromInventory(myItem2);
+		testList.remove(myItem2);
+		
+		assertEquals(testList, myInventory.getInventory());
 	}
 }
