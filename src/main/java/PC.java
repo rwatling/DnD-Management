@@ -9,4 +9,6 @@ public class PC {
 	SavingThrow pcSaveThrow = new SavingThrow();
 	Skill pcSkill = new Skill();
 	String name;
+	String align;
+	String gender;
 }
