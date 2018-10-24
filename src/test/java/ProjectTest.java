@@ -1,5 +1,8 @@
 //package test.java;
 import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+
 import org.junit.Test;
 
 import main.java.*;
@@ -86,13 +89,86 @@ public class ProjectTest {
 	@Test
 	public void inventoryAddToInventoryTest() {
 		Inventory myInventory = new Inventory();
+		ArrayList<Item> testList = new ArrayList<Item>();
+		
+		Item myItem1 = new Item("testItem", 5);
+		testList.add(myItem1);
+		
+		assertEquals(myItem1, myInventory.addToInventory(myItem1));
+		assertEquals(1, myInventory.getInventory().size());
+		assertEquals(5, myItem1.getQuantity());
+		assertEquals(testList, myInventory.getInventory());
+		
+		Item myItem2 = new Item("testItem", 5);
+		testList.remove(0);
+		
+		assertEquals(myItem2, myInventory.addToInventory(myItem2));
+		assertEquals(1, myInventory.getInventory().size());
+		assertEquals(10, myItem2.getQuantity());
+		
+		testList.add(myInventory.getInventory().get(0));
+		
+		assertEquals(testList, myInventory.getInventory());
+		
+		Item myItem3 = new Item("ItemTest", 8);
+		testList.add(0, myItem3);
+		
+		assertEquals(myItem3, myInventory.addToInventory(myItem3));
+		assertEquals(2, myInventory.getInventory().size());
+		assertEquals(8, myItem3.getQuantity());
+		assertEquals(testList, myInventory.getInventory());
+		
+		Item myItem4 = new Item("ItemTest2", 16);
+		testList.add(1, myItem4);
+		
+		assertEquals(myItem4, myInventory.addToInventory(myItem4));
+		assertEquals(3, myInventory.getInventory().size());
+		assertEquals(16, myItem4.getQuantity());
+		assertEquals(testList, myInventory.getInventory());
+	}
+	
+	@Test
+	public void inventoryRemoveFromInventoryTest() {
+		Inventory myInventory = new Inventory();
 		
 		Item myItem1 = new Item("testItem", 5);
 		assertEquals(myItem1, myInventory.addToInventory(myItem1));
-		assertEquals(5, myItem1.getQuantity());
 		
-		Item myItem2 = new Item("testItem", 5);
+		Item myItem2 = new Item("testItem1", 5);
 		assertEquals(myItem2, myInventory.addToInventory(myItem2));
-		assertEquals(10, myItem2.getQuantity());
+		
+		Item myItem3 = new Item("testItem2", 8);
+		assertEquals(myItem3, myInventory.addToInventory(myItem3));
+		
+		Item myItem4 = new Item("testItem3", 16);
+		assertEquals(myItem4, myInventory.addToInventory(myItem4));
+		
+		ArrayList<Item> testList = new ArrayList<Item>();
+		testList.add(0, myItem4);
+		testList.add(0, myItem3);
+		testList.add(0, myItem2);
+		testList.add(0, myItem1);
+		
+		assertEquals(testList, myInventory.getInventory());
+		
+		myInventory.removeFromInventory(myItem3);
+		testList.remove(myItem3);
+		
+		assertEquals(testList, myInventory.getInventory());
+		
+		myInventory.removeFromInventory(myItem1);
+		testList.remove(myItem1);
+		
+		assertEquals(testList, myInventory.getInventory());
+		
+		myInventory.removeFromInventory(myItem4);
+		testList.remove(myItem4);
+		
+		assertEquals(testList, myInventory.getInventory());
+		
+		myInventory.removeFromInventory(myItem2);
+		testList.remove(myItem2);
+		
+		assertEquals(testList, myInventory.getInventory());
 	}
 }
