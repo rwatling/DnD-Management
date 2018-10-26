@@ -103,10 +103,31 @@ public class GUI extends Application {
 		 
 		 ImageView logo = getDnDLogo();
 		 
+		 BorderPane bottomBtnPane = new BorderPane();
+		 
+		 Text backText = new Text("<- Back");
+		 backText.setFont(getFont());
+		 Button back = new Button("", backText);
+		 back.setOnAction(e -> {
+			window.setScene(startScreen);
+		 });
+		 
+		 Text nextText = new Text("Next ->");
+		 nextText.setFont(getFont());
+		 Button next = new Button("", nextText);
+		 
+		 bottomBtnPane.setLeft(back);
+		 bottomBtnPane.setRight(next);
+		 
+		 int row = 0;
 		 GridPane newCharPane = new GridPane();
 		 newCharPane.setHgap(16);
 		 newCharPane.setVgap(16);
-		 newCharPane.setPadding(new Insets(16, 16, 16, 16));
+		 newCharPane.setPadding(new Insets(32, 32, 32, 32));
+		 
+		 Text basicInfo = new Text("Basic Information");
+		 basicInfo.setFont(getFont(28));
+		 newCharPane.addRow(row++, basicInfo);
 		 
 		 Text charNameText = new Text("Character Name: ");
 		 charNameText.setFont(getFont());
@@ -114,81 +135,96 @@ public class GUI extends Application {
 		 Text levelText = new Text("Level: ");
 		 levelText.setFont(getFont());
 		 TextField level = getGenericTextField();
-		 newCharPane.addRow(0, charNameText, charName, levelText, level);
+		 newCharPane.addRow(row++, charNameText, charName, levelText, level);
 		 
 		 Text raceText = new Text("Race: ");
 		 raceText.setFont(getFont());
-		 TextField race = getGenericTextField();
+		 ComboBox<String> raceCombo = new ComboBox<String>();
+		 raceCombo.getItems().addAll("Dwarf", "Elf", "Halfling", "Human", "Dragonborn", "Gnome", "Half-Elf", "Half-Orc", "Tiefling");
 		 Text genderText = new Text("Gender: ");
 		 genderText.setFont(getFont());
 		 TextField gender = getGenericTextField();
-		 newCharPane.addRow(1, raceText, race, genderText, gender);
+		 newCharPane.addRow(row++, raceText, raceCombo, genderText, gender);
 		 
 		 Text alignment = new Text("Alignment:");
 		 alignment.setFont(getFont());
-		 newCharPane.addRow(2, alignment);
+		 newCharPane.addRow(row, alignment);
 		 
 		 GridPane innerAlignmentGP = new GridPane();
 		 Text lg = new Text("Lawful Good   ");
-		 lg.setFont(getFont());
+		 lg.setFont(getFont(12));
 		 Button lawfulGood = new Button("", lg);
 		 Text ng = new Text("Neutral Good");
-		 ng.setFont(getFont());
+		 ng.setFont(getFont(12));
 		 Button neutralGood = new Button("", ng);
 		 Text cg = new Text("Chaotic Good   ");
-		 cg.setFont(getFont());
+		 cg.setFont(getFont(12));
 		 Button chaoticGood = new Button("", cg);
 		 innerAlignmentGP.addRow(0, lawfulGood, neutralGood, chaoticGood);
 		 
 		 Text ln = new Text("Lawful Neutral");
-		 ln.setFont(getFont());
+		 ln.setFont(getFont(12));
 		 Button lawfulNeutral = new Button("", ln);
 		 Text n = new Text("Neutral     ");
-		 n.setFont(getFont());
+		 n.setFont(getFont(12));
 		 Button neutral = new Button("", n);
 		 Text cn = new Text("Chaotic Neutral");
-		 cn.setFont(getFont());
+		 cn.setFont(getFont(12));
 		 Button chaoticNeutral = new Button("", cn);
 		 innerAlignmentGP.addRow(1, lawfulNeutral, neutral, chaoticNeutral);
 		 
 		 Text le = new Text("Lawful Evil   ");
-		 le.setFont(getFont());
+		 le.setFont(getFont(12));
 		 Button lawfulEvil = new Button("", le);
 		 Text ne = new Text("Neutral Evil");
-		 ne.setFont(getFont());
+		 ne.setFont(getFont(12));
 		 Button neutralEvil = new Button("", ne);
 		 Text ce = new Text("Chaotic Evil   ");
-		 ce.setFont(getFont());
+		 ce.setFont(getFont(12));
 		 Button chaoticEvil = new Button("", ce);
 		 innerAlignmentGP.addRow(2, lawfulEvil, neutralEvil, chaoticEvil);
-		 
-		 newCharPane.addRow(2, innerAlignmentGP);
+		 newCharPane.addRow(row, innerAlignmentGP);
 		 
 		 Text sizeText = new Text("Size: ");
 		 sizeText.setFont(getFont());
 		 ArrayList<String> sizes = new ArrayList<String>();
-		 sizes.add("Small");
-		 sizes.add("Medium");
-		 sizes.add("Large");
 		 ComboBox<String> size = new ComboBox<String>();
-		 size.getItems().addAll(sizes);
+		 size.getItems().addAll("Small", "Medium", "Large");
+		 newCharPane.addRow(row++, sizeText, size);
 		 
-		 newCharPane.addRow(2, sizeText, size);
+		 Text hairText = new Text("Hair: ");
+		 hairText.setFont(getFont());
+		 TextField hair = getGenericTextField();
+		 newCharPane.addRow(row, hairText, hair);
+		 
+		 Text ageText = new Text("Age: ");
+		 ageText.setFont(getFont());
+		 TextField age = getGenericTextField();
+		 newCharPane.addRow(row, ageText, age);
+		 
+		 Text subTypeText = new Text("Subtype: ");
+		 subTypeText.setFont(getFont());
+		 TextField subType = getGenericTextField();		 
 		 
 		 ScrollPane scroll = new ScrollPane(newCharPane);
 		 root.setCenter(scroll);
 		 root.setTop(logo);
-		 root.setAlignment(root.getTop(), Pos.CENTER);
+		 root.setAlignment(logo, Pos.CENTER);
+		 root.setBottom(bottomBtnPane);
 		 Scene scene = new Scene(root, WIDTH, HEIGHT);
 		 return scene;
 	 }
 	 
 	 private Font getFont() {
-		 return new Font("Consolas", 24);
+		 return new Font("Consolas", 20);
+	 }
+	 
+	 private Font getFont(double size) {
+		 return new Font("Consolas", size);
 	 }
 	 
 	 private ImageView getDnDLogo() {
-		 Image logo = new Image("D&D_Logo.PNG", WIDTH, HEIGHT/8, true, true);
+		 Image logo = new Image("D&D_Logo.PNG", WIDTH/2, HEIGHT/8, true, true);
 		 ImageView imageView = new ImageView(logo);
 		 return imageView;
 	 }
