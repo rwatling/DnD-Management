@@ -151,6 +151,10 @@ public class ProjectTest {
 		
 		assertEquals(testList, myInventory.getInventory());
 		
+		Item myItem5 = new Item("testItem4", 20);
+		assertEquals(null, myInventory.removeFromInventory(myItem5));
+		assertEquals(testList, myInventory.getInventory());
+		
 		myInventory.removeFromInventory(myItem3);
 		testList.remove(myItem3);
 		
@@ -170,5 +174,9 @@ public class ProjectTest {
 		testList.remove(myItem2);
 		
 		assertEquals(testList, myInventory.getInventory());
+		
+		assertEquals(null, myInventory.removeFromInventory(myItem5));
+		assertEquals(testList, myInventory.getInventory());
+		
 	}
 }
