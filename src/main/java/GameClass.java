@@ -1,10 +1,10 @@
 package main.java;
 
-public class Class extends Attribute {
+public class GameClass extends Attribute {
 	
-	String title;
+	String title;	// variable title denotes which class this object contains
 	
-	public Class() {
+	public GameClass() {
 		setType("Class");
 	}
 	

@@ -9,7 +9,7 @@ import main.java.*;
 
 public class ProjectTest {
 	
-	// ABILITY SCORE TESTS-------------------------------------------------------
+	// ATTRIBUTE TESTS-------------------------------------------------------
 	
 	@Test
 	public void titleAbilityTest () {
@@ -21,6 +21,7 @@ public class ProjectTest {
 	@Test
 	public void abilityScoreAndModTest () {
 		AbilityScore dex = new AbilityScore();
+		assertEquals("AbilityScore", dex.getType());
 		dex.setTitle("Dexterity");
 		dex.setScore(14);
 		assertEquals(14, dex.getScore());
@@ -33,8 +34,43 @@ public class ProjectTest {
 	@Test
 	public void savingThrowGettersSettersTest() {
 		SavingThrow intel = new SavingThrow();
+		assertEquals("SavingThrow", intel.getType());
 		intel.setTitle("Intelligence");
 		assertEquals("Intelligence", intel.getTitle());
+		intel.setMod(2);
+		assertEquals(2, intel.getMod());
+		intel.setProfcy(true);
+		assertEquals(true, intel.getProfcy());
+		assertEquals(4, intel.getMod());
+	}
+	
+	@Test
+	public void titleClassTest() {
+		GameClass pali = new GameClass();
+		assertEquals("Class", pali.getType());
+		pali.setTitle("Paladin");
+		assertEquals("Paladin", pali.getTitle());
+	}
+	
+	@Test
+	public void skillGettersSettersTest() {
+		Skill stealth = new Skill();
+		assertEquals("Skill", stealth.getType());
+		stealth.setTitle("Stealth");
+		assertEquals("Stealth", stealth.getTitle());
+		stealth.setMod(2);
+		assertEquals(2, stealth.getMod());
+		stealth.setProfcy(true);
+		assertEquals(true, stealth.getProfcy());
+		assertEquals(4, stealth.getMod());
+	}
+	
+	@Test
+	public void titleRaceTest() {
+		Race tief = new Race();
+		assertEquals("Race", tief.getType());
+		tief.setTitle("Tiefling");
+		assertEquals("Tiefling", tief.getTitle());
 	}
 	
 	// INVENTORY TESTS ---------------------------------------------------------
