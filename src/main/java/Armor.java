@@ -1,26 +1,17 @@
 package main.java;
 
-public class Armor {
-	String name;
+public class Armor extends Item {
 	int type; // 0 for no armor, 1 for light armor, 2 for medium armor, 3 for heavy armor.
 	int armorClass;
 	int dexterity;
 	boolean disadvantageOnStealthChecks;
 	
-	public Armor(String name, int type, int currentArmorClass, int dexterity, boolean disadvantageOnStealthChecks) {
-		this.name = name;
+	public Armor(String name, int quantity, int type, int currentArmorClass, int dexterity, boolean disadvantageOnStealthChecks) {
+		super(name, quantity);
 		this.type = type;
 		armorClass = calculateArmorClass(type, currentArmorClass);
 		this.dexterity = dexterity;
 		this.disadvantageOnStealthChecks = disadvantageOnStealthChecks;
-	}
-	
-	public String getName() {
-		return name;
-	}
-	
-	public void setName(String name) {
-		this.name = name;
 	}
 	
 	public int getType() {
