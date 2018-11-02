@@ -1,4 +1,4 @@
-package test.java;
+//package test.java;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
@@ -177,6 +177,78 @@ public class ProjectTest {
 		
 		assertEquals(null, myInventory.removeFromInventory(myItem5));
 		assertEquals(testList, myInventory.getInventory());
-		
 	}
+	
+	@Test
+	public void calculateArmorClassTest() {
+		Armor armor = new Armor("None", 1, 0, 0, 0, false);
+		assertEquals(10, armor.getArmorClass());
+		
+		armor.setDexterity(1);
+		assertEquals(11, armor.getArmorClass());
+		
+		armor.setDexterity(2);
+		assertEquals(12, armor.getArmorClass());
+		
+		armor.setDexterity(3);
+		assertEquals(13, armor.getArmorClass());
+		
+		armor.setArmorClass(12);
+		assertEquals(13, armor.getArmorClass());
+		
+		assertEquals(0, armor.getType());
+		armor.setType(1);
+		assertEquals(1, armor.getType());
+		assertEquals(3, armor.getDexterity());
+		assertEquals(false, armor.getDisadvantageOnStealthChecks());
+		armor.setDisadvantageOnStealthChecks(true);
+		assertEquals(true, armor.getDisadvantageOnStealthChecks());
+		
+		// Light Armor
+		armor = new Armor("Leather", 3, 1, 11, 0, false);
+		assertEquals(11, armor.getArmorClass());
+		
+		armor.setDexterity(1);
+		assertEquals(12, armor.getArmorClass());
+		
+		armor.setDexterity(2);
+		armor.setArmorClass(11);
+		assertEquals(13, armor.getArmorClass());
+		
+		armor.setDexterity(3);
+		armor.setArmorClass(11);
+		assertEquals(14, armor.getArmorClass());
+		
+		// Medium Armor
+		armor = new Armor("Hide", 12, 2, 12, 0, false);
+		assertEquals(12, armor.getArmorClass());
+		
+		armor.setDexterity(1);
+		assertEquals(13, armor.getArmorClass());
+		
+		armor.setDexterity(2);
+		armor.setArmorClass(12);
+		assertEquals(14, armor.getArmorClass());
+		
+		armor.setDexterity(3);
+		armor.setArmorClass(12);
+		assertEquals(14, armor.getArmorClass());
+		
+		// Heavy Armor
+		armor = new Armor("Splint", 1, 3, 17, 0, true);
+		assertEquals(17, armor.getArmorClass());
+		
+		armor.setDexterity(1);
+		assertEquals(17, armor.getArmorClass());
+		
+		armor.setDexterity(2);
+		assertEquals(17, armor.getArmorClass());
+		
+		armor.setDexterity(3);
+		assertEquals(17, armor.getArmorClass());
+		
+		armor.setArmorClass(12);
+		assertEquals(12, armor.getArmorClass());
+	}
+	
 }

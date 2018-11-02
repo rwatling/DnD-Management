@@ -9,7 +9,7 @@ public class Armor extends Item {
 	public Armor(String name, int quantity, int type, int currentArmorClass, int dexterity, boolean disadvantageOnStealthChecks) {
 		super(name, quantity);
 		this.type = type;
-		armorClass = calculateArmorClass(type, currentArmorClass);
+		armorClass = calculateArmorClass(currentArmorClass);
 		this.dexterity = dexterity;
 		this.disadvantageOnStealthChecks = disadvantageOnStealthChecks;
 	}
@@ -30,9 +30,13 @@ public class Armor extends Item {
 		return dexterity;
 	}
 	
-	public void setArmorClassAndDexterity(int currentArmorClass, int dexterity) {
+	public void setDexterity(int dexterity) {
 		this.dexterity = dexterity;
-		armorClass = calculateArmorClass(type, currentArmorClass);
+		armorClass = calculateArmorClass(armorClass);
+	}
+	
+	public void setArmorClass(int currentArmorClass) {
+		armorClass = calculateArmorClass(currentArmorClass);
 	}
 	
 	public boolean getDisadvantageOnStealthChecks() {
@@ -43,7 +47,7 @@ public class Armor extends Item {
 		this.disadvantageOnStealthChecks = disadvantageOnStealthChecks;
 	}
 	
-	public int calculateArmorClass(int type, int currentArmorClass) {
+	public int calculateArmorClass(int currentArmorClass) {
 		if (type == 1) { // Light Armor
 			return currentArmorClass + dexterity;
 		} else if (type == 2) { // Medium Armor
@@ -57,6 +61,6 @@ public class Armor extends Item {
 		}
 		
 		// No Armor
-		return 0;
+		return 10 + dexterity;
 	}
 }
