@@ -1,10 +1,10 @@
 package main.java;
 
 public class Armor extends Item {
-	int type; // 0 for no armor, 1 for light armor, 2 for medium armor, 3 for heavy armor.
-	int armorClass;
-	int dexterity;
-	boolean disadvantageOnStealthChecks;
+	private int type; // 0 for no armor, 1 for light armor, 2 for medium armor, 3 for heavy armor.
+	private int armorClass;
+	private int dexterity;
+	private boolean disadvantageOnStealthChecks;
 	
 	public Armor(String name, int quantity, int type, int currentArmorClass, int dexterity, boolean disadvantageOnStealthChecks) {
 		super(name, quantity);
