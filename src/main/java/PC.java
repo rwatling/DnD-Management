@@ -40,13 +40,13 @@ public class PC {
 	}
 	
 	public void setRace(String race) {
-		for (int i = 0; i < allRaces.length; i++) {
-			String r = allRaces[i];
-			switch (r) {
+			switch (race) {
 			case "Hill Dwarf":
 				pcRace = new HillDwarf();
 				break;
-			}
+			case "Mountain Dwarf":
+				pcRace = new MountainDwarf();
+				break;
 		}
 		
 		if (pcRace != null) {
