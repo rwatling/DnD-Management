@@ -1,11 +1,12 @@
 package main.java;
 
-public class Currency {
+public class Currency extends Item {
 	private int numCopper;
 	private int numSilver;
 	private int numGold;
 	
 	public Currency(int numCopper, int numSilver, int numGold) {
+		super("Wealth", 1);
 		this.numCopper = numCopper;
 		this.numSilver = numSilver;
 		this.numGold = numGold;
