@@ -274,6 +274,10 @@ public class ProjectTest {
 		
 		assertEquals(testList, myInventory.getInventory());
 		
+		Item myItem5 = new Item("testItem4", 20);
+		assertEquals(null, myInventory.removeFromInventory(myItem5));
+		assertEquals(testList, myInventory.getInventory());
+		
 		myInventory.removeFromInventory(myItem3);
 		testList.remove(myItem3);
 		
@@ -293,6 +297,115 @@ public class ProjectTest {
 		testList.remove(myItem2);
 		
 		assertEquals(testList, myInventory.getInventory());
+		
+		assertEquals(null, myInventory.removeFromInventory(myItem5));
+		assertEquals(testList, myInventory.getInventory());
+	}
+	
+	@Test
+	public void calculateArmorClassTest() {
+		Armor armor = new Armor("None", 1, 0, 0, 0, false);
+		assertEquals(10, armor.getArmorClass());
+		
+		armor.setDexterity(1);
+		assertEquals(11, armor.getArmorClass());
+		
+		armor.setDexterity(2);
+		assertEquals(12, armor.getArmorClass());
+		
+		armor.setDexterity(3);
+		assertEquals(13, armor.getArmorClass());
+		
+		armor.setArmorClass(12);
+		assertEquals(13, armor.getArmorClass());
+		
+		assertEquals(0, armor.getType());
+		armor.setType(1);
+		assertEquals(1, armor.getType());
+		assertEquals(3, armor.getDexterity());
+		assertEquals(false, armor.getDisadvantageOnStealthChecks());
+		armor.setDisadvantageOnStealthChecks(true);
+		assertEquals(true, armor.getDisadvantageOnStealthChecks());
+		
+		// Light Armor
+		armor = new Armor("Leather", 3, 1, 11, 0, false);
+		assertEquals(11, armor.getArmorClass());
+		
+		armor.setDexterity(1);
+		assertEquals(12, armor.getArmorClass());
+		
+		armor.setDexterity(2);
+		armor.setArmorClass(11);
+		assertEquals(13, armor.getArmorClass());
+		
+		armor.setDexterity(3);
+		armor.setArmorClass(11);
+		assertEquals(14, armor.getArmorClass());
+		
+		// Medium Armor
+		armor = new Armor("Hide", 12, 2, 12, 0, false);
+		assertEquals(12, armor.getArmorClass());
+		
+		armor.setDexterity(1);
+		assertEquals(13, armor.getArmorClass());
+		
+		armor.setDexterity(2);
+		armor.setArmorClass(12);
+		assertEquals(14, armor.getArmorClass());
+		
+		armor.setDexterity(3);
+		armor.setArmorClass(12);
+		assertEquals(14, armor.getArmorClass());
+		
+		// Heavy Armor
+		armor = new Armor("Splint", 1, 3, 17, 0, true);
+		assertEquals(17, armor.getArmorClass());
+		
+		armor.setDexterity(1);
+		assertEquals(17, armor.getArmorClass());
+		
+		armor.setDexterity(2);
+		assertEquals(17, armor.getArmorClass());
+		
+		armor.setDexterity(3);
+		assertEquals(17, armor.getArmorClass());
+		
+		armor.setArmorClass(12);
+		assertEquals(12, armor.getArmorClass());
+	}
+	
+	@Test
+	public void currencyTest() {
+		Currency myCurrency = new Currency(0, 0, 0);
+		assertEquals(0, myCurrency.calculateWealth());
+		assertEquals(0, myCurrency.getCopper());
+		assertEquals(0, myCurrency.getSilver());
+		assertEquals(0, myCurrency.getGold());
+		
+		myCurrency.setCopper(5);
+		assertEquals(5, myCurrency.calculateWealth());
+		
+		myCurrency.setSilver(10);
+		assertEquals(105, myCurrency.calculateWealth());
+		
+		myCurrency.setGold(20);
+		assertEquals(2105, myCurrency.calculateWealth());
+	}
+	
+	@Test
+	public void weaponTest() {
+		Weapon myWeapon = new Weapon("Club", 1, "1d4", "Bludgeoning", "Light");
+		assertEquals("1d4", myWeapon.getDamage());
+		assertEquals("Bludgeoning", myWeapon.getDamageType());
+		assertEquals("Light", myWeapon.getProperties());
+		
+		myWeapon.setDamage("2d4");
+		myWeapon.setDamageType("Slashing");
+		myWeapon.setProperties("Two-Handed");
+		
+		assertEquals("2d4", myWeapon.getDamage());
+		assertEquals("Slashing", myWeapon.getDamageType());
+		assertEquals("Two-Handed", myWeapon.getProperties());
 	}
 
 	//Hill Dwarf Tests-------------------------------------------------
