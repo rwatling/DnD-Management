@@ -1,4 +1,4 @@
-package test.java;
+//package test.java;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
@@ -251,4 +251,21 @@ public class ProjectTest {
 		assertEquals(12, armor.getArmorClass());
 	}
 	
+	@Test
+	public void currencyTest() {
+		Currency myCurrency = new Currency(0, 0, 0);
+		assertEquals(0, myCurrency.calculateWealth());
+		assertEquals(0, myCurrency.getCopper());
+		assertEquals(0, myCurrency.getSilver());
+		assertEquals(0, myCurrency.getGold());
+		
+		myCurrency.setCopper(5);
+		assertEquals(5, myCurrency.calculateWealth());
+		
+		myCurrency.setSilver(10);
+		assertEquals(105, myCurrency.calculateWealth());
+		
+		myCurrency.setGold(20);
+		assertEquals(2105, myCurrency.calculateWealth());
+	}
 }
