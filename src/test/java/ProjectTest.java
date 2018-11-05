@@ -65,6 +65,7 @@ public class ProjectTest {
 		assertEquals(4, stealth.getMod());
 	}
 	
+	/* Included in race tests
 	@Test
 	public void titleRaceTest() {
 		Race tief = new Race();
@@ -72,6 +73,7 @@ public class ProjectTest {
 		tief.setTitle("Tiefling");
 		assertEquals("Tiefling", tief.getTitle());
 	}
+	*/
 	
 	// INVENTORY TESTS ---------------------------------------------------------
 	
@@ -170,5 +172,24 @@ public class ProjectTest {
 		testList.remove(myItem2);
 		
 		assertEquals(testList, myInventory.getInventory());
+	}
+
+	//Hill Dwarf Tests-------------------------------------------------
+	@Test
+	public void testSetRace() {
+		PC test = new PC();
+		test.setRace("Hill Dwarf");
+		
+		//Test if race title has been set correctly
+		assertEquals(test.getRaceTitle(), "Hill Dwarf");
+		
+		//Test Hill Dwarf +2 to Constitution, currently 0
+		assertEquals(test.getCONScore(), 2);
+		
+		//Hill Dwarf +1 to WIS, currently 0
+		assertEquals(test.getWISScore(), 1);
+		
+		//Hill Dwarf +1 to HP, currently 0
+		assertEquals(test.getHP(), 1);
 	}
 }

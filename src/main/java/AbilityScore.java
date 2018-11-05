@@ -10,6 +10,11 @@ public class AbilityScore extends Attribute {
 		setType("AbilityScore");
 	}
 	
+	public AbilityScore(String title) {
+		setType("AbilityScore");
+		this.title = title;
+	}
+	
 	public String getTitle() {
 		return title;
 	}

@@ -1,7 +1,9 @@
 package main.java;
 
-public class Race extends Attribute {
-	
+import java.util.ArrayList;
+import javafx.util.Pair;
+
+abstract public class Race extends Attribute {
 	String title;	// variable title denotes which race this object contains
 	
 	public Race() {
@@ -15,4 +17,6 @@ public class Race extends Attribute {
 	public void setTitle(String s) {
 		title = s;
 	}
+	
+	public abstract ArrayList<Pair<String, Integer>> getIncAttributes();
 }
