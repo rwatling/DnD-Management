@@ -268,4 +268,20 @@ public class ProjectTest {
 		myCurrency.setGold(20);
 		assertEquals(2105, myCurrency.calculateWealth());
 	}
+	
+	@Test
+	public void weaponTest() {
+		Weapon myWeapon = new Weapon("Club", 1, "1d4", "Bludgeoning", "Light");
+		assertEquals("1d4", myWeapon.getDamage());
+		assertEquals("Bludgeoning", myWeapon.getDamageType());
+		assertEquals("Light", myWeapon.getProperties());
+		
+		myWeapon.setDamage("2d4");
+		myWeapon.setDamageType("Slashing");
+		myWeapon.setProperties("Two-Handed");
+		
+		assertEquals("2d4", myWeapon.getDamage());
+		assertEquals("Slashing", myWeapon.getDamageType());
+		assertEquals("Two-Handed", myWeapon.getProperties());
+	}
 }
