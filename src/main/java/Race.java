@@ -5,6 +5,7 @@ import javafx.util.Pair;
 
 abstract public class Race extends Attribute {
 	String title;	// variable title denotes which race this object contains
+	ArrayList<Pair<String, Integer>> increasedAttributes = new ArrayList<Pair<String, Integer>>();
 	
 	public Race() {
 		setType("Race");
@@ -18,5 +19,7 @@ abstract public class Race extends Attribute {
 		title = s;
 	}
 	
-	public abstract ArrayList<Pair<String, Integer>> getIncAttributes();
+	public ArrayList<Pair<String, Integer>> getIncAttributes() {
+		return increasedAttributes;
+	}
 }

@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import javafx.util.Pair;
 
 public class HillDwarf extends Race {
-	ArrayList<Pair<String, Integer>> increasedAttributes = new ArrayList<Pair<String, Integer>>();
-	
 	public HillDwarf () {
 		setTitle("Hill Dwarf");
 		Pair<String, Integer> increasedCON = new Pair<String,Integer>("CON", 2);
@@ -15,9 +13,5 @@ public class HillDwarf extends Race {
 		increasedAttributes.add(increasedCON);
 		increasedAttributes.add(increasedWIS);
 		increasedAttributes.add(increasedHP);
-	}
-	
-	public ArrayList<Pair<String, Integer>> getIncAttributes() {
-		return increasedAttributes;
 	}
 }
