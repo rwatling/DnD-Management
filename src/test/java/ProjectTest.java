@@ -445,4 +445,20 @@ public class ProjectTest {
 		//Mountain Dwarf HP currently 0
 		assertEquals(test.getHP(), 0);
 	}
+	
+	//High Elf Tests--------------------------------------------------
+	@Test
+	public void testHighElf() {
+		PC test = new PC();
+		test.setRace("High Elf");
+		
+		assertEquals(test.getRaceTitle(), "High Elf");
+		
+		assertEquals(test.getDEXScore(), 2);
+		
+		assertEquals(test.getINTScore(), 1);
+		
+		assertEquals(test.getHP(), 0);
+		
+	}
 }
