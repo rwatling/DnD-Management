@@ -509,4 +509,20 @@ public class ProjectTest {
 		assertEquals(0, test.getHP());
 		
 	}
+	
+	//Stout Halfling Tests--------------------------------------------------
+		@Test
+		public void testStoutHalfling() {
+			PC test = new PC();
+			test.setRace("Stout Halfling");
+			
+			assertEquals("Stout Halfling", test.getRaceTitle());
+			
+			assertEquals(2, test.getDEXScore());
+			
+			assertEquals(1, test.getCONScore());
+			
+			assertEquals(0, test.getHP());
+			
+		}
 }

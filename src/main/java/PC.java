@@ -20,7 +20,7 @@ public class PC {
 	AbilityScore charisma = new AbilityScore("CHA");
 
 	
-	String[] allRaces = new String [] {"Hill Dwarf", "Mountain Dwarf", "High Elf", "Wood Elf", "Dark Elf", "Lightfoot Halfling", "Human", "Dragonborn", "Gnome", "Half-Elf", "Half-Orc", "Tiefling"};
+	String[] allRaces = new String [] {"Hill Dwarf", "Mountain Dwarf", "High Elf", "Wood Elf", "Dark Elf", "Lightfoot Halfling", "Stout Halfling", "Human", "Dragonborn", "Gnome", "Half-Elf", "Half-Orc", "Tiefling"};
 	ArrayList<AbilityScore> allScores = new ArrayList<AbilityScore>();
 	
 	public void setName(String name) {
@@ -58,6 +58,9 @@ public class PC {
 				break;
 			case "Lightfoot Halfling":
 				pcRace = new LightfootHalfling();
+				break;
+			case "Stout Halfling":
+				pcRace = new StoutHalfling();
 				break;
 		}
 		
