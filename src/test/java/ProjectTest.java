@@ -1,4 +1,4 @@
-package test.java;
+//package test.java;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
@@ -65,12 +65,135 @@ public class ProjectTest {
 		assertEquals(4, stealth.getMod());
 	}
 	
+	/* Included in race tests
 	@Test
 	public void titleRaceTest() {
 		Race tief = new Race();
 		assertEquals("Race", tief.getType());
 		tief.setTitle("Tiefling");
 		assertEquals("Tiefling", tief.getTitle());
+	}
+	*/
+	
+	@Test
+	public void titleBackGroundTest() {
+		Background crim = new Background();
+		assertEquals("Background", crim.getType());
+		crim.setTitle("Criminal");
+		assertEquals("Criminal", crim.getTitle());
+	}
+	
+	// SPELL TESTS ---------------------------------------------------------
+	
+	@Test
+	public void cantripTest() {
+		Spell eldritchBlast = new Spell();
+		eldritchBlast.setName("Eldritch Blast");
+		eldritchBlast.setLevel(0);
+		eldritchBlast.setCastingTime("1 action");
+		eldritchBlast.setRange(120);
+		eldritchBlast.setAOE("");
+		eldritchBlast.setVerbal(true);
+		eldritchBlast.setSomatic(true);
+		eldritchBlast.setMaterial("");
+		eldritchBlast.setConsumes(false);
+		eldritchBlast.setGoldVal(0);
+		eldritchBlast.setDuration("Instantaneous");
+		eldritchBlast.setTargets(1);
+		eldritchBlast.setRoll(true);
+		eldritchBlast.setSave(false);
+		eldritchBlast.setConcentration(false);
+		eldritchBlast.setRitual(false);
+		assertEquals("Eldritch Blast", eldritchBlast.getName());
+		assertEquals(0, eldritchBlast.getLevel());
+		assertEquals("1 action", eldritchBlast.getCastingTime());
+		assertEquals(120, eldritchBlast.getRange());
+		assertEquals("", eldritchBlast.getAOE());
+		assertEquals(true, eldritchBlast.isVerbal());
+		assertEquals(true, eldritchBlast.isSomatic());
+		assertEquals("", eldritchBlast.getMaterial());
+		assertEquals(false, eldritchBlast.doesConsume());
+		assertEquals(0, eldritchBlast.getGoldVal());
+		assertEquals("Instantaneous", eldritchBlast.getDuration());
+		assertEquals(1, eldritchBlast.getTargets());
+		assertEquals(true, eldritchBlast.needsRoll());
+		assertEquals(false, eldritchBlast.needsSave());
+		assertEquals(false, eldritchBlast.isConcentration());
+		assertEquals(false, eldritchBlast.isRitual());
+	}
+	
+	@Test
+	public void levelOneTest() {
+		Spell illusoryScript = new Spell();
+		illusoryScript.setName("Illusory Script");
+		illusoryScript.setLevel(1);
+		illusoryScript.setCastingTime("1 minute");
+		illusoryScript.setRange(0);
+		illusoryScript.setAOE("");
+		illusoryScript.setVerbal(false);
+		illusoryScript.setSomatic(true);
+		illusoryScript.setMaterial("a lead-based ink worth at least 10 gp, which the spell consumes");
+		illusoryScript.setConsumes(true);
+		illusoryScript.setGoldVal(10);
+		illusoryScript.setDuration("10 days");
+		illusoryScript.setTargets(0);
+		illusoryScript.setRoll(false);
+		illusoryScript.setSave(false);
+		illusoryScript.setConcentration(false);
+		illusoryScript.setRitual(true);
+		assertEquals("Illusory Script", illusoryScript.getName());
+		assertEquals(1, illusoryScript.getLevel());
+		assertEquals("1 minute", illusoryScript.getCastingTime());
+		assertEquals(0, illusoryScript.getRange());
+		assertEquals("", illusoryScript.getAOE());
+		assertEquals(false, illusoryScript.isVerbal());
+		assertEquals(true, illusoryScript.isSomatic());
+		assertEquals("a lead-based ink worth at least 10 gp, which the spell consumes", illusoryScript.getMaterial());
+		assertEquals(true, illusoryScript.doesConsume());
+		assertEquals(10, illusoryScript.getGoldVal());
+		assertEquals("10 days", illusoryScript.getDuration());
+		assertEquals(0, illusoryScript.getTargets());
+		assertEquals(false, illusoryScript.needsRoll());
+		assertEquals(false, illusoryScript.needsSave());
+		assertEquals(false, illusoryScript.isConcentration());
+		assertEquals(true, illusoryScript.isRitual());
+	}
+	
+	@Test
+	public void concentrationAOETest() {
+		Spell fogCloud = new Spell();
+		fogCloud.setName("Fog Cloud");
+		fogCloud.setLevel(1);
+		fogCloud.setCastingTime("1 action");
+		fogCloud.setRange(120);
+		fogCloud.setAOE("20-foot-radius sphere");
+		fogCloud.setVerbal(true);
+		fogCloud.setSomatic(true);
+		fogCloud.setMaterial("");
+		fogCloud.setConsumes(false);
+		fogCloud.setGoldVal(0);
+		fogCloud.setDuration("up to 1 hour");
+		fogCloud.setTargets(0);
+		fogCloud.setRoll(false);
+		fogCloud.setSave(false);
+		fogCloud.setConcentration(true);
+		fogCloud.setRitual(false);
+		assertEquals("Fog Cloud", fogCloud.getName());
+		assertEquals(1, fogCloud.getLevel());
+		assertEquals("1 action", fogCloud.getCastingTime());
+		assertEquals(120, fogCloud.getRange());
+		assertEquals("20-foot-radius sphere", fogCloud.getAOE());
+		assertEquals(true, fogCloud.isVerbal());
+		assertEquals(true, fogCloud.isSomatic());
+		assertEquals("", fogCloud.getMaterial());
+		assertEquals(false, fogCloud.doesConsume());
+		assertEquals(0, fogCloud.getGoldVal());
+		assertEquals("up to 1 hour", fogCloud.getDuration());
+		assertEquals(0, fogCloud.getTargets());
+		assertEquals(false, fogCloud.needsRoll());
+		assertEquals(false, fogCloud.needsSave());
+		assertEquals(true, fogCloud.isConcentration());
+		assertEquals(false, fogCloud.isRitual());
 	}
 	
 	// INVENTORY TESTS ---------------------------------------------------------
@@ -283,5 +406,59 @@ public class ProjectTest {
 		assertEquals("2d4", myWeapon.getDamage());
 		assertEquals("Slashing", myWeapon.getDamageType());
 		assertEquals("Two-Handed", myWeapon.getProperties());
+	}
+
+	//Hill Dwarf Tests-------------------------------------------------
+	@Test
+	public void testHillDwarf() {
+		PC test = new PC();
+		test.setRace("Hill Dwarf");
+		
+		//Test if race title has been set correctly
+		assertEquals(test.getRaceTitle(), "Hill Dwarf");
+		
+		//Test Dwarf +2 to Constitution, currently 0
+		assertEquals(test.getCONScore(), 2);
+		
+		//Hill Dwarf +1 to WIS, currently 0
+		assertEquals(test.getWISScore(), 1);
+		
+		//Hill Dwarf +1 to HP, currently 0
+		assertEquals(test.getHP(), 1);
+	}
+	
+	//Mountain Dwarf Tests---------------------------------------------
+	@Test
+	public void testMountainDwarf() {
+		PC test = new PC();
+		test.setRace("Mountain Dwarf");
+		
+		//Test if race title has been set correctly
+		assertEquals(test.getRaceTitle(), "Mountain Dwarf");
+		
+		//Test Dwarf +2 to Constitution, currently 0
+		assertEquals(test.getCONScore(), 2);
+		
+		//Mountain Dwarf +1 to Strength, currently 0
+		assertEquals(test.getSTRScore(), 1);
+		
+		//Mountain Dwarf HP currently 0
+		assertEquals(test.getHP(), 0);
+	}
+	
+	//High Elf Tests--------------------------------------------------
+	@Test
+	public void testHighElf() {
+		PC test = new PC();
+		test.setRace("High Elf");
+		
+		assertEquals(test.getRaceTitle(), "High Elf");
+		
+		assertEquals(test.getDEXScore(), 2);
+		
+		assertEquals(test.getINTScore(), 1);
+		
+		assertEquals(test.getHP(), 0);
+		
 	}
 }
