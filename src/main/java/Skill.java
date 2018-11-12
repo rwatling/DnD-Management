@@ -25,7 +25,7 @@ public class Skill extends Attribute {
 	public void setMod(int i) {	// setMod method will be called whenever corresponding ability score is set or proficiency is gained/lost
 		mod = i;
 		if (profcy) {
-			mod += 2;			// we add the proficiency bonus if the PC has proficiency in this saving throw
+			mod += 2;			// we add the proficiency bonus if the PC has proficiency in this skill
 		}
 	}
 	

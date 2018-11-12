@@ -104,6 +104,7 @@ public class ProjectTest {
 		eldritchBlast.setSave(false);
 		eldritchBlast.setConcentration(false);
 		eldritchBlast.setRitual(false);
+		eldritchBlast.setSpellText("A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes ldlO force damage.");
 		assertEquals("Eldritch Blast", eldritchBlast.getName());
 		assertEquals(0, eldritchBlast.getLevel());
 		assertEquals("1 action", eldritchBlast.getCastingTime());
@@ -120,6 +121,7 @@ public class ProjectTest {
 		assertEquals(false, eldritchBlast.needsSave());
 		assertEquals(false, eldritchBlast.isConcentration());
 		assertEquals(false, eldritchBlast.isRitual());
+		assertEquals("A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes ldlO force damage.", eldritchBlast.getSpellText());
 	}
 	
 	@Test
@@ -141,6 +143,7 @@ public class ProjectTest {
 		illusoryScript.setSave(false);
 		illusoryScript.setConcentration(false);
 		illusoryScript.setRitual(true);
+		illusoryScript.setSpellText("You write on parchment, paper, or some other suitable writing material and imbue it with a potent illusion that lasts for the duration. To you and any creatures you designate when you cast the spell, the writing appears normal, written in your hand, and conveys whatever meaning you intended when you wrote the text. To all others, the writing appears as if it were written in an unknown or magical script that is unintelligible. Alternatively, you can cause the writing to appear to be an entire1y different message, written in a different hand and language, though the language must be one you know. Should the spell be dispelled, the original script and the illusion both disappear. A creature wilh truesight can read the hidden message.");
 		assertEquals("Illusory Script", illusoryScript.getName());
 		assertEquals(1, illusoryScript.getLevel());
 		assertEquals("1 minute", illusoryScript.getCastingTime());
@@ -157,6 +160,7 @@ public class ProjectTest {
 		assertEquals(false, illusoryScript.needsSave());
 		assertEquals(false, illusoryScript.isConcentration());
 		assertEquals(true, illusoryScript.isRitual());
+		assertEquals("You write on parchment, paper, or some other suitable writing material and imbue it with a potent illusion that lasts for the duration. To you and any creatures you designate when you cast the spell, the writing appears normal, written in your hand, and conveys whatever meaning you intended when you wrote the text. To all others, the writing appears as if it were written in an unknown or magical script that is unintelligible. Alternatively, you can cause the writing to appear to be an entire1y different message, written in a different hand and language, though the language must be one you know. Should the spell be dispelled, the original script and the illusion both disappear. A creature wilh truesight can read the hidden message.", illusoryScript.getSpellText());
 	}
 	
 	@Test
@@ -178,6 +182,7 @@ public class ProjectTest {
 		fogCloud.setSave(false);
 		fogCloud.setConcentration(true);
 		fogCloud.setRitual(false);
+		fogCloud.setSpellText("You create a 20-foot-radius sphere of fog centered on a point within range. The sphere spreads around coroers, and its area is heavily obscured. It lasts for the duration or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it.");
 		assertEquals("Fog Cloud", fogCloud.getName());
 		assertEquals(1, fogCloud.getLevel());
 		assertEquals("1 action", fogCloud.getCastingTime());
@@ -194,6 +199,7 @@ public class ProjectTest {
 		assertEquals(false, fogCloud.needsSave());
 		assertEquals(true, fogCloud.isConcentration());
 		assertEquals(false, fogCloud.isRitual());
+		assertEquals("You create a 20-foot-radius sphere of fog centered on a point within range. The sphere spreads around coroers, and its area is heavily obscured. It lasts for the duration or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it.", fogCloud.getSpellText());
 	}
 	
 	// INVENTORY TESTS ---------------------------------------------------------
