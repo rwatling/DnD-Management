@@ -415,16 +415,16 @@ public class ProjectTest {
 		test.setRace("Hill Dwarf");
 		
 		//Test if race title has been set correctly
-		assertEquals(test.getRaceTitle(), "Hill Dwarf");
+		assertEquals("Hill Dwarf", test.getRaceTitle());
 		
 		//Test Dwarf +2 to Constitution, currently 0
-		assertEquals(test.getCONScore(), 2);
+		assertEquals(2, test.getCONScore());
 		
 		//Hill Dwarf +1 to WIS, currently 0
-		assertEquals(test.getWISScore(), 1);
+		assertEquals(1, test.getWISScore());
 		
 		//Hill Dwarf +1 to HP, currently 0
-		assertEquals(test.getHP(), 1);
+		assertEquals(1, test.getHP());
 	}
 	
 	//Mountain Dwarf Tests---------------------------------------------
@@ -434,16 +434,16 @@ public class ProjectTest {
 		test.setRace("Mountain Dwarf");
 		
 		//Test if race title has been set correctly
-		assertEquals(test.getRaceTitle(), "Mountain Dwarf");
+		assertEquals("Mountain Dwarf", test.getRaceTitle());
 		
 		//Test Dwarf +2 to Constitution, currently 0
-		assertEquals(test.getCONScore(), 2);
+		assertEquals(2, test.getCONScore());
 		
 		//Mountain Dwarf +1 to Strength, currently 0
-		assertEquals(test.getSTRScore(), 1);
+		assertEquals(1, test.getSTRScore());
 		
 		//Mountain Dwarf HP currently 0
-		assertEquals(test.getHP(), 0);
+		assertEquals(0, test.getHP());
 	}
 	
 	//High Elf Tests--------------------------------------------------
@@ -452,13 +452,13 @@ public class ProjectTest {
 		PC test = new PC();
 		test.setRace("High Elf");
 		
-		assertEquals(test.getRaceTitle(), "High Elf");
+		assertEquals("High Elf", test.getRaceTitle());
 		
-		assertEquals(test.getDEXScore(), 2);
+		assertEquals(2, test.getDEXScore());
 		
-		assertEquals(test.getINTScore(), 1);
+		assertEquals(1, test.getINTScore());
 		
-		assertEquals(test.getHP(), 0);
+		assertEquals(0, test.getHP());
 		
 	}
 	
@@ -468,13 +468,29 @@ public class ProjectTest {
 		PC test = new PC();
 		test.setRace("Wood Elf");
 		
-		assertEquals(test.getRaceTitle(), "Wood Elf");
+		assertEquals("Wood Elf", test.getRaceTitle());
 		
-		assertEquals(test.getDEXScore(), 2);
+		assertEquals(2, test.getDEXScore());
 		
-		assertEquals(test.getWISScore(), 1);
+		assertEquals(1, test.getWISScore());
 		
-		assertEquals(test.getHP(), 0);
+		assertEquals(0, test.getHP());
 		
 	}
+	
+	//Dark Elf Tests--------------------------------------------------
+		@Test
+		public void testDarkElf() {
+			PC test = new PC();
+			test.setRace("Dark Elf");
+			
+			assertEquals("Dark Elf", test.getRaceTitle());
+			
+			assertEquals(2, test.getDEXScore());
+			
+			assertEquals(1, test.getCHAScore());
+			
+			assertEquals(0, test.getHP());
+			
+		}
 }
