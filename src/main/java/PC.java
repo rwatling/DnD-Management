@@ -49,8 +49,10 @@ public class PC {
 				break;
 			case "High Elf":
 				pcRace = new HighElf();
+				break;
 			case "Wood Elf":
 				pcRace = new WoodElf();
+				break;
 		}
 		
 		if (pcRace != null) {
