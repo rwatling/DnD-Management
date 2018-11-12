@@ -65,6 +65,9 @@ public class PC {
 			case "Human":
 				pcRace = new Human();
 				break;
+			case "Dragonborn":
+				pcRace = new Dragonborn();
+				break;
 		}
 		
 		if (pcRace != null) {
