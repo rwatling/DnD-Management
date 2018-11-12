@@ -62,6 +62,9 @@ public class PC {
 			case "Stout Halfling":
 				pcRace = new StoutHalfling();
 				break;
+			case "Human":
+				pcRace = new Human();
+				break;
 		}
 		
 		if (pcRace != null) {

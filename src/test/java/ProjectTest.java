@@ -511,16 +511,40 @@ public class ProjectTest {
 	}
 	
 	//Stout Halfling Tests--------------------------------------------------
+	@Test
+	public void testStoutHalfling() {
+		PC test = new PC();
+		test.setRace("Stout Halfling");
+		
+		assertEquals("Stout Halfling", test.getRaceTitle());
+		
+		assertEquals(2, test.getDEXScore());
+		
+		assertEquals(1, test.getCONScore());
+		
+		assertEquals(0, test.getHP());
+		
+	}
+	
+	//Human Tests--------------------------------------------------
 		@Test
-		public void testStoutHalfling() {
+		public void testHuman() {
 			PC test = new PC();
-			test.setRace("Stout Halfling");
+			test.setRace("Human");
 			
-			assertEquals("Stout Halfling", test.getRaceTitle());
+			assertEquals("Human", test.getRaceTitle());
 			
-			assertEquals(2, test.getDEXScore());
+			assertEquals(1, test.getSTRScore());
+			
+			assertEquals(1, test.getDEXScore());
 			
 			assertEquals(1, test.getCONScore());
+
+			assertEquals(1, test.getINTScore());
+			
+			assertEquals(1, test.getWISScore());
+			
+			assertEquals(1, test.getCHAScore());
 			
 			assertEquals(0, test.getHP());
 			
