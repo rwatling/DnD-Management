@@ -479,18 +479,34 @@ public class ProjectTest {
 	}
 	
 	//Dark Elf Tests--------------------------------------------------
-		@Test
-		public void testDarkElf() {
-			PC test = new PC();
-			test.setRace("Dark Elf");
-			
-			assertEquals("Dark Elf", test.getRaceTitle());
-			
-			assertEquals(2, test.getDEXScore());
-			
-			assertEquals(1, test.getCHAScore());
-			
-			assertEquals(0, test.getHP());
-			
-		}
+	@Test
+	public void testDarkElf() {
+		PC test = new PC();
+		test.setRace("Dark Elf");
+		
+		assertEquals("Dark Elf", test.getRaceTitle());
+		
+		assertEquals(2, test.getDEXScore());
+		
+		assertEquals(1, test.getCHAScore());
+		
+		assertEquals(0, test.getHP());
+		
+	}
+	
+	//Lightfoot Halfling Tests--------------------------------------------------
+	@Test
+	public void testLightfootHalfling() {
+		PC test = new PC();
+		test.setRace("Lightfoot Halfling");
+		
+		assertEquals("Lightfoot Halfling", test.getRaceTitle());
+		
+		assertEquals(2, test.getDEXScore());
+		
+		assertEquals(1, test.getCHAScore());
+		
+		assertEquals(0, test.getHP());
+		
+	}
 }
