@@ -1,4 +1,4 @@
-//package test.java;
+package test.java;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
@@ -457,6 +457,22 @@ public class ProjectTest {
 		assertEquals(test.getDEXScore(), 2);
 		
 		assertEquals(test.getINTScore(), 1);
+		
+		assertEquals(test.getHP(), 0);
+		
+	}
+	
+	//Wood Elf Tests--------------------------------------------------
+	@Test
+	public void testWoodElf() {
+		PC test = new PC();
+		test.setRace("Wood Elf");
+		
+		assertEquals(test.getRaceTitle(), "Wood Elf");
+		
+		assertEquals(test.getDEXScore(), 2);
+		
+		assertEquals(test.getWISScore(), 1);
 		
 		assertEquals(test.getHP(), 0);
 		
