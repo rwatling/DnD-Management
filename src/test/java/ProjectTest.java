@@ -425,6 +425,15 @@ public class ProjectTest {
 		
 		//Hill Dwarf +1 to HP, currently 0
 		assertEquals(test.getHP(), 1);
+		
+		//Get languages
+		assertEquals(test.getLanguages().get(0), "Dwarvish");
+		
+		//Get proficiencies
+		assertEquals(test.getProficiencies().get(0), "battleaxe");
+		
+		//test size to see all items were added
+		assertEquals(test.getProficiencies().size(), 4);
 	}
 	
 	//Mountain Dwarf Tests---------------------------------------------
@@ -444,6 +453,15 @@ public class ProjectTest {
 		
 		//Mountain Dwarf HP currently 0
 		assertEquals(test.getHP(), 0);
+		
+		//Get languages
+		assertEquals(test.getLanguages().get(0), "Dwarvish");
+		
+		//Get proficiencies
+		assertEquals(test.getProficiencies().get(0), "battleaxe");
+		
+		//test size to see all items were added
+		assertEquals(test.getProficiencies().size(), 6);
 	}
 	
 	//High Elf Tests--------------------------------------------------
@@ -460,5 +478,10 @@ public class ProjectTest {
 		
 		assertEquals(test.getHP(), 0);
 		
+		assertEquals(test.getLanguages().get(0), "Elvish");
+		
+		assertEquals(test.getProficiencies().get(3), "shortbow");
+		
+		assertEquals(test.getProficiencies().size(), 4);
 	}
 }
