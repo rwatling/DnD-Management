@@ -81,6 +81,9 @@ public class PC {
 			case "Half-Orc":
 				pcRace = new HalfOrc();
 				break;
+			case "Tiefling":
+				pcRace = new Tiefling();
+				break;
 		}
 		
 		if (pcRace != null) {

@@ -692,4 +692,23 @@ public class ProjectTest {
 		
 		assertEquals(0, test.getProficiencies().size());
 	}
+	
+	//Tiefling Tests--------------------------------------------------
+	@Test
+	public void testTieflingGnome() {
+		PC test = new PC();
+		test.setRace("Tiefling");
+		
+		assertEquals("Tiefling", test.getRaceTitle());
+		
+		assertEquals(2, test.getCHAScore());
+
+		assertEquals(1, test.getINTScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals("Infernal", test.getLanguages().get(0));
+		
+		assertEquals(0, test.getProficiencies().size());
+	}
 }
