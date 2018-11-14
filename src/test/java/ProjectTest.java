@@ -436,7 +436,7 @@ public class ProjectTest {
 		assertEquals("Dwarvish", test.getLanguages().get(0));
 		
 		//Get proficiencies
-		assertEquals("battleaxe", test.getProficiencies().get(0));
+		assertEquals("Battleaxe", test.getProficiencies().get(0));
 		
 		//test size to see all items were added
 		assertEquals(4, test.getProficiencies().size());
@@ -464,7 +464,7 @@ public class ProjectTest {
 		assertEquals("Dwarvish", test.getLanguages().get(0));
 		
 		//Get proficiencies
-		assertEquals("battleaxe", test.getProficiencies().get(0));
+		assertEquals("Battleaxe", test.getProficiencies().get(0));
 		
 		//test size to see all items were added
 		assertEquals(6, test.getProficiencies().size());
@@ -484,11 +484,11 @@ public class ProjectTest {
 		
 		assertEquals(0, test.getHP());
 		
-		assertEquals(test.getLanguages().get(0), "Elvish");
+		assertEquals("Elvish", test.getLanguages().get(0));
 		
-		assertEquals(test.getProficiencies().get(3), "shortbow");
+		assertEquals("Shortbow", test.getProficiencies().get(3));
 		
-		assertEquals(test.getProficiencies().size(), 4);
+		assertEquals(4, test.getProficiencies().size());
 	}
 	
 	//Wood Elf Tests--------------------------------------------------

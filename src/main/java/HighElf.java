@@ -14,9 +14,9 @@ public class HighElf extends Race {
 		
 		languages.add("Elvish");
 		
-		proficienciesWeaponArmor.add("longsword");
-		proficienciesWeaponArmor.add("shortsword");
-		proficienciesWeaponArmor.add("longbow");
-		proficienciesWeaponArmor.add("shortbow");
+		proficienciesWeaponArmor.add("Longsword");
+		proficienciesWeaponArmor.add("Shortsword");
+		proficienciesWeaponArmor.add("Longbow");
+		proficienciesWeaponArmor.add("Shortbow");
 	}
 }

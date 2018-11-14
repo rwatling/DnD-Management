@@ -14,11 +14,11 @@ public class MountainDwarf extends Race {
 		
 		languages.add("Dwarvish");
 		
-		proficienciesWeaponArmor.add("battleaxe");
-		proficienciesWeaponArmor.add("handaxe");
-		proficienciesWeaponArmor.add("throwing hammer");
-		proficienciesWeaponArmor.add("war hammer");
-		proficienciesWeaponArmor.add("light armor");
-		proficienciesWeaponArmor.add("medium armor");
+		proficienciesWeaponArmor.add("Battleaxe");
+		proficienciesWeaponArmor.add("Handaxe");
+		proficienciesWeaponArmor.add("Throwing Hammer");
+		proficienciesWeaponArmor.add("War Hammer");
+		proficienciesWeaponArmor.add("Light Armor");
+		proficienciesWeaponArmor.add("Medium Armor");
 	}
 }
