@@ -19,9 +19,10 @@ public class PC {
 	AbilityScore wisdom = new AbilityScore("WIS");
 	AbilityScore charisma = new AbilityScore("CHA");
 
-	
 	String[] allRaces = new String [] {"Hill Dwarf", "Mountain Dwarf", "High Elf", "Wood Elf", "Dark Elf", "Lightfoot Halfling", "Stout Halfling", "Human", "Dragonborn", "Gnome", "Half-Elf", "Half-Orc", "Tiefling"};
 	ArrayList<AbilityScore> allScores = new ArrayList<AbilityScore>();
+	ArrayList<String> languages = new ArrayList<String>();
+	ArrayList<String> weaponArmorProfs = new ArrayList<String>();
 	
 	public void setName(String name) {
 		this.name = name;
@@ -71,11 +72,12 @@ public class PC {
 		}
 		
 		if (pcRace != null) {
+			//Attributes increased because of subrace
 			ArrayList<Pair<String, Integer>> incAttributes = pcRace.getIncAttributes();
 			for (Pair<String, Integer> p : incAttributes) {
 				if (p.getKey().equals("STR"))
 					strength.setScore(p.getValue() + strength.getScore());
-				else if (p.getKey() == "DEX")
+				else if (p.getKey().equals("DEX"))
 					dexterity.setScore(p.getValue() + dexterity.getScore());
 				else if (p.getKey().equals("CON"))
 					constitution.setScore(p.getValue() + constitution.getScore());
@@ -88,6 +90,12 @@ public class PC {
 				else if(p.getKey().equals("HP"))
 					hitPoints += p.getValue();				
 			}
+			
+			//Get languages from subrace
+			languages.addAll(pcRace.getLanguages());
+			
+			//Get proficiencies from subrace
+			weaponArmorProfs.addAll(pcRace.getWeaponArmorProficiencies());
 		}
 	}
 	
@@ -149,5 +157,13 @@ public class PC {
 	
 	public int getCHAMod() {
 		return charisma.getMod();
+	}
+	
+	public ArrayList<String> getLanguages() {
+		return languages;
+	}
+	
+	public ArrayList<String> getProficiencies() {
+		return weaponArmorProfs;
 	}
 }

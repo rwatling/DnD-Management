@@ -18,6 +18,7 @@ public class Spell {
 	boolean roll;		// denotes whether the spell requires a spell attack role
 	boolean save;		// denotes whether the spell requires the target to make a saving throw
 	boolean rit;		// denotes whether the spell is a ritual
+	String spellText;	// contains the actual description fo the spell from the player's handbook
 	
 	public String getName() {
 		return name;
@@ -145,5 +146,13 @@ public class Spell {
 	
 	public void setRitual(boolean b) {
 		rit = b;
+	}
+	
+	public String getSpellText() {
+		return spellText;
+	}
+	
+	public void setSpellText(String s) {
+		spellText = s;
 	}
 }
