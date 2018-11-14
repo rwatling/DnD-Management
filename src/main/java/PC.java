@@ -75,6 +75,9 @@ public class PC {
 			case "Rock Gnome":
 				pcRace = new RockGnome();
 				break;
+			case "Half-Elf":
+				pcRace = new HalfElf();
+				break;
 		}
 		
 		if (pcRace != null) {
