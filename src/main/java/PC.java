@@ -19,8 +19,7 @@ public class PC {
 	AbilityScore wisdom = new AbilityScore("WIS");
 	AbilityScore charisma = new AbilityScore("CHA");
 
-	
-	String[] allRaces = new String [] {"Hill Dwarf", "Mountain Dwarf", "High Elf"};
+	String[] allRaces = new String [] {"Hill Dwarf", "Mountain Dwarf", "High Elf", "Wood Elf", "Dark Elf", "Lightfoot Halfling", "Stout Halfling", "Human", "Dragonborn", "Gnome", "Half-Elf", "Half-Orc", "Tiefling"};
 	ArrayList<AbilityScore> allScores = new ArrayList<AbilityScore>();
 	ArrayList<String> languages = new ArrayList<String>();
 	ArrayList<String> weaponArmorProfs = new ArrayList<String>();
@@ -51,6 +50,40 @@ public class PC {
 				break;
 			case "High Elf":
 				pcRace = new HighElf();
+				break;
+			case "Wood Elf":
+				pcRace = new WoodElf();
+				break;
+			case "Dark Elf":
+				pcRace = new DarkElf();
+				break;
+			case "Lightfoot Halfling":
+				pcRace = new LightfootHalfling();
+				break;
+			case "Stout Halfling":
+				pcRace = new StoutHalfling();
+				break;
+			case "Human":
+				pcRace = new Human();
+				break;
+			case "Dragonborn":
+				pcRace = new Dragonborn();
+				break;
+			case "Forest Gnome":
+				pcRace = new ForestGnome();
+				break;
+			case "Rock Gnome":
+				pcRace = new RockGnome();
+				break;
+			case "Half-Elf":
+				pcRace = new HalfElf();
+				break;
+			case "Half-Orc":
+				pcRace = new HalfOrc();
+				break;
+			case "Tiefling":
+				pcRace = new Tiefling();
+				break;
 		}
 		
 		if (pcRace != null) {
