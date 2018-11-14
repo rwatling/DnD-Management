@@ -654,23 +654,42 @@ public class ProjectTest {
 	}
 	
 	//Half-Elf Tests--------------------------------------------------
-		@Test
-		public void testHalfElfGnome() {
-			PC test = new PC();
-			test.setRace("Half-Elf");
-			
-			assertEquals("Half-Elf", test.getRaceTitle());
-			
-			assertEquals(2, test.getCHAScore());
-			
-			assertEquals(1, test.getDEXScore());
+	@Test
+	public void testHalfElfGnome() {
+		PC test = new PC();
+		test.setRace("Half-Elf");
+		
+		assertEquals("Half-Elf", test.getRaceTitle());
+		
+		assertEquals(2, test.getCHAScore());
+		
+		assertEquals(1, test.getDEXScore());
 
-			assertEquals(1, test.getCONScore());
-			
-			assertEquals(0, test.getHP());
-			
-			assertEquals("Elvish", test.getLanguages().get(0));
-			
-			assertEquals(0, test.getProficiencies().size());
-		}
+		assertEquals(1, test.getCONScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals("Elvish", test.getLanguages().get(0));
+		
+		assertEquals(0, test.getProficiencies().size());
+	}
+	
+	//Half-Orc Tests--------------------------------------------------
+	@Test
+	public void testHalfOrcGnome() {
+		PC test = new PC();
+		test.setRace("Half-Orc");
+		
+		assertEquals("Half-Orc", test.getRaceTitle());
+		
+		assertEquals(2, test.getSTRScore());
+
+		assertEquals(1, test.getCONScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals("Orc", test.getLanguages().get(0));
+		
+		assertEquals(0, test.getProficiencies().size());
+	}
 }
