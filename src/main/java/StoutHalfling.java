@@ -9,5 +9,7 @@ public class StoutHalfling extends Race {
 		Pair<String, Integer> increasedCON = new Pair<String, Integer>("CON", 1);
 		increasedAttributes.add(increasedDEX);
 		increasedAttributes.add(increasedCON);
+		
+		languages.add("Halfling");
 	}
 }

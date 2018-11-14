@@ -10,5 +10,7 @@ public class Dragonborn extends Race {
 		
 		increasedAttributes.add(increasedSTR);
 		increasedAttributes.add(increasedCHA);
+		
+		languages.add("Draconic");
 	}
 }

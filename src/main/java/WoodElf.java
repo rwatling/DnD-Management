@@ -9,5 +9,12 @@ public class WoodElf extends Race {
 		Pair<String, Integer> increasedWIS = new Pair<String, Integer>("WIS", 1);
 		increasedAttributes.add(increasedDEX);
 		increasedAttributes.add(increasedWIS);
+		
+		languages.add("Elvish");
+		
+		proficienciesWeaponArmor.add("Longsword");
+		proficienciesWeaponArmor.add("Shortsword");
+		proficienciesWeaponArmor.add("Longbow");
+		proficienciesWeaponArmor.add("Shortbow");
 	}
 }

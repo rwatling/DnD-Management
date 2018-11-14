@@ -504,6 +504,12 @@ public class ProjectTest {
 		assertEquals(1, test.getWISScore());
 		
 		assertEquals(0, test.getHP());
+		
+		assertEquals("Elvish", test.getLanguages().get(0));
+		
+		assertEquals("Shortbow", test.getProficiencies().get(3));
+		
+		assertEquals(4, test.getProficiencies().size());
 	}
 	
 	//Dark Elf Tests--------------------------------------------------
@@ -520,6 +526,11 @@ public class ProjectTest {
 		
 		assertEquals(0, test.getHP());
 		
+		assertEquals("Elvish", test.getLanguages().get(0));
+		
+		assertEquals("Hand Crossbow", test.getProficiencies().get(2));
+		
+		assertEquals(3, test.getProficiencies().size());
 	}
 	
 	//Lightfoot Halfling Tests--------------------------------------------------
@@ -535,6 +546,10 @@ public class ProjectTest {
 		assertEquals(1, test.getCHAScore());
 		
 		assertEquals(0, test.getHP());
+		
+		assertEquals("Halfling", test.getLanguages().get(0));
+		
+		assertEquals(0, test.getProficiencies().size());
 	}
 	
 	//Stout Halfling Tests--------------------------------------------------
@@ -550,6 +565,10 @@ public class ProjectTest {
 		assertEquals(1, test.getCONScore());
 		
 		assertEquals(0, test.getHP());
+		
+		assertEquals("Halfling", test.getLanguages().get(0));
+		
+		assertEquals(0, test.getProficiencies().size());
 	}
 	
 	//Human Tests--------------------------------------------------
@@ -573,6 +592,8 @@ public class ProjectTest {
 		assertEquals(1, test.getCHAScore());
 		
 		assertEquals(0, test.getHP());
+		
+		assertEquals(0, test.getProficiencies().size());
 	}
 	
 	//Dragonborn Tests--------------------------------------------------
@@ -588,5 +609,9 @@ public class ProjectTest {
 		assertEquals(1, test.getCHAScore());
 		
 		assertEquals(0, test.getHP());
+		
+		assertEquals("Draconic", test.getLanguages().get(0));
+		
+		assertEquals(0, test.getProficiencies().size());
 	}
 }

@@ -9,5 +9,7 @@ public class LightfootHalfling extends Race{
 		Pair<String, Integer> increasedCHA = new Pair<String, Integer>("CHA", 1);
 		increasedAttributes.add(increasedDEX);
 		increasedAttributes.add(increasedCHA);
+		
+		languages.add("Halfling");
 	}
 }
