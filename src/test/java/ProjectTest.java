@@ -633,4 +633,23 @@ public class ProjectTest {
 		
 		assertEquals(0, test.getProficiencies().size());
 	}
+	
+	//Rock Gnome Tests--------------------------------------------------
+		@Test
+		public void testRockGnome() {
+			PC test = new PC();
+			test.setRace("Rock Gnome");
+			
+			assertEquals("Rock Gnome", test.getRaceTitle());
+			
+			assertEquals(2, test.getINTScore());
+			
+			assertEquals(1, test.getCONScore());
+			
+			assertEquals(0, test.getHP());
+			
+			assertEquals("Gnomish", test.getLanguages().get(0));
+			
+			assertEquals(0, test.getProficiencies().size());
+		}
 }

@@ -72,6 +72,9 @@ public class PC {
 			case "Forest Gnome":
 				pcRace = new ForestGnome();
 				break;
+			case "Rock Gnome":
+				pcRace = new RockGnome();
+				break;
 		}
 		
 		if (pcRace != null) {
