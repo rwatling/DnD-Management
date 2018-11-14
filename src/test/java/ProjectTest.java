@@ -614,4 +614,23 @@ public class ProjectTest {
 		
 		assertEquals(0, test.getProficiencies().size());
 	}
+	
+	//Forest Gnome Tests--------------------------------------------------
+	@Test
+	public void testForestGnome() {
+		PC test = new PC();
+		test.setRace("Forest Gnome");
+		
+		assertEquals("Forest Gnome", test.getRaceTitle());
+		
+		assertEquals(2, test.getINTScore());
+		
+		assertEquals(1, test.getDEXScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals("Gnomish", test.getLanguages().get(0));
+		
+		assertEquals(0, test.getProficiencies().size());
+	}
 }

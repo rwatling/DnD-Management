@@ -69,6 +69,9 @@ public class PC {
 			case "Dragonborn":
 				pcRace = new Dragonborn();
 				break;
+			case "Forest Gnome":
+				pcRace = new ForestGnome();
+				break;
 		}
 		
 		if (pcRace != null) {
