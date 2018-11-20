@@ -1,6 +1,8 @@
 package main.java;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+
 import javafx.util.Pair;
 import main.java.*;
 
@@ -19,9 +21,29 @@ public class PC {
 	AbilityScore wisdom = new AbilityScore("WIS");
 	AbilityScore charisma = new AbilityScore("CHA");
 
+	//Skills--------------------------------------------
+	//Proficiency bonus is applied in skill class
+	Skill acrobatics = new  Skill("Acrobatics", dexterity);
+	Skill animalHandling = new Skill("Animal Handling", wisdom);
+	Skill arcana = new Skill("Arcana", intelligence);
+	Skill athletics = new Skill("Athletics", strength);
+	Skill deception = new Skill("Deception", charisma);
+	Skill history = new Skill("History", intelligence);
+	Skill insight = new Skill("Insight", wisdom);
+	Skill intimidation = new Skill("Intimidation", charisma);
+	Skill investigation = new Skill("Investigation", intelligence);
+	Skill medicine = new Skill("Medicine", wisdom);
+	Skill nature = new Skill("Nature", intelligence);
+	Skill perception = new Skill("Perception", wisdom);
+	Skill performance = new Skill("Performance", charisma);
+	Skill persuasion = new Skill("Persuasion", charisma);
+	Skill religon = new Skill("Religon", intelligence);
+	Skill sleightOfHand = new Skill("Sleight of Hand", dexterity);
+	Skill stealth = new Skill("Stealth", dexterity);
+	Skill survival = new Skill("Survivial", wisdom);
+	//---------------------------------------------------------------
 	
 	String[] allRaces = new String [] {"Hill Dwarf", "Mountain Dwarf", "High Elf"};
-	ArrayList<AbilityScore> allScores = new ArrayList<AbilityScore>();
 	ArrayList<String> languages = new ArrayList<String>();
 	ArrayList<String> weaponArmorProfs = new ArrayList<String>();
 	
@@ -39,6 +61,34 @@ public class PC {
 	
 	public String getGender() {
 		return gender;
+	}
+	
+	public void setAbilityScores(int str, int dex, int con, int intel, int wis, int cha) {
+		strength.setScore(str);
+		dexterity.setScore(dex);
+		constitution.setScore(con);
+		intelligence.setScore(intel);
+		wisdom.setScore(wis);
+		charisma.setScore(cha);
+		
+		acrobatics.updateAbilityScore(dexterity);
+		animalHandling.updateAbilityScore(wisdom);
+		arcana.updateAbilityScore(intelligence);
+		athletics.updateAbilityScore(strength);
+		deception.updateAbilityScore(charisma);
+		history.updateAbilityScore(intelligence);
+		insight.updateAbilityScore(wisdom);
+		intimidation.updateAbilityScore(charisma);
+		investigation.updateAbilityScore(intelligence);
+		medicine.updateAbilityScore(wisdom);
+		nature.updateAbilityScore(intelligence);
+		perception.updateAbilityScore(wisdom);
+		performance.updateAbilityScore(charisma);
+		persuasion.updateAbilityScore(charisma);
+		religon.updateAbilityScore(intelligence);
+		sleightOfHand.updateAbilityScore(dexterity);
+		stealth.updateAbilityScore(dexterity);
+		survival.updateAbilityScore(wisdom);
 	}
 	
 	public void setRace(String race) {
@@ -139,6 +189,78 @@ public class PC {
 	
 	public int getCHAMod() {
 		return charisma.getMod();
+	}
+	
+	public Skill getAcrobatics() {
+		return acrobatics;
+	}
+	
+	public Skill getAnimalHandling() {
+		return animalHandling;
+	}
+	
+	public Skill getArcana() {
+		return arcana;
+	}
+	
+	public Skill getAthletics() {
+		return athletics;
+	}
+	
+	public Skill getDeception() {
+		return deception;
+	}
+	
+	public Skill getHistory() {
+		return history;
+	}
+	
+	public Skill getInsight() {
+		return insight;
+	}
+	
+	public Skill getIntimidation() {
+		return intimidation;
+	}
+	
+	public Skill getInvestigation() {
+		return investigation;
+	}
+	
+	public Skill getMedicine() {
+		return medicine;
+	}
+	
+	public Skill getNature() {
+		return nature;
+	}
+	
+	public Skill getPerception() {
+		return perception;
+	}
+	
+	public Skill getPerformance() {
+		return performance;
+	}
+	
+	public Skill getPersuasion() {
+		return persuasion;
+	}
+	
+	public Skill getReligon() {
+		return religon;
+	}
+	
+	public Skill getStealth() {
+		return stealth;
+	}
+	
+	public Skill getSleightOfHand() {
+		return sleightOfHand;
+	}
+	
+	public Skill getSurvival() {
+		return survival;
 	}
 	
 	public ArrayList<String> getLanguages() {
