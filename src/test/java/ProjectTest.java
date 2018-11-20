@@ -426,25 +426,25 @@ public class ProjectTest {
 		test.setRace("Hill Dwarf");
 		
 		//Test if race title has been set correctly
-		assertEquals(test.getRaceTitle(), "Hill Dwarf");
+		assertEquals("Hill Dwarf", test.getRaceTitle());
 		
 		//Test Dwarf +2 to Constitution, currently 0
-		assertEquals(test.getCONScore(), 2);
+		assertEquals(2, test.getCONScore());
 		
 		//Hill Dwarf +1 to WIS, currently 0
-		assertEquals(test.getWISScore(), 1);
+		assertEquals(1, test.getWISScore());
 		
 		//Hill Dwarf +1 to HP, currently 0
-		assertEquals(test.getHP(), 1);
+		assertEquals(1, test.getHP());
 		
 		//Get languages
-		assertEquals(test.getLanguages().get(0), "Dwarvish");
+		assertEquals("Dwarvish", test.getLanguages().get(0));
 		
 		//Get proficiencies
-		assertEquals(test.getProficiencies().get(0), "battleaxe");
+		assertEquals("Battleaxe", test.getProficiencies().get(0));
 		
 		//test size to see all items were added
-		assertEquals(test.getProficiencies().size(), 4);
+		assertEquals(4, test.getProficiencies().size());
 	}
 	
 	//Mountain Dwarf Tests---------------------------------------------
@@ -454,25 +454,25 @@ public class ProjectTest {
 		test.setRace("Mountain Dwarf");
 		
 		//Test if race title has been set correctly
-		assertEquals(test.getRaceTitle(), "Mountain Dwarf");
+		assertEquals("Mountain Dwarf", test.getRaceTitle());
 		
 		//Test Dwarf +2 to Constitution, currently 0
-		assertEquals(test.getCONScore(), 2);
+		assertEquals(2, test.getCONScore());
 		
 		//Mountain Dwarf +1 to Strength, currently 0
-		assertEquals(test.getSTRScore(), 1);
+		assertEquals(1, test.getSTRScore());
 		
 		//Mountain Dwarf HP currently 0
-		assertEquals(test.getHP(), 0);
+		assertEquals(0, test.getHP());
 		
 		//Get languages
-		assertEquals(test.getLanguages().get(0), "Dwarvish");
+		assertEquals("Dwarvish", test.getLanguages().get(0));
 		
 		//Get proficiencies
-		assertEquals(test.getProficiencies().get(0), "battleaxe");
+		assertEquals("Battleaxe", test.getProficiencies().get(0));
 		
 		//test size to see all items were added
-		assertEquals(test.getProficiencies().size(), 6);
+		assertEquals(6, test.getProficiencies().size());
 	}
 	
 	//High Elf Tests--------------------------------------------------
@@ -481,18 +481,239 @@ public class ProjectTest {
 		PC test = new PC();
 		test.setRace("High Elf");
 		
-		assertEquals(test.getRaceTitle(), "High Elf");
+		assertEquals("High Elf", test.getRaceTitle());
 		
-		assertEquals(test.getDEXScore(), 2);
+		assertEquals(2, test.getDEXScore());
 		
-		assertEquals(test.getINTScore(), 1);
+		assertEquals(1, test.getINTScore());
 		
-		assertEquals(test.getHP(), 0);
+		assertEquals(0, test.getHP());
 		
-		assertEquals(test.getLanguages().get(0), "Elvish");
+		assertEquals("Elvish", test.getLanguages().get(0));
 		
-		assertEquals(test.getProficiencies().get(3), "shortbow");
+		assertEquals("Shortbow", test.getProficiencies().get(3));
 		
-		assertEquals(test.getProficiencies().size(), 4);
+		assertEquals(4, test.getProficiencies().size());
+	}
+	
+	//Wood Elf Tests--------------------------------------------------
+	@Test
+	public void testWoodElf() {
+		PC test = new PC();
+		test.setRace("Wood Elf");
+		
+		assertEquals("Wood Elf", test.getRaceTitle());
+		
+		assertEquals(2, test.getDEXScore());
+		
+		assertEquals(1, test.getWISScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals("Elvish", test.getLanguages().get(0));
+		
+		assertEquals("Shortbow", test.getProficiencies().get(3));
+		
+		assertEquals(4, test.getProficiencies().size());
+	}
+	
+	//Dark Elf Tests--------------------------------------------------
+	@Test
+	public void testDarkElf() {
+		PC test = new PC();
+		test.setRace("Dark Elf");
+		
+		assertEquals("Dark Elf", test.getRaceTitle());
+		
+		assertEquals(2, test.getDEXScore());
+		
+		assertEquals(1, test.getCHAScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals("Elvish", test.getLanguages().get(0));
+		
+		assertEquals("Hand Crossbow", test.getProficiencies().get(2));
+		
+		assertEquals(3, test.getProficiencies().size());
+	}
+	
+	//Lightfoot Halfling Tests--------------------------------------------------
+	@Test
+	public void testLightfootHalfling() {
+		PC test = new PC();
+		test.setRace("Lightfoot Halfling");
+		
+		assertEquals("Lightfoot Halfling", test.getRaceTitle());
+		
+		assertEquals(2, test.getDEXScore());
+		
+		assertEquals(1, test.getCHAScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals("Halfling", test.getLanguages().get(0));
+		
+		assertEquals(0, test.getProficiencies().size());
+	}
+	
+	//Stout Halfling Tests--------------------------------------------------
+	@Test
+	public void testStoutHalfling() {
+		PC test = new PC();
+		test.setRace("Stout Halfling");
+		
+		assertEquals("Stout Halfling", test.getRaceTitle());
+		
+		assertEquals(2, test.getDEXScore());
+		
+		assertEquals(1, test.getCONScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals("Halfling", test.getLanguages().get(0));
+		
+		assertEquals(0, test.getProficiencies().size());
+	}
+	
+	//Human Tests--------------------------------------------------
+	@Test
+	public void testHuman() {
+		PC test = new PC();
+		test.setRace("Human");
+		
+		assertEquals("Human", test.getRaceTitle());
+		
+		assertEquals(1, test.getSTRScore());
+		
+		assertEquals(1, test.getDEXScore());
+		
+		assertEquals(1, test.getCONScore());
+
+		assertEquals(1, test.getINTScore());
+		
+		assertEquals(1, test.getWISScore());
+		
+		assertEquals(1, test.getCHAScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals(0, test.getProficiencies().size());
+	}
+	
+	//Dragonborn Tests--------------------------------------------------
+	@Test
+	public void testDragonborn() {
+		PC test = new PC();
+		test.setRace("Dragonborn");
+		
+		assertEquals("Dragonborn", test.getRaceTitle());
+		
+		assertEquals(2, test.getSTRScore());
+		
+		assertEquals(1, test.getCHAScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals("Draconic", test.getLanguages().get(0));
+		
+		assertEquals(0, test.getProficiencies().size());
+	}
+	
+	//Forest Gnome Tests--------------------------------------------------
+	@Test
+	public void testForestGnome() {
+		PC test = new PC();
+		test.setRace("Forest Gnome");
+		
+		assertEquals("Forest Gnome", test.getRaceTitle());
+		
+		assertEquals(2, test.getINTScore());
+		
+		assertEquals(1, test.getDEXScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals("Gnomish", test.getLanguages().get(0));
+		
+		assertEquals(0, test.getProficiencies().size());
+	}
+	
+	//Rock Gnome Tests--------------------------------------------------
+	@Test
+	public void testRockGnome() {
+		PC test = new PC();
+		test.setRace("Rock Gnome");
+		
+		assertEquals("Rock Gnome", test.getRaceTitle());
+		
+		assertEquals(2, test.getINTScore());
+		
+		assertEquals(1, test.getCONScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals("Gnomish", test.getLanguages().get(0));
+		
+		assertEquals(0, test.getProficiencies().size());
+	}
+	
+	//Half-Elf Tests--------------------------------------------------
+	@Test
+	public void testHalfElfGnome() {
+		PC test = new PC();
+		test.setRace("Half-Elf");
+		
+		assertEquals("Half-Elf", test.getRaceTitle());
+		
+		assertEquals(2, test.getCHAScore());
+		
+		assertEquals(1, test.getDEXScore());
+
+		assertEquals(1, test.getCONScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals("Elvish", test.getLanguages().get(0));
+		
+		assertEquals(0, test.getProficiencies().size());
+	}
+	
+	//Half-Orc Tests--------------------------------------------------
+	@Test
+	public void testHalfOrcGnome() {
+		PC test = new PC();
+		test.setRace("Half-Orc");
+		
+		assertEquals("Half-Orc", test.getRaceTitle());
+		
+		assertEquals(2, test.getSTRScore());
+
+		assertEquals(1, test.getCONScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals("Orc", test.getLanguages().get(0));
+		
+		assertEquals(0, test.getProficiencies().size());
+	}
+	
+	//Tiefling Tests--------------------------------------------------
+	@Test
+	public void testTieflingGnome() {
+		PC test = new PC();
+		test.setRace("Tiefling");
+		
+		assertEquals("Tiefling", test.getRaceTitle());
+		
+		assertEquals(2, test.getCHAScore());
+
+		assertEquals(1, test.getINTScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals("Infernal", test.getLanguages().get(0));
+		
+		assertEquals(0, test.getProficiencies().size());
 	}
 }

@@ -17,9 +17,9 @@ public class HillDwarf extends Race {
 		
 		languages.add("Dwarvish");
 		
-		proficienciesWeaponArmor.add("battleaxe");
-		proficienciesWeaponArmor.add("handaxe");
-		proficienciesWeaponArmor.add("throwing hammer");
-		proficienciesWeaponArmor.add("war hammer");
+		proficienciesWeaponArmor.add("Battleaxe");
+		proficienciesWeaponArmor.add("Handaxe");
+		proficienciesWeaponArmor.add("Throwing Hammer");
+		proficienciesWeaponArmor.add("War Hammer");
 	}
 }
