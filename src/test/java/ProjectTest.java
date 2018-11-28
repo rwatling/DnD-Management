@@ -818,4 +818,21 @@ public class ProjectTest {
 		
 		assertEquals(2, test.getProficiencies().size());
 	}
+	
+	//Paladin Tests--------------------------------------------------
+	@Test
+	public void testPaladin() {
+		PC test = new PC();
+		test.setClass("Paladin");
+		
+		assertEquals("Paladin", test.getClassTitle());
+		
+		assertEquals(2, test.getWISScore());
+
+		assertEquals(2, test.getCHAScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals(5, test.getProficiencies().size());
+	}
 }
