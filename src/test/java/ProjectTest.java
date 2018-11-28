@@ -784,4 +784,21 @@ public class ProjectTest {
 		
 		assertEquals(2, test.getProficiencies().size());
 	}
+	
+	//Fighter Tests--------------------------------------------------
+	@Test
+	public void testFighter() {
+		PC test = new PC();
+		test.setClass("Fighter");
+		
+		assertEquals("Fighter", test.getClassTitle());
+		
+		assertEquals(2, test.getSTRScore());
+
+		assertEquals(2, test.getCONScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals(5, test.getProficiencies().size());
+	}
 }
