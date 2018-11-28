@@ -801,4 +801,21 @@ public class ProjectTest {
 		
 		assertEquals(5, test.getProficiencies().size());
 	}
+	
+	//Monk Tests--------------------------------------------------
+	@Test
+	public void testMonk() {
+		PC test = new PC();
+		test.setClass("Monk");
+		
+		assertEquals("Monk", test.getClassTitle());
+		
+		assertEquals(2, test.getSTRScore());
+
+		assertEquals(2, test.getDEXScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals(2, test.getProficiencies().size());
+	}
 }
