@@ -782,7 +782,7 @@ public class ProjectTest {
 		
 		assertEquals(0, test.getHP());
 		
-		assertEquals(2, test.getProficiencies().size());
+		assertEquals(12, test.getProficiencies().size());
 	}
 	
 	//Fighter Tests--------------------------------------------------
@@ -835,4 +835,21 @@ public class ProjectTest {
 		
 		assertEquals(5, test.getProficiencies().size());
 	}
+	
+	//Ranger Tests--------------------------------------------------
+		@Test
+		public void testRanger() {
+			PC test = new PC();
+			test.setClass("Ranger");
+			
+			assertEquals("Ranger", test.getClassTitle());
+			
+			assertEquals(2, test.getSTRScore());
+
+			assertEquals(2, test.getDEXScore());
+			
+			assertEquals(0, test.getHP());
+			
+			assertEquals(4, test.getProficiencies().size());
+		}
 }

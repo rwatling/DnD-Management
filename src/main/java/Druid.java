@@ -11,6 +11,16 @@ public class Druid extends GameClass {
 		increasedAttributes.add(increasedINT);
 		increasedAttributes.add(increasedWIS);
 		
+		proficienciesWeaponArmor.add("Clubs");
+		proficienciesWeaponArmor.add("Daggers");
+		proficienciesWeaponArmor.add("Darts");
+		proficienciesWeaponArmor.add("Javelins");
+		proficienciesWeaponArmor.add("Maves");
+		proficienciesWeaponArmor.add("Quarterstaffs");
+		proficienciesWeaponArmor.add("Scimitars");
+		proficienciesWeaponArmor.add("Sickles");
+		proficienciesWeaponArmor.add("Slings");
+		proficienciesWeaponArmor.add("Spears");
 		proficienciesWeaponArmor.add("Medium Armor");
 		proficienciesWeaponArmor.add("Light Armor");
 	}
