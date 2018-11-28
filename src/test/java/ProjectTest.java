@@ -767,4 +767,21 @@ public class ProjectTest {
 		
 		assertEquals(2, test.getProficiencies().size());
 	}
+	
+	//Druid Tests--------------------------------------------------
+	@Test
+	public void testDruid() {
+		PC test = new PC();
+		test.setClass("Druid");
+		
+		assertEquals("Druid", test.getClassTitle());
+		
+		assertEquals(2, test.getINTScore());
+
+		assertEquals(2, test.getWISScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals(2, test.getProficiencies().size());
+	}
 }
