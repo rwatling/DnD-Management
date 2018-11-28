@@ -716,4 +716,21 @@ public class ProjectTest {
 		
 		assertEquals(0, test.getProficiencies().size());
 	}
+	
+	//Barbarian Tests--------------------------------------------------
+	@Test
+	public void testBarbarian() {
+		PC test = new PC();
+		test.setClass("Barbarian");
+		
+		assertEquals("Barbarian", test.getClassTitle());
+		
+		assertEquals(2, test.getCONScore());
+
+		assertEquals(1, test.getSTRScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals(4, test.getProficiencies().size());
+	}
 }
