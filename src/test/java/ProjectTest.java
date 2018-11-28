@@ -1,4 +1,4 @@
-//package test.java;
+package test.java;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
@@ -727,10 +727,27 @@ public class ProjectTest {
 		
 		assertEquals(2, test.getCONScore());
 
-		assertEquals(1, test.getSTRScore());
+		assertEquals(2, test.getSTRScore());
 		
 		assertEquals(0, test.getHP());
 		
 		assertEquals(4, test.getProficiencies().size());
+	}
+	
+	//Bard Tests--------------------------------------------------
+	@Test
+	public void testBard() {
+		PC test = new PC();
+		test.setClass("Bard");
+		
+		assertEquals("Bard", test.getClassTitle());
+		
+		assertEquals(2, test.getDEXScore());
+
+		assertEquals(2, test.getCHAScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals(6, test.getProficiencies().size());
 	}
 }
