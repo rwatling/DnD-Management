@@ -100,6 +100,7 @@ public class GUI extends Application {
 	 
 	 private Scene createPCScreen() {
 		 BorderPane root = new BorderPane();
+		 PC newCharacter = new PC();
 		 
 		 ImageView logo = getDnDLogo();
 		 
