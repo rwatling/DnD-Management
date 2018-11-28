@@ -1,4 +1,4 @@
-package test.java;
+//package test.java;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
@@ -58,22 +58,27 @@ public class ProjectTest {
 		assertEquals("Skill", stealth.getType());
 		stealth.setTitle("Stealth");
 		assertEquals("Stealth", stealth.getTitle());
-		stealth.setMod(2);
-		assertEquals(2, stealth.getMod());
-		stealth.setProfcy(true);
-		assertEquals(true, stealth.getProfcy());
-		assertEquals(4, stealth.getMod());
 	}
 	
-	/* Included in race tests
 	@Test
-	public void titleRaceTest() {
-		Race tief = new Race();
-		assertEquals("Race", tief.getType());
-		tief.setTitle("Tiefling");
-		assertEquals("Tiefling", tief.getTitle());
+	public void skillsAndAttributesTest() {
+		PC test = new PC();
+		//ints go strength, dex, constitution, intelligence, wisdom, cha
+		test.setAbilityScores(15, 14, 13, 12, 10, 8);
+		assertEquals(2, test.getAthletics().getMod());	//relies on strength
+		assertEquals(2, test.getAcrobatics().getMod());	//relies on dex
+		assertEquals(1, test.getHistory().getMod());	//relies on intelligence
+		assertEquals(0, test.getSurvival().getMod());	//relies on wisdom
+		assertEquals(-1, test.getPerformance().getMod());	//relies on charisma
+		
+		test.setAbilityScores(7, 7, 7, 7, 7, 7);
+		assertEquals(-2, test.getAthletics().getMod());	//relies on strength
+		assertEquals(-2, test.getAcrobatics().getMod());	//relies on dex
+		assertEquals(-2, test.getHistory().getMod());	//relies on intelligence
+		assertEquals(-2, test.getSurvival().getMod());	//relies on wisdom
+		assertEquals(-2, test.getPerformance().getMod());	//relies on charisma
+		//none rely on consitution
 	}
-	*/
 	
 	@Test
 	public void titleBackGroundTest() {
@@ -710,5 +715,22 @@ public class ProjectTest {
 		assertEquals("Infernal", test.getLanguages().get(0));
 		
 		assertEquals(0, test.getProficiencies().size());
+	}
+	
+	//Barbarian Tests--------------------------------------------------
+	@Test
+	public void testBarbarian() {
+		PC test = new PC();
+		test.setClass("Barbarian");
+		
+		assertEquals("Barbarian", test.getClassTitle());
+		
+		assertEquals(2, test.getCONScore());
+
+		assertEquals(1, test.getSTRScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals(4, test.getProficiencies().size());
 	}
 }
