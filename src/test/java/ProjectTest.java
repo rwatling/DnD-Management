@@ -750,4 +750,21 @@ public class ProjectTest {
 		
 		assertEquals(6, test.getProficiencies().size());
 	}
+	
+	//Cleric Tests--------------------------------------------------
+	@Test
+	public void testCleric() {
+		PC test = new PC();
+		test.setClass("Cleric");
+		
+		assertEquals("Cleric", test.getClassTitle());
+		
+		assertEquals(2, test.getWISScore());
+
+		assertEquals(2, test.getCHAScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals(2, test.getProficiencies().size());
+	}
 }
