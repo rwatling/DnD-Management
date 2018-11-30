@@ -1,4 +1,4 @@
-//package test.java;
+package test.java;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
@@ -533,7 +533,7 @@ public class ProjectTest {
 		
 		assertEquals("Elvish", test.getLanguages().get(0));
 		
-		assertEquals("Hand Crossbow", test.getProficiencies().get(2));
+		assertEquals("Hand Crossbows", test.getProficiencies().get(2));
 		
 		assertEquals(3, test.getProficiencies().size());
 	}
@@ -669,7 +669,7 @@ public class ProjectTest {
 		assertEquals(2, test.getCHAScore());
 		
 		assertEquals(1, test.getDEXScore());
-
+		
 		assertEquals(1, test.getCONScore());
 		
 		assertEquals(0, test.getHP());
@@ -688,7 +688,7 @@ public class ProjectTest {
 		assertEquals("Half-Orc", test.getRaceTitle());
 		
 		assertEquals(2, test.getSTRScore());
-
+		
 		assertEquals(1, test.getCONScore());
 		
 		assertEquals(0, test.getHP());
@@ -707,7 +707,7 @@ public class ProjectTest {
 		assertEquals("Tiefling", test.getRaceTitle());
 		
 		assertEquals(2, test.getCHAScore());
-
+		
 		assertEquals(1, test.getINTScore());
 		
 		assertEquals(0, test.getHP());
@@ -726,11 +726,198 @@ public class ProjectTest {
 		assertEquals("Barbarian", test.getClassTitle());
 		
 		assertEquals(2, test.getCONScore());
-
-		assertEquals(1, test.getSTRScore());
+		
+		assertEquals(2, test.getSTRScore());
 		
 		assertEquals(0, test.getHP());
 		
 		assertEquals(4, test.getProficiencies().size());
+	}
+	
+	//Bard Tests--------------------------------------------------
+	@Test
+	public void testBard() {
+		PC test = new PC();
+		test.setClass("Bard");
+		
+		assertEquals("Bard", test.getClassTitle());
+		
+		assertEquals(2, test.getDEXScore());
+		
+		assertEquals(2, test.getCHAScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals(6, test.getProficiencies().size());
+	}
+	
+	//Cleric Tests--------------------------------------------------
+	@Test
+	public void testCleric() {
+		PC test = new PC();
+		test.setClass("Cleric");
+		
+		assertEquals("Cleric", test.getClassTitle());
+		
+		assertEquals(2, test.getWISScore());
+
+		assertEquals(2, test.getCHAScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals(2, test.getProficiencies().size());
+	}
+	
+	//Druid Tests--------------------------------------------------
+	@Test
+	public void testDruid() {
+		PC test = new PC();
+		test.setClass("Druid");
+		
+		assertEquals("Druid", test.getClassTitle());
+		
+		assertEquals(2, test.getINTScore());
+		
+		assertEquals(2, test.getWISScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals(12, test.getProficiencies().size());
+	}
+	
+	//Fighter Tests--------------------------------------------------
+	@Test
+	public void testFighter() {
+		PC test = new PC();
+		test.setClass("Fighter");
+		
+		assertEquals("Fighter", test.getClassTitle());
+		
+		assertEquals(2, test.getSTRScore());
+		
+		assertEquals(2, test.getCONScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals(5, test.getProficiencies().size());
+	}
+	
+	//Monk Tests--------------------------------------------------
+	@Test
+	public void testMonk() {
+		PC test = new PC();
+		test.setClass("Monk");
+		
+		assertEquals("Monk", test.getClassTitle());
+		
+		assertEquals(2, test.getSTRScore());
+		
+		assertEquals(2, test.getDEXScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals(2, test.getProficiencies().size());
+	}
+	
+	//Paladin Tests--------------------------------------------------
+	@Test
+	public void testPaladin() {
+		PC test = new PC();
+		test.setClass("Paladin");
+		
+		assertEquals("Paladin", test.getClassTitle());
+		
+		assertEquals(2, test.getWISScore());
+		
+		assertEquals(2, test.getCHAScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals(5, test.getProficiencies().size());
+	}
+	
+	//Ranger Tests--------------------------------------------------
+	@Test
+	public void testRanger() {
+		PC test = new PC();
+		test.setClass("Ranger");
+		
+		assertEquals("Ranger", test.getClassTitle());
+		
+		assertEquals(2, test.getSTRScore());
+		
+		assertEquals(2, test.getDEXScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals(4, test.getProficiencies().size());
+	}
+	
+	//Rogue Tests--------------------------------------------------
+	@Test
+	public void testRogue() {
+		PC test = new PC();
+		test.setClass("Rogue");
+		
+		assertEquals("Rogue", test.getClassTitle());
+		
+		assertEquals(2, test.getDEXScore());
+		
+		assertEquals(2, test.getINTScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals(6, test.getProficiencies().size());
+	}
+	
+	//Sorcerer Tests--------------------------------------------------
+	@Test
+	public void testSorcerer() {
+		PC test = new PC();
+		test.setClass("Sorcerer");
+		
+		assertEquals("Sorcerer", test.getClassTitle());
+		
+		assertEquals(2, test.getCONScore());
+		
+		assertEquals(2, test.getCHAScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals(5, test.getProficiencies().size());
+	}
+	
+	//Warlock Tests--------------------------------------------------
+	@Test
+	public void testWarlock() {
+		PC test = new PC();
+		test.setClass("Warlock");
+		
+		assertEquals("Warlock", test.getClassTitle());
+		
+		assertEquals(2, test.getWISScore());
+		
+		assertEquals(2, test.getCHAScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals(2, test.getProficiencies().size());
+	}
+	
+	//Wizard Tests--------------------------------------------------
+	@Test
+	public void testWizard() {
+		PC test = new PC();
+		test.setClass("Wizard");
+		
+		assertEquals("Wizard", test.getClassTitle());
+		
+		assertEquals(2, test.getINTScore());
+		
+		assertEquals(2, test.getWISScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals(5, test.getProficiencies().size());
 	}
 }

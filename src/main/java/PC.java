@@ -45,7 +45,7 @@ public class PC {
 	//---------------------------------------------------------------
 	
 	String[] allRaces = new String [] {"Hill Dwarf", "Mountain Dwarf", "High Elf", "Wood Elf", "Dark Elf", "Lightfoot Halfling", "Stout Halfling", "Human", "Dragonborn", "Gnome", "Half-Elf", "Half-Orc", "Tiefling"};
-	String[] allClasses = new String[] {"Barbarian"};
+	String[] allClasses = new String[] {"Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"};
 	ArrayList<String> languages = new ArrayList<String>();
 	ArrayList<String> weaponArmorProfs = new ArrayList<String>();
 	
@@ -171,6 +171,39 @@ public class PC {
 		switch (gameClass) {
 		case "Barbarian":
 			pcClass = new Barbarian();
+			break;
+		case "Bard":
+			pcClass = new Bard();
+			break;
+		case "Cleric":
+			pcClass = new Cleric();
+			break;
+		case "Druid":
+			pcClass = new Druid();
+			break;
+		case "Fighter":
+			pcClass = new Fighter();
+			break;
+		case "Monk":
+			pcClass = new Monk();
+			break;
+		case "Paladin":
+			pcClass = new Paladin();
+			break;
+		case "Ranger":
+			pcClass = new Ranger();
+			break;
+		case "Rogue":
+			pcClass = new Rogue();
+			break;
+		case "Sorcerer":
+			pcClass = new Sorcerer();
+			break;
+		case "Warlock":
+			pcClass = new Warlock();
+			break;
+		case "Wizard":
+			pcClass = new Wizard();
 			break;
 		}
 		
