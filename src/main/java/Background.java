@@ -1,5 +1,7 @@
 package main.java;
 
+import java.util.ArrayList;
+
 public class Background extends Attribute {
 	
 	String title;					// variable title denotes which background this object contains
@@ -22,6 +24,42 @@ public class Background extends Attribute {
 	}
 	
 	public ArrayList<String> getSkillProfs() {
-		
+		return skillProfs;
+	}
+	
+	public void setSkillProfs(ArrayList<String> arr) {
+		skillProfs = (ArrayList) arr.clone();
+	}
+	
+	public int getNumLangs() {
+		return numLangs;
+	}
+	
+	public void setNumLangs(int i) {
+		numLangs = i;
+	}
+	
+	public ArrayList<String> getToolProfs() {
+		return toolProfs;
+	}
+	
+	public void setToolProfs(ArrayList<String> arr) {
+		toolProfs = (ArrayList) arr.clone();
+	}
+	
+	public ArrayList<String> getEquip() {
+		return equip;
+	}
+	
+	public void setEquip(ArrayList<String> arr) {
+		equip = (ArrayList) arr.clone();
+	}
+	
+	public String getFeature() {
+		return feature;
+	}
+	
+	public void setFeature(String s) {
+		feature = s;
 	}
 }
