@@ -869,6 +869,7 @@ public class ProjectTest {
 		
 		assertEquals(6, test.getProficiencies().size());
 	}
+	
 	//Sorcerer Tests--------------------------------------------------
 	@Test
 	public void testSorcerer() {
@@ -884,5 +885,22 @@ public class ProjectTest {
 		assertEquals(0, test.getHP());
 		
 		assertEquals(5, test.getProficiencies().size());
+	}
+	
+	//Warlock Tests--------------------------------------------------
+	@Test
+	public void testWarlock() {
+		PC test = new PC();
+		test.setClass("Warlock");
+		
+		assertEquals("Warlock", test.getClassTitle());
+		
+		assertEquals(2, test.getWISScore());
+
+		assertEquals(2, test.getCHAScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals(2, test.getProficiencies().size());
 	}
 }
