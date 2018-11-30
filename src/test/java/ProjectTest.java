@@ -920,4 +920,37 @@ public class ProjectTest {
 		
 		assertEquals(5, test.getProficiencies().size());
 	}
+	
+	//Acolyte Tests--------------------------------------------------
+	@Test
+	public void testAcolyte() {
+		PC test = new PC();
+		test.setBackground("Acolyte");
+		
+		assertEquals("Acolyte", test.getBackgroundTitle());
+		
+		assertEquals(0, test.getHP());
+		
+		Background testBackground = new Acolyte();
+		
+		ArrayList<String> skillProfs = new ArrayList<String>();
+		skillProfs.add("Insight");
+		skillProfs.add("Religion");
+		
+		assertEquals(skillProfs, testBackground.getSkillProfs());
+		
+		assertEquals(2, testBackground.getNumLangs());
+		
+		ArrayList<String> equipment = new ArrayList<String>();
+		equipment.add("Holy Symbol");
+		equipment.add("Prayer Book or Prayer Wheel");
+		equipment.add("5 Sticks of Incense");
+		equipment.add("Vestments");
+		equipment.add("Set of Common Clothes");
+		equipment.add("Belt Pouch Containing 15gp");
+		
+		assertEquals(equipment, testBackground.getEquip());
+
+		assertEquals("Shelter of the Faithful", testBackground.getFeature());
+	}
 }

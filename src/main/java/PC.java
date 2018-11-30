@@ -12,6 +12,7 @@ public class PC {
 	String gender;
 	Race pcRace = null;
 	GameClass pcClass = null;
+	Background pcBackground = null;
 	int hitPoints = 0;
 	
 	//Ability scores -----------------------------------
@@ -46,6 +47,7 @@ public class PC {
 	
 	String[] allRaces = new String [] {"Hill Dwarf", "Mountain Dwarf", "High Elf", "Wood Elf", "Dark Elf", "Lightfoot Halfling", "Stout Halfling", "Human", "Dragonborn", "Gnome", "Half-Elf", "Half-Orc", "Tiefling"};
 	String[] allClasses = new String[] {"Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"};
+	String[] allBackgrounds = new String[] {"Acolyte"};
 	ArrayList<String> languages = new ArrayList<String>();
 	ArrayList<String> weaponArmorProfs = new ArrayList<String>();
 	
@@ -232,6 +234,14 @@ public class PC {
 		}
 	}
 	
+	public void setBackground(String background) {
+		switch (background) {
+		case "Acolyte":
+			pcBackground = new Acolyte();
+			break;
+		}
+	}
+	
 	public String getRaceTitle() {
 		return pcRace.getTitle();
 	}
@@ -246,6 +256,14 @@ public class PC {
 	
 	public String[] getAllClasses() {
 		return allClasses;
+	}
+	
+	public String getBackgroundTitle() {
+		return pcBackground.getTitle();
+	}
+	
+	public String[] getAllBackgrounds() {
+		return allBackgrounds;
 	}
 	
 	public int getHP() {
