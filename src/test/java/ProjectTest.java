@@ -869,4 +869,20 @@ public class ProjectTest {
 		
 		assertEquals(6, test.getProficiencies().size());
 	}
+	//Sorcerer Tests--------------------------------------------------
+	@Test
+	public void testSorcerer() {
+		PC test = new PC();
+		test.setClass("Sorcerer");
+		
+		assertEquals("Sorcerer", test.getClassTitle());
+		
+		assertEquals(2, test.getCONScore());
+
+		assertEquals(2, test.getCHAScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals(5, test.getProficiencies().size());
+	}
 }
