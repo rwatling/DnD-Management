@@ -12,8 +12,8 @@ public class DarkElf extends Race {
 		
 		languages.add("Elvish");
 		
-		proficienciesWeaponArmor.add("Rapier");
-		proficienciesWeaponArmor.add("Shortsword");
-		proficienciesWeaponArmor.add("Hand Crossbow");
+		proficienciesWeaponArmor.add("Rapiers");
+		proficienciesWeaponArmor.add("Shortswords");
+		proficienciesWeaponArmor.add("Hand Crossbows");
 	}
 }
