@@ -533,7 +533,7 @@ public class ProjectTest {
 		
 		assertEquals("Elvish", test.getLanguages().get(0));
 		
-		assertEquals("Hand Crossbow", test.getProficiencies().get(2));
+		assertEquals("Hand Crossbows", test.getProficiencies().get(2));
 		
 		assertEquals(3, test.getProficiencies().size());
 	}
@@ -669,7 +669,7 @@ public class ProjectTest {
 		assertEquals(2, test.getCHAScore());
 		
 		assertEquals(1, test.getDEXScore());
-
+		
 		assertEquals(1, test.getCONScore());
 		
 		assertEquals(0, test.getHP());
@@ -688,7 +688,7 @@ public class ProjectTest {
 		assertEquals("Half-Orc", test.getRaceTitle());
 		
 		assertEquals(2, test.getSTRScore());
-
+		
 		assertEquals(1, test.getCONScore());
 		
 		assertEquals(0, test.getHP());
@@ -707,7 +707,7 @@ public class ProjectTest {
 		assertEquals("Tiefling", test.getRaceTitle());
 		
 		assertEquals(2, test.getCHAScore());
-
+		
 		assertEquals(1, test.getINTScore());
 		
 		assertEquals(0, test.getHP());
@@ -726,7 +726,7 @@ public class ProjectTest {
 		assertEquals("Barbarian", test.getClassTitle());
 		
 		assertEquals(2, test.getCONScore());
-
+		
 		assertEquals(2, test.getSTRScore());
 		
 		assertEquals(0, test.getHP());
@@ -743,7 +743,7 @@ public class ProjectTest {
 		assertEquals("Bard", test.getClassTitle());
 		
 		assertEquals(2, test.getDEXScore());
-
+		
 		assertEquals(2, test.getCHAScore());
 		
 		assertEquals(0, test.getHP());
@@ -777,7 +777,7 @@ public class ProjectTest {
 		assertEquals("Druid", test.getClassTitle());
 		
 		assertEquals(2, test.getINTScore());
-
+		
 		assertEquals(2, test.getWISScore());
 		
 		assertEquals(0, test.getHP());
@@ -794,7 +794,7 @@ public class ProjectTest {
 		assertEquals("Fighter", test.getClassTitle());
 		
 		assertEquals(2, test.getSTRScore());
-
+		
 		assertEquals(2, test.getCONScore());
 		
 		assertEquals(0, test.getHP());
@@ -811,7 +811,7 @@ public class ProjectTest {
 		assertEquals("Monk", test.getClassTitle());
 		
 		assertEquals(2, test.getSTRScore());
-
+		
 		assertEquals(2, test.getDEXScore());
 		
 		assertEquals(0, test.getHP());
@@ -828,7 +828,7 @@ public class ProjectTest {
 		assertEquals("Paladin", test.getClassTitle());
 		
 		assertEquals(2, test.getWISScore());
-
+		
 		assertEquals(2, test.getCHAScore());
 		
 		assertEquals(0, test.getHP());
@@ -845,7 +845,7 @@ public class ProjectTest {
 		assertEquals("Ranger", test.getClassTitle());
 		
 		assertEquals(2, test.getSTRScore());
-
+		
 		assertEquals(2, test.getDEXScore());
 		
 		assertEquals(0, test.getHP());
@@ -862,7 +862,7 @@ public class ProjectTest {
 		assertEquals("Rogue", test.getClassTitle());
 		
 		assertEquals(2, test.getDEXScore());
-
+		
 		assertEquals(2, test.getINTScore());
 		
 		assertEquals(0, test.getHP());
@@ -879,7 +879,7 @@ public class ProjectTest {
 		assertEquals("Sorcerer", test.getClassTitle());
 		
 		assertEquals(2, test.getCONScore());
-
+		
 		assertEquals(2, test.getCHAScore());
 		
 		assertEquals(0, test.getHP());
@@ -896,11 +896,28 @@ public class ProjectTest {
 		assertEquals("Warlock", test.getClassTitle());
 		
 		assertEquals(2, test.getWISScore());
-
+		
 		assertEquals(2, test.getCHAScore());
 		
 		assertEquals(0, test.getHP());
 		
 		assertEquals(2, test.getProficiencies().size());
+	}
+	
+	//Wizard Tests--------------------------------------------------
+	@Test
+	public void testWizard() {
+		PC test = new PC();
+		test.setClass("Wizard");
+		
+		assertEquals("Wizard", test.getClassTitle());
+		
+		assertEquals(2, test.getINTScore());
+		
+		assertEquals(2, test.getWISScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals(5, test.getProficiencies().size());
 	}
 }
