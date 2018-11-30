@@ -837,19 +837,36 @@ public class ProjectTest {
 	}
 	
 	//Ranger Tests--------------------------------------------------
-		@Test
-		public void testRanger() {
-			PC test = new PC();
-			test.setClass("Ranger");
-			
-			assertEquals("Ranger", test.getClassTitle());
-			
-			assertEquals(2, test.getSTRScore());
+	@Test
+	public void testRanger() {
+		PC test = new PC();
+		test.setClass("Ranger");
+		
+		assertEquals("Ranger", test.getClassTitle());
+		
+		assertEquals(2, test.getSTRScore());
 
-			assertEquals(2, test.getDEXScore());
-			
-			assertEquals(0, test.getHP());
-			
-			assertEquals(4, test.getProficiencies().size());
-		}
+		assertEquals(2, test.getDEXScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals(4, test.getProficiencies().size());
+	}
+	
+	//Rogue Tests--------------------------------------------------
+	@Test
+	public void testRogue() {
+		PC test = new PC();
+		test.setClass("Rogue");
+		
+		assertEquals("Rogue", test.getClassTitle());
+		
+		assertEquals(2, test.getDEXScore());
+
+		assertEquals(2, test.getINTScore());
+		
+		assertEquals(0, test.getHP());
+		
+		assertEquals(6, test.getProficiencies().size());
+	}
 }
