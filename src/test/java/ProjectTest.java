@@ -660,7 +660,7 @@ public class ProjectTest {
 	
 	//Half-Elf Tests--------------------------------------------------
 	@Test
-	public void testHalfElfGnome() {
+	public void testHalfElf() {
 		PC test = new PC();
 		test.setRace("Half-Elf");
 		
@@ -681,7 +681,7 @@ public class ProjectTest {
 	
 	//Half-Orc Tests--------------------------------------------------
 	@Test
-	public void testHalfOrcGnome() {
+	public void testHalfOrc() {
 		PC test = new PC();
 		test.setRace("Half-Orc");
 		
@@ -700,7 +700,7 @@ public class ProjectTest {
 	
 	//Tiefling Tests--------------------------------------------------
 	@Test
-	public void testTieflingGnome() {
+	public void testTiefling() {
 		PC test = new PC();
 		test.setRace("Tiefling");
 		
