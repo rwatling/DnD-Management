@@ -1,6 +1,8 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
+import java.io.PrintWriter;
+import java.io.FileOutputStream;
 import java.io.FileNotFoundException;
 import java.io.File;
 
@@ -28,13 +30,16 @@ public class GUI extends Application {
 	 double HEIGHT = 840;
 	 Scene startScreen;
 	 Scene newCharScene;
+	 Scene spellScene;
 	 Stage window;
+	 String namesFile = "PC_Names.txt";
 	 @Override
 	 public void start(Stage primaryStage) {
 		 window = primaryStage;
 		 
 		 startScreen = createStartScreen();
 		 newCharScene = createPCScreen();
+		 spellScene = createSpellScreen();
 		 
 		 window.setScene(startScreen);
 		 window.setTitle("D&D Manager");
@@ -50,7 +55,7 @@ public class GUI extends Application {
 		 ArrayList<String> pcNameList = new ArrayList<String>();
 		
 		 try {
-			 scan = new Scanner(new File("PC_Names.txt"));
+			 scan = new Scanner(new File(namesFile));
 		 } catch (FileNotFoundException e){
 			 e.printStackTrace();
 		 }
@@ -100,26 +105,15 @@ public class GUI extends Application {
 	 
 	 private Scene createPCScreen() {
 		 BorderPane root = new BorderPane();
-		 PC newCharacter = new PC();
+		 PC newPC = new PC();
 		 
+		 //Top------------------------------------------------------
 		 ImageView logo = getDnDLogo();
+		 root.setTop(logo);
+		 root.setAlignment(logo, Pos.CENTER);
 		 
-		 BorderPane bottomBtnPane = new BorderPane();
-		 
-		 Text backText = new Text("<- Back");
-		 backText.setFont(getFont());
-		 Button back = new Button("", backText);
-		 back.setOnAction(e -> {
-			window.setScene(startScreen);
-		 });
-		 
-		 Text nextText = new Text("Next ->");
-		 nextText.setFont(getFont());
-		 Button next = new Button("", nextText);
-		 
-		 bottomBtnPane.setLeft(back);
-		 bottomBtnPane.setRight(next);
-		 
+		 //Center------------------------------------------------------
+		 //Row 0
 		 int row = 0;
 		 GridPane newCharPane = new GridPane();
 		 newCharPane.setHgap(16);
@@ -130,23 +124,31 @@ public class GUI extends Application {
 		 basicInfo.setFont(getFont(28));
 		 newCharPane.addRow(row++, basicInfo);
 		 
+		 //Row 1
 		 Text charNameText = new Text("Character Name: ");
 		 charNameText.setFont(getFont());
 		 TextField charName = getGenericTextField();
+		 
 		 Text levelText = new Text("Level: ");
 		 levelText.setFont(getFont());
 		 TextField level = getGenericTextField();
 		 newCharPane.addRow(row++, charNameText, charName, levelText, level);
 		 
+		 //Row 2
 		 Text raceText = new Text("Race: ");
 		 raceText.setFont(getFont());
 		 ComboBox<String> raceCombo = new ComboBox<String>();
-		 raceCombo.getItems().addAll("Dwarf", "Elf", "Halfling", "Human", "Dragonborn", "Gnome", "Half-Elf", "Half-Orc", "Tiefling");
+		 String[] allRaces = newPC.getAllRaces();
+		 for (int i =0; i < allRaces.length; i++) {
+			 raceCombo.getItems().add(allRaces[i]);
+		 }
+		 
 		 Text genderText = new Text("Gender: ");
 		 genderText.setFont(getFont());
 		 TextField gender = getGenericTextField();
 		 newCharPane.addRow(row++, raceText, raceCombo, genderText, gender);
 		 
+		 //Row 3
 		 Text alignment = new Text("Alignment:");
 		 alignment.setFont(getFont());
 		 newCharPane.addRow(row, alignment);
@@ -193,6 +195,7 @@ public class GUI extends Application {
 		 size.getItems().addAll("Small", "Medium", "Large");
 		 newCharPane.addRow(row++, sizeText, size);
 		 
+		 //Row 4
 		 Text hairText = new Text("Hair: ");
 		 hairText.setFont(getFont());
 		 TextField hair = getGenericTextField();
@@ -201,19 +204,129 @@ public class GUI extends Application {
 		 Text ageText = new Text("Age: ");
 		 ageText.setFont(getFont());
 		 TextField age = getGenericTextField();
-		 newCharPane.addRow(row, ageText, age);
+		 newCharPane.addRow(row++, ageText, age);
 		 
-		 Text subTypeText = new Text("Subtype: ");
-		 subTypeText.setFont(getFont());
-		 TextField subType = getGenericTextField();		 
+		 //Row 5
+		 Text abilityTitle = new Text("Ability Scores");
+		 abilityTitle.setFont(getFont(28));
+		 newCharPane.addRow(row++, abilityTitle);
+		 
+		 //Row 6 ability score selection
+		 GridPane abilityPane = new GridPane();
+		 abilityPane.setHgap(16);
+		 abilityPane.setVgap(16);
+		 
+		 Text dummyText = new Text(" ");
+		 Text fifteen = new Text("15");
+		 fifteen.setFont(getFont());
+		 Text fourteen = new Text("14");
+		 fourteen.setFont(getFont());
+		 Text thirteen = new Text("13");
+		 thirteen.setFont(getFont());
+		 Text twelve = new Text("12");
+		 twelve.setFont(getFont());
+		 Text ten = new Text("10");
+		 ten.setFont(getFont());
+		 Text eight = new Text("8");
+		 eight.setFont(getFont());
+		 abilityPane.addRow(0, dummyText, fifteen, fourteen, thirteen, twelve, ten, eight);
+		 
+		 Text str = new Text("Strength");
+		 str.setFont(getFont());
+		 Text dex = new Text("Dexterity");
+		 dex.setFont(getFont());
+		 Text con = new Text("Constution");
+		 con.setFont(getFont());
+		 Text intel = new Text("Intelligence");
+		 intel.setFont(getFont());
+		 Text wis = new Text("Wisdom");
+		 wis.setFont(getFont());
+		 Text cha = new Text("Charisma");
+		 cha.setFont(getFont());
+		 
+		 ToggleGroup strToggleGroup = new ToggleGroup();
+		 ToggleGroup dexToggleGroup = new ToggleGroup();
+		 ToggleGroup conToggleGroup = new ToggleGroup();
+		 ToggleGroup intelToggleGroup = new ToggleGroup();
+		 ToggleGroup wisToggleGroup = new ToggleGroup();
+		 ToggleGroup chaToggleGroup = new ToggleGroup();
+		 RadioButton[][] radioButtons = new RadioButton[6][6];
+		 
+		 for (int i = 0; i < 6; i++) {
+			 for (int j = 0; j < 6; j++) {
+				 radioButtons[i][j] = new RadioButton();
+				 if (i == 0) {
+					 radioButtons[i][j].setToggleGroup(strToggleGroup);
+				 } else if (i == 1) {
+					 radioButtons[i][j].setToggleGroup(dexToggleGroup);
+				 } else if (i == 2) {
+					 radioButtons[i][j].setToggleGroup(conToggleGroup);
+				 } else if (i == 3) {
+					 radioButtons[i][j].setToggleGroup(intelToggleGroup);
+				 } else if (i == 4) {
+					 radioButtons[i][j].setToggleGroup(wisToggleGroup);
+				 } else if (i == 5) {
+					 radioButtons[i][j].setToggleGroup(chaToggleGroup);
+				 }
+			 }
+		 }
+		 
+		 for (int i = 0; i < 7; i++) {
+			 for (int j = 0; j < 7; j++) {
+				 if (j == 0) {
+					 if (i == 1) {
+						 abilityPane.add(str, j, i);
+					 } else if (i == 2) {
+						 abilityPane.add(dex, j, i);
+					 } else if (i == 3) {
+						 abilityPane.add(con, j, i);
+					 } else if (i == 4) {
+						 abilityPane.add(intel, j, i);
+					 } else if (i == 5) {
+						 abilityPane.add(wis, j, i);
+					 } else if (i == 6) {
+						 abilityPane.add(cha, j, i);
+					 }
+				 } else if (i > 0 && j > 0){
+					 abilityPane.add(radioButtons[i-1][j-1], j, i);
+				 }
+			 }
+		 }
+		 
+		 newCharPane.addRow(row++, abilityPane);
+		 
+		 //Row 7
 		 
 		 ScrollPane scroll = new ScrollPane(newCharPane);
 		 root.setCenter(scroll);
-		 root.setTop(logo);
-		 root.setAlignment(logo, Pos.CENTER);
+		 
+		 //Bottom-----------------------------------------------------
+		 BorderPane bottomBtnPane = new BorderPane();
+		 
+		 Text backText = new Text("<- Back");
+		 backText.setFont(getFont());
+		 Button back = new Button("", backText);
+		 back.setOnAction(e -> {
+			window.setScene(startScreen);
+		 });
+		 
+		 Text nextText = new Text("Next ->");
+		 nextText.setFont(getFont());
+		 Button next = new Button("", nextText);
+		 next.setOnAction( e -> {
+			window.setScene(startScreen);
+		 });
+		 
+		 bottomBtnPane.setLeft(back);
+		 bottomBtnPane.setRight(next);		 
+		 
 		 root.setBottom(bottomBtnPane);
 		 Scene scene = new Scene(root, WIDTH, HEIGHT);
 		 return scene;
+	 }
+	 
+	 private Scene createSpellScreen() {
+		 return null;
 	 }
 	 
 	 private Font getFont() {

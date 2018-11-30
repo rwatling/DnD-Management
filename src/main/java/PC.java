@@ -207,6 +207,10 @@ public class PC {
 		return allRaces;
 	}
 	
+	public Strin[] getAllClasses() {
+		return allClasses;
+	}
+	
 	public String getClassTitle() {
 		return pcClass.getTitle();
 	}
