@@ -20,6 +20,8 @@ import javafx.scene.Scene;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
+//import main.java.*;
+
 public class GUI extends Application {
 	 public static void main (String[] args) {
 		 launch(args);

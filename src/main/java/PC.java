@@ -1,10 +1,10 @@
-package main.java;
+//package main.java;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import javafx.util.Pair;
-import main.java.*;
+//import main.java.*;
 
 public class PC {
 	String name;

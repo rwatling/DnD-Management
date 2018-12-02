@@ -1,4 +1,4 @@
-package main.java;
+//package main.java;
 
 public class Armor extends Item {
 	private int type; // 0 for no armor, 1 for light armor, 2 for medium armor, 3 for heavy armor.
