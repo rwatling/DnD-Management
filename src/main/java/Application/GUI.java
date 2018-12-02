@@ -207,11 +207,23 @@ public class GUI extends Application {
 		 newCharPane.addRow(row++, ageText, age);
 		 
 		 //Row 5
+		 Text classTitle =   new Text("Class");
+		 classTitle.setFont(getFont());
+		 newCharPane.addRow(row, classTitle);
+		 
+		 ComboBox<String> classCombo = new ComboBox<String>();
+		 String[] allClasses = newPC.getAllClasses();
+		 for (int i = 0; i < allClasses.length; i++) {
+			 classCombo.getItems().addAll(allClasses[i]);
+		 }
+		 newCharPane.addRow(row++, classCombo);
+		 
+		 //Row 7
 		 Text abilityTitle = new Text("Ability Scores");
 		 abilityTitle.setFont(getFont(28));
 		 newCharPane.addRow(row++, abilityTitle);
 		 
-		 //Row 6 ability score selection
+		 //Row 8 ability score selection
 		 GridPane abilityPane = new GridPane();
 		 abilityPane.setHgap(16);
 		 abilityPane.setVgap(16);
@@ -294,8 +306,6 @@ public class GUI extends Application {
 		 }
 		 
 		 newCharPane.addRow(row++, abilityPane);
-		 
-		 //Row 7
 		 
 		 ScrollPane scroll = new ScrollPane(newCharPane);
 		 root.setCenter(scroll);

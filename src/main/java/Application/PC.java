@@ -1,14 +1,11 @@
-package main.java;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import javafx.util.Pair;
-import main.java.*;
 
 public class PC {
 	String name;
-	String alignment;
+	String align;
 	String gender;
 	Race pcRace = null;
 	GameClass pcClass = null;
@@ -230,14 +227,6 @@ public class PC {
 			//Get proficiencies from subclass
 			weaponArmorProfs.addAll(pcClass.getWeaponArmorProficiencies());
 		}
-	}
-	
-	public String getAlignment() {
-		return alignment;
-	}
-	
-	public void setAlignment(String a) {
-		alignment = a;
 	}
 	
 	public String getRaceTitle() {
