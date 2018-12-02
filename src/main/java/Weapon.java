@@ -1,4 +1,4 @@
-package main.java;
+//package main.java;
 
 public class Weapon extends Item {
 	private String damage;
