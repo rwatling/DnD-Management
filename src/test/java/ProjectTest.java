@@ -1026,4 +1026,39 @@ public class ProjectTest {
 
 		assertEquals("Criminal Contact", testBackground.getFeature());
 	}
+	//Entertainer Tests--------------------------------------------------
+	@Test
+	public void testEntertainer() {
+		PC test = new PC();
+		test.setBackground("Entertainer");
+		
+		assertEquals("Entertainer", test.getBackgroundTitle());
+		
+		assertEquals(0, test.getHP());
+		
+		Background testBackground = new Entertainer();
+		
+		ArrayList<String> skillProfs = new ArrayList<String>();
+		skillProfs.add("Acrobatics");
+		skillProfs.add("Performance");
+		
+		assertEquals(skillProfs, testBackground.getSkillProfs());
+		
+		assertEquals(0, testBackground.getNumLangs());
+		
+		ArrayList<String> toolProfs = new ArrayList<String>();
+		toolProfs.add("Disguise Kit");
+		toolProfs.add("One Type of Musical Instrument");
+		
+		assertEquals(toolProfs, testBackground.getToolProfs());
+		
+		ArrayList<String> equipment = new ArrayList<String>();
+		equipment.add("One Musical Instrument");
+		equipment.add("The Favor of an Admirer");
+		equipment.add("Belt Pouch Containing 15gp");
+		
+		assertEquals(equipment, testBackground.getEquip());
+
+		assertEquals("By Popular Demand", testBackground.getFeature());
+	}
 }
