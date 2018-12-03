@@ -260,6 +260,9 @@ public class PC {
 		case "Noble":
 			pcBackground = new Noble();
 			break;
+		case "Outlander":
+			pcBackground = new Outlander();
+			break;
 		}
 	}
 	

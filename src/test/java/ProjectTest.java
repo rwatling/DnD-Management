@@ -1209,4 +1209,41 @@ public class ProjectTest {
 
 		assertEquals("Position of Privilege", testBackground.getFeature());
 	}
+	
+	//Outlander Tests--------------------------------------------------
+	@Test
+	public void testOutlander() {
+		PC test = new PC();
+		test.setBackground("Outlander");
+		
+		assertEquals("Outlander", test.getBackgroundTitle());
+		
+		assertEquals(0, test.getHP());
+		
+		Background testBackground = new Outlander();
+		
+		ArrayList<String> skillProfs = new ArrayList<String>();
+		skillProfs.add("Athletics");
+		skillProfs.add("Survival");
+		
+		assertEquals(skillProfs, testBackground.getSkillProfs());
+		
+		assertEquals(1, testBackground.getNumLangs());
+		
+		ArrayList<String> toolProfs = new ArrayList<String>();
+		toolProfs.add("One Type of Musical Instrument");
+		
+		assertEquals(toolProfs, testBackground.getToolProfs());
+		
+		ArrayList<String> equipment = new ArrayList<String>();
+		equipment.add("Staff");
+		equipment.add("Hunting Trap");
+		equipment.add("Trophy From an Animal You Killed");
+		equipment.add("Set of Traveler's Clothes");
+		equipment.add("Belt Pouch Containing 10 gp");
+		
+		assertEquals(equipment, testBackground.getEquip());
+
+		assertEquals("Wanderer", testBackground.getFeature());
+	}
 }
