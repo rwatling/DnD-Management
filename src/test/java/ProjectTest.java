@@ -1090,14 +1090,50 @@ public class ProjectTest {
 		assertEquals(toolProfs, testBackground.getToolProfs());
 		
 		ArrayList<String> equipment = new ArrayList<String>();
-		equipment.add("A Set of Artisan's Tools (One of Your Choice)");
+		equipment.add("Set of Artisan's Tools (One of Your Choice)");
 		equipment.add("Shovel");
 		equipment.add("Iron Pot");
-		equipment.add("A Set of Common Clothes");
+		equipment.add("Set of Common Clothes");
 		equipment.add("Belt Pouch Containing 10gp");
 		
 		assertEquals(equipment, testBackground.getEquip());
 
 		assertEquals("Rustic Hospitality", testBackground.getFeature());
+	}
+	
+	//Guild Artisan Tests--------------------------------------------------
+	@Test
+	public void testGuildArtisan() {
+		PC test = new PC();
+		test.setBackground("Guild Artisan");
+		
+		assertEquals("Guild Artisan", test.getBackgroundTitle());
+		
+		assertEquals(0, test.getHP());
+		
+		Background testBackground = new GuildArtisan();
+		
+		ArrayList<String> skillProfs = new ArrayList<String>();
+		skillProfs.add("Insight");
+		skillProfs.add("Persuasion");
+		
+		assertEquals(skillProfs, testBackground.getSkillProfs());
+		
+		assertEquals(0, testBackground.getNumLangs());
+		
+		ArrayList<String> toolProfs = new ArrayList<String>();
+		toolProfs.add("One Type of Artisan's Tools");
+		
+		assertEquals(toolProfs, testBackground.getToolProfs());
+		
+		ArrayList<String> equipment = new ArrayList<String>();
+		equipment.add("Set of Artisan's Tools (One of Your Choice)");
+		equipment.add("Letter of Introduction From Your Guild");
+		equipment.add("Set of Traveler's Clothes");
+		equipment.add("Belt Pouch Containing 15gp");
+		
+		assertEquals(equipment, testBackground.getEquip());
+
+		assertEquals("Guild Membership", testBackground.getFeature());
 	}
 }

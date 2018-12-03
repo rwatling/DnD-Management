@@ -2,13 +2,13 @@ package main.java;
 
 import java.util.ArrayList;
 
-public class FolkHero extends Background {
-	public FolkHero() {
-		setTitle("Folk Hero");
+public class GuildArtisan extends Background {
+	public GuildArtisan() {
+		setTitle("Guild Artisan");
 		
 		ArrayList<String> skillProfs = new ArrayList<String>();
-		skillProfs.add("Animal Handling");
-		skillProfs.add("Survival");
+		skillProfs.add("Insight");
+		skillProfs.add("Persuasion");
 		
 		setSkillProfs(skillProfs);
 		
@@ -16,19 +16,17 @@ public class FolkHero extends Background {
 		
 		ArrayList<String> toolProfs = new ArrayList<String>();
 		toolProfs.add("One Type of Artisan's Tools");
-		toolProfs.add("Vehicles (Land)");
 		
 		setToolProfs(toolProfs);
 		
 		ArrayList<String> equipment = new ArrayList<String>();
 		equipment.add("Set of Artisan's Tools (One of Your Choice)");
-		equipment.add("Shovel");
-		equipment.add("Iron Pot");
-		equipment.add("Set of Common Clothes");
-		equipment.add("Belt Pouch Containing 10gp");
+		equipment.add("Letter of Introduction From Your Guild");
+		equipment.add("Set of Traveler's Clothes");
+		equipment.add("Belt Pouch Containing 15gp");
 		
 		setEquip(equipment);
 
-		setFeature("Rustic Hospitality");
+		setFeature("Guild Membership");
 	}
 }
