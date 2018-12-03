@@ -990,4 +990,40 @@ public class ProjectTest {
 
 		assertEquals("False Identity", testBackground.getFeature());
 	}
+	
+	//Criminal Tests--------------------------------------------------
+	@Test
+	public void testCriminal() {
+		PC test = new PC();
+		test.setBackground("Criminal");
+		
+		assertEquals("Criminal", test.getBackgroundTitle());
+		
+		assertEquals(0, test.getHP());
+		
+		Background testBackground = new Criminal();
+		
+		ArrayList<String> skillProfs = new ArrayList<String>();
+		skillProfs.add("Deception");
+		skillProfs.add("Stealth");
+		
+		assertEquals(skillProfs, testBackground.getSkillProfs());
+		
+		assertEquals(0, testBackground.getNumLangs());
+		
+		ArrayList<String> toolProfs = new ArrayList<String>();
+		toolProfs.add("One Type of Gaming Set");
+		toolProfs.add("Thieve's Tools");
+		
+		assertEquals(toolProfs, testBackground.getToolProfs());
+		
+		ArrayList<String> equipment = new ArrayList<String>();
+		equipment.add("Crowbar");
+		equipment.add("Set of Dark Common Clothes Including a Hood");
+		equipment.add("Belt Pouch Containing 15gp");
+		
+		assertEquals(equipment, testBackground.getEquip());
+
+		assertEquals("Criminal Contact", testBackground.getFeature());
+	}
 }
