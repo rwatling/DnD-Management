@@ -1026,6 +1026,7 @@ public class ProjectTest {
 
 		assertEquals("Criminal Contact", testBackground.getFeature());
 	}
+	
 	//Entertainer Tests--------------------------------------------------
 	@Test
 	public void testEntertainer() {
@@ -1060,5 +1061,43 @@ public class ProjectTest {
 		assertEquals(equipment, testBackground.getEquip());
 
 		assertEquals("By Popular Demand", testBackground.getFeature());
+	}
+	
+	//Folk Hero Tests--------------------------------------------------
+	@Test
+	public void testFolkHero() {
+		PC test = new PC();
+		test.setBackground("Folk Hero");
+		
+		assertEquals("Folk Hero", test.getBackgroundTitle());
+		
+		assertEquals(0, test.getHP());
+		
+		Background testBackground = new FolkHero();
+		
+		ArrayList<String> skillProfs = new ArrayList<String>();
+		skillProfs.add("Animal Handling");
+		skillProfs.add("Survival");
+		
+		assertEquals(skillProfs, testBackground.getSkillProfs());
+		
+		assertEquals(0, testBackground.getNumLangs());
+		
+		ArrayList<String> toolProfs = new ArrayList<String>();
+		toolProfs.add("One Type of Artisan's Tools");
+		toolProfs.add("Vehicles (Land)");
+		
+		assertEquals(toolProfs, testBackground.getToolProfs());
+		
+		ArrayList<String> equipment = new ArrayList<String>();
+		equipment.add("A Set of Artisan's Tools (One of Your Choice)");
+		equipment.add("Shovel");
+		equipment.add("Iron Pot");
+		equipment.add("A Set of Common Clothes");
+		equipment.add("Belt Pouch Containing 10gp");
+		
+		assertEquals(equipment, testBackground.getEquip());
+
+		assertEquals("Rustic Hospitality", testBackground.getFeature());
 	}
 }
