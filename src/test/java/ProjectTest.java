@@ -1173,4 +1173,40 @@ public class ProjectTest {
 
 		assertEquals("Discovery", testBackground.getFeature());
 	}
+	
+	//Noble Tests--------------------------------------------------
+	@Test
+	public void testNoble() {
+		PC test = new PC();
+		test.setBackground("Noble");
+		
+		assertEquals("Noble", test.getBackgroundTitle());
+		
+		assertEquals(0, test.getHP());
+		
+		Background testBackground = new Noble();
+		
+		ArrayList<String> skillProfs = new ArrayList<String>();
+		skillProfs.add("History");
+		skillProfs.add("Persuasion");
+		
+		assertEquals(skillProfs, testBackground.getSkillProfs());
+		
+		assertEquals(1, testBackground.getNumLangs());
+		
+		ArrayList<String> toolProfs = new ArrayList<String>();
+		toolProfs.add("One Type of Gaming Set");
+		
+		assertEquals(toolProfs, testBackground.getToolProfs());
+		
+		ArrayList<String> equipment = new ArrayList<String>();
+		equipment.add("Set of Fine Clothes");
+		equipment.add("Signet Ring");
+		equipment.add("Scroll of Pedigree");
+		equipment.add("Purse Containing 25 gp");
+		
+		assertEquals(equipment, testBackground.getEquip());
+
+		assertEquals("Position of Privilege", testBackground.getFeature());
+	}
 }
