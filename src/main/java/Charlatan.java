@@ -24,7 +24,7 @@ public class Charlatan extends Background {
 		equipment.add("Set of Fine Clothes");
 		equipment.add("Disguise Kit");
 		equipment.add("Tools of the con of your choice");
-		equipment.add("Belt Pouch Containing 15gp");
+		equipment.add("Belt Pouch Containing 15 gp");
 		
 		setEquip(equipment);
 

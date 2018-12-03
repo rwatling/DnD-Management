@@ -25,7 +25,7 @@ public class FolkHero extends Background {
 		equipment.add("Shovel");
 		equipment.add("Iron Pot");
 		equipment.add("Set of Common Clothes");
-		equipment.add("Belt Pouch Containing 10gp");
+		equipment.add("Belt Pouch Containing 10 gp");
 		
 		setEquip(equipment);
 

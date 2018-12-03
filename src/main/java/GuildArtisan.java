@@ -23,7 +23,7 @@ public class GuildArtisan extends Background {
 		equipment.add("Set of Artisan's Tools (One of Your Choice)");
 		equipment.add("Letter of Introduction From Your Guild");
 		equipment.add("Set of Traveler's Clothes");
-		equipment.add("Belt Pouch Containing 15gp");
+		equipment.add("Belt Pouch Containing 15 gp");
 		
 		setEquip(equipment);
 

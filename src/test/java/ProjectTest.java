@@ -947,7 +947,7 @@ public class ProjectTest {
 		equipment.add("5 Sticks of Incense");
 		equipment.add("Vestments");
 		equipment.add("Set of Common Clothes");
-		equipment.add("Belt Pouch Containing 15gp");
+		equipment.add("Belt Pouch Containing 15 gp");
 		
 		assertEquals(equipment, testBackground.getEquip());
 
@@ -984,7 +984,7 @@ public class ProjectTest {
 		equipment.add("Set of Fine Clothes");
 		equipment.add("Disguise Kit");
 		equipment.add("Tools of the con of your choice");
-		equipment.add("Belt Pouch Containing 15gp");
+		equipment.add("Belt Pouch Containing 15 gp");
 		
 		assertEquals(equipment, testBackground.getEquip());
 
@@ -1020,7 +1020,7 @@ public class ProjectTest {
 		ArrayList<String> equipment = new ArrayList<String>();
 		equipment.add("Crowbar");
 		equipment.add("Set of Dark Common Clothes Including a Hood");
-		equipment.add("Belt Pouch Containing 15gp");
+		equipment.add("Belt Pouch Containing 15 gp");
 		
 		assertEquals(equipment, testBackground.getEquip());
 
@@ -1056,7 +1056,7 @@ public class ProjectTest {
 		ArrayList<String> equipment = new ArrayList<String>();
 		equipment.add("One Musical Instrument");
 		equipment.add("The Favor of an Admirer");
-		equipment.add("Belt Pouch Containing 15gp");
+		equipment.add("Belt Pouch Containing 15 gp");
 		
 		assertEquals(equipment, testBackground.getEquip());
 
@@ -1094,7 +1094,7 @@ public class ProjectTest {
 		equipment.add("Shovel");
 		equipment.add("Iron Pot");
 		equipment.add("Set of Common Clothes");
-		equipment.add("Belt Pouch Containing 10gp");
+		equipment.add("Belt Pouch Containing 10 gp");
 		
 		assertEquals(equipment, testBackground.getEquip());
 
@@ -1130,10 +1130,47 @@ public class ProjectTest {
 		equipment.add("Set of Artisan's Tools (One of Your Choice)");
 		equipment.add("Letter of Introduction From Your Guild");
 		equipment.add("Set of Traveler's Clothes");
-		equipment.add("Belt Pouch Containing 15gp");
+		equipment.add("Belt Pouch Containing 15 gp");
 		
 		assertEquals(equipment, testBackground.getEquip());
 
 		assertEquals("Guild Membership", testBackground.getFeature());
+	}
+	
+	//Hermit Tests--------------------------------------------------
+	@Test
+	public void testHermit() {
+		PC test = new PC();
+		test.setBackground("Hermit");
+		
+		assertEquals("Hermit", test.getBackgroundTitle());
+		
+		assertEquals(0, test.getHP());
+		
+		Background testBackground = new Hermit();
+		
+		ArrayList<String> skillProfs = new ArrayList<String>();
+		skillProfs.add("Medicine");
+		skillProfs.add("Religion");
+		
+		assertEquals(skillProfs, testBackground.getSkillProfs());
+		
+		assertEquals(1, testBackground.getNumLangs());
+		
+		ArrayList<String> toolProfs = new ArrayList<String>();
+		toolProfs.add("Herbalism Kit");
+		
+		assertEquals(toolProfs, testBackground.getToolProfs());
+		
+		ArrayList<String> equipment = new ArrayList<String>();
+		equipment.add("Scroll Case Stuffed Full of Notes From Your Studies or Prayers");
+		equipment.add("Winter Blanket");
+		equipment.add("Set of Common Clothes");
+		equipment.add("Herbalism Kit");
+		equipment.add("5 gp");
+		
+		assertEquals(equipment, testBackground.getEquip());
+
+		assertEquals("Discovery", testBackground.getFeature());
 	}
 }

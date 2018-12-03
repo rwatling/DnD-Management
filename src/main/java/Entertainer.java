@@ -23,7 +23,7 @@ public class Entertainer extends Background {
 		ArrayList<String> equipment = new ArrayList<String>();
 		equipment.add("One Musical Instrument");
 		equipment.add("The Favor of an Admirer");
-		equipment.add("Belt Pouch Containing 15gp");
+		equipment.add("Belt Pouch Containing 15 gp");
 		
 		setEquip(equipment);
 

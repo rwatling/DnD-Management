@@ -20,7 +20,7 @@ public class Acolyte extends Background {
 		equipment.add("5 Sticks of Incense");
 		equipment.add("Vestments");
 		equipment.add("Set of Common Clothes");
-		equipment.add("Belt Pouch Containing 15gp");
+		equipment.add("Belt Pouch Containing 15 gp");
 		
 		setEquip(equipment);
 

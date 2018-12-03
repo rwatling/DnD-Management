@@ -23,7 +23,7 @@ public class Criminal extends Background {
 		ArrayList<String> equipment = new ArrayList<String>();
 		equipment.add("Crowbar");
 		equipment.add("Set of Dark Common Clothes Including a Hood");
-		equipment.add("Belt Pouch Containing 15gp");
+		equipment.add("Belt Pouch Containing 15 gp");
 		
 		setEquip(equipment);
 
