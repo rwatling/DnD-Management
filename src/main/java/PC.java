@@ -239,6 +239,9 @@ public class PC {
 		case "Acolyte":
 			pcBackground = new Acolyte();
 			break;
+		case "Charlatan":
+			pcBackground = new Charlatan();
+			break;
 		}
 	}
 	

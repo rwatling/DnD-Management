@@ -953,4 +953,41 @@ public class ProjectTest {
 
 		assertEquals("Shelter of the Faithful", testBackground.getFeature());
 	}
+	
+	//Charlatan Tests--------------------------------------------------
+	@Test
+	public void testCharlatan() {
+		PC test = new PC();
+		test.setBackground("Charlatan");
+		
+		assertEquals("Charlatan", test.getBackgroundTitle());
+		
+		assertEquals(0, test.getHP());
+		
+		Background testBackground = new Charlatan();
+		
+		ArrayList<String> skillProfs = new ArrayList<String>();
+		skillProfs.add("Deception");
+		skillProfs.add("Sleight of Hand");
+		
+		assertEquals(skillProfs, testBackground.getSkillProfs());
+		
+		assertEquals(0, testBackground.getNumLangs());
+		
+		ArrayList<String> toolProfs = new ArrayList<String>();
+		toolProfs.add("Disguise Kit");
+		toolProfs.add("Forgery Kit");
+		
+		assertEquals(toolProfs, testBackground.getToolProfs());
+		
+		ArrayList<String> equipment = new ArrayList<String>();
+		equipment.add("Set of Fine Clothes");
+		equipment.add("Disguise Kit");
+		equipment.add("Tools of the con of your choice");
+		equipment.add("Belt Pouch Containing 15gp");
+		
+		assertEquals(equipment, testBackground.getEquip());
+
+		assertEquals("False Identity", testBackground.getFeature());
+	}
 }
