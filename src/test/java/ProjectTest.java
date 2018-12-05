@@ -1279,4 +1279,42 @@ public class ProjectTest {
 
 		assertEquals("Researcher", testBackground.getFeature());
 	}
+	
+	//Sailor Tests--------------------------------------------------
+	@Test
+	public void testSailor() {
+		PC test = new PC();
+		test.setBackground("Sailor");
+		
+		assertEquals("Sailor", test.getBackgroundTitle());
+		
+		assertEquals(0, test.getHP());
+		
+		Background testBackground = new Sailor();
+		
+		ArrayList<String> skillProfs = new ArrayList<String>();
+		skillProfs.add("Athletics");
+		skillProfs.add("Perception");
+		
+		assertEquals(skillProfs, testBackground.getSkillProfs());
+		
+		assertEquals(0, testBackground.getNumLangs());
+		
+		ArrayList<String> toolProfs = new ArrayList<String>();
+		toolProfs.add("Navigator's Tools");
+		toolProfs.add("Vehicles (Water)");
+		
+		assertEquals(toolProfs, testBackground.getToolProfs());
+		
+		ArrayList<String> equipment = new ArrayList<String>();
+		equipment.add("Belaying Pin (Club)");
+		equipment.add("50 Feet of Silk Rope");
+		equipment.add("Lucky Charm");
+		equipment.add("Set of Common Clothes");
+		equipment.add("Belt Pouch Containing 10 gp");
+		
+		assertEquals(equipment, testBackground.getEquip());
+
+		assertEquals("Ship's Passage", testBackground.getFeature());
+	}
 }
