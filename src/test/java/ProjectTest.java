@@ -921,4 +921,478 @@ public class ProjectTest {
 		
 		assertEquals(5, test.getProficiencies().size());
 	}
+	
+	//Acolyte Tests--------------------------------------------------
+	@Test
+	public void testAcolyte() {
+		PC test = new PC();
+		test.setBackground("Acolyte");
+		
+		assertEquals("Acolyte", test.getBackgroundTitle());
+		
+		assertEquals(0, test.getHP());
+		
+		Background testBackground = new Acolyte();
+		
+		ArrayList<String> skillProfs = new ArrayList<String>();
+		skillProfs.add("Insight");
+		skillProfs.add("Religion");
+		
+		assertEquals(skillProfs, testBackground.getSkillProfs());
+		
+		assertEquals(2, testBackground.getNumLangs());
+		
+		ArrayList<String> equipment = new ArrayList<String>();
+		equipment.add("Holy Symbol");
+		equipment.add("Prayer Book or Prayer Wheel");
+		equipment.add("5 Sticks of Incense");
+		equipment.add("Vestments");
+		equipment.add("Set of Common Clothes");
+		equipment.add("Belt Pouch Containing 15 gp");
+		
+		assertEquals(equipment, testBackground.getEquip());
+
+		assertEquals("Shelter of the Faithful", testBackground.getFeature());
+	}
+	
+	//Charlatan Tests--------------------------------------------------
+	@Test
+	public void testCharlatan() {
+		PC test = new PC();
+		test.setBackground("Charlatan");
+		
+		assertEquals("Charlatan", test.getBackgroundTitle());
+		
+		assertEquals(0, test.getHP());
+		
+		Background testBackground = new Charlatan();
+		
+		ArrayList<String> skillProfs = new ArrayList<String>();
+		skillProfs.add("Deception");
+		skillProfs.add("Sleight of Hand");
+		
+		assertEquals(skillProfs, testBackground.getSkillProfs());
+		
+		assertEquals(0, testBackground.getNumLangs());
+		
+		ArrayList<String> toolProfs = new ArrayList<String>();
+		toolProfs.add("Disguise Kit");
+		toolProfs.add("Forgery Kit");
+		
+		assertEquals(toolProfs, testBackground.getToolProfs());
+		
+		ArrayList<String> equipment = new ArrayList<String>();
+		equipment.add("Set of Fine Clothes");
+		equipment.add("Disguise Kit");
+		equipment.add("Tools of the con of your choice");
+		equipment.add("Belt Pouch Containing 15 gp");
+		
+		assertEquals(equipment, testBackground.getEquip());
+
+		assertEquals("False Identity", testBackground.getFeature());
+	}
+	
+	//Criminal Tests--------------------------------------------------
+	@Test
+	public void testCriminal() {
+		PC test = new PC();
+		test.setBackground("Criminal");
+		
+		assertEquals("Criminal", test.getBackgroundTitle());
+		
+		assertEquals(0, test.getHP());
+		
+		Background testBackground = new Criminal();
+		
+		ArrayList<String> skillProfs = new ArrayList<String>();
+		skillProfs.add("Deception");
+		skillProfs.add("Stealth");
+		
+		assertEquals(skillProfs, testBackground.getSkillProfs());
+		
+		assertEquals(0, testBackground.getNumLangs());
+		
+		ArrayList<String> toolProfs = new ArrayList<String>();
+		toolProfs.add("One Type of Gaming Set");
+		toolProfs.add("Thieve's Tools");
+		
+		assertEquals(toolProfs, testBackground.getToolProfs());
+		
+		ArrayList<String> equipment = new ArrayList<String>();
+		equipment.add("Crowbar");
+		equipment.add("Set of Dark Common Clothes Including a Hood");
+		equipment.add("Belt Pouch Containing 15 gp");
+		
+		assertEquals(equipment, testBackground.getEquip());
+
+		assertEquals("Criminal Contact", testBackground.getFeature());
+	}
+	
+	//Entertainer Tests--------------------------------------------------
+	@Test
+	public void testEntertainer() {
+		PC test = new PC();
+		test.setBackground("Entertainer");
+		
+		assertEquals("Entertainer", test.getBackgroundTitle());
+		
+		assertEquals(0, test.getHP());
+		
+		Background testBackground = new Entertainer();
+		
+		ArrayList<String> skillProfs = new ArrayList<String>();
+		skillProfs.add("Acrobatics");
+		skillProfs.add("Performance");
+		
+		assertEquals(skillProfs, testBackground.getSkillProfs());
+		
+		assertEquals(0, testBackground.getNumLangs());
+		
+		ArrayList<String> toolProfs = new ArrayList<String>();
+		toolProfs.add("Disguise Kit");
+		toolProfs.add("One Type of Musical Instrument");
+		
+		assertEquals(toolProfs, testBackground.getToolProfs());
+		
+		ArrayList<String> equipment = new ArrayList<String>();
+		equipment.add("One Musical Instrument");
+		equipment.add("The Favor of an Admirer");
+		equipment.add("Belt Pouch Containing 15 gp");
+		
+		assertEquals(equipment, testBackground.getEquip());
+
+		assertEquals("By Popular Demand", testBackground.getFeature());
+	}
+	
+	//Folk Hero Tests--------------------------------------------------
+	@Test
+	public void testFolkHero() {
+		PC test = new PC();
+		test.setBackground("Folk Hero");
+		
+		assertEquals("Folk Hero", test.getBackgroundTitle());
+		
+		assertEquals(0, test.getHP());
+		
+		Background testBackground = new FolkHero();
+		
+		ArrayList<String> skillProfs = new ArrayList<String>();
+		skillProfs.add("Animal Handling");
+		skillProfs.add("Survival");
+		
+		assertEquals(skillProfs, testBackground.getSkillProfs());
+		
+		assertEquals(0, testBackground.getNumLangs());
+		
+		ArrayList<String> toolProfs = new ArrayList<String>();
+		toolProfs.add("One Type of Artisan's Tools");
+		toolProfs.add("Vehicles (Land)");
+		
+		assertEquals(toolProfs, testBackground.getToolProfs());
+		
+		ArrayList<String> equipment = new ArrayList<String>();
+		equipment.add("Set of Artisan's Tools (One of Your Choice)");
+		equipment.add("Shovel");
+		equipment.add("Iron Pot");
+		equipment.add("Set of Common Clothes");
+		equipment.add("Belt Pouch Containing 10 gp");
+		
+		assertEquals(equipment, testBackground.getEquip());
+
+		assertEquals("Rustic Hospitality", testBackground.getFeature());
+	}
+	
+	//Guild Artisan Tests--------------------------------------------------
+	@Test
+	public void testGuildArtisan() {
+		PC test = new PC();
+		test.setBackground("Guild Artisan");
+		
+		assertEquals("Guild Artisan", test.getBackgroundTitle());
+		
+		assertEquals(0, test.getHP());
+		
+		Background testBackground = new GuildArtisan();
+		
+		ArrayList<String> skillProfs = new ArrayList<String>();
+		skillProfs.add("Insight");
+		skillProfs.add("Persuasion");
+		
+		assertEquals(skillProfs, testBackground.getSkillProfs());
+		
+		assertEquals(0, testBackground.getNumLangs());
+		
+		ArrayList<String> toolProfs = new ArrayList<String>();
+		toolProfs.add("One Type of Artisan's Tools");
+		
+		assertEquals(toolProfs, testBackground.getToolProfs());
+		
+		ArrayList<String> equipment = new ArrayList<String>();
+		equipment.add("Set of Artisan's Tools (One of Your Choice)");
+		equipment.add("Letter of Introduction From Your Guild");
+		equipment.add("Set of Traveler's Clothes");
+		equipment.add("Belt Pouch Containing 15 gp");
+		
+		assertEquals(equipment, testBackground.getEquip());
+
+		assertEquals("Guild Membership", testBackground.getFeature());
+	}
+	
+	//Hermit Tests--------------------------------------------------
+	@Test
+	public void testHermit() {
+		PC test = new PC();
+		test.setBackground("Hermit");
+		
+		assertEquals("Hermit", test.getBackgroundTitle());
+		
+		assertEquals(0, test.getHP());
+		
+		Background testBackground = new Hermit();
+		
+		ArrayList<String> skillProfs = new ArrayList<String>();
+		skillProfs.add("Medicine");
+		skillProfs.add("Religion");
+		
+		assertEquals(skillProfs, testBackground.getSkillProfs());
+		
+		assertEquals(1, testBackground.getNumLangs());
+		
+		ArrayList<String> toolProfs = new ArrayList<String>();
+		toolProfs.add("Herbalism Kit");
+		
+		assertEquals(toolProfs, testBackground.getToolProfs());
+		
+		ArrayList<String> equipment = new ArrayList<String>();
+		equipment.add("Scroll Case Stuffed Full of Notes From Your Studies or Prayers");
+		equipment.add("Winter Blanket");
+		equipment.add("Set of Common Clothes");
+		equipment.add("Herbalism Kit");
+		equipment.add("5 gp");
+		
+		assertEquals(equipment, testBackground.getEquip());
+
+		assertEquals("Discovery", testBackground.getFeature());
+	}
+	
+	//Noble Tests--------------------------------------------------
+	@Test
+	public void testNoble() {
+		PC test = new PC();
+		test.setBackground("Noble");
+		
+		assertEquals("Noble", test.getBackgroundTitle());
+		
+		assertEquals(0, test.getHP());
+		
+		Background testBackground = new Noble();
+		
+		ArrayList<String> skillProfs = new ArrayList<String>();
+		skillProfs.add("History");
+		skillProfs.add("Persuasion");
+		
+		assertEquals(skillProfs, testBackground.getSkillProfs());
+		
+		assertEquals(1, testBackground.getNumLangs());
+		
+		ArrayList<String> toolProfs = new ArrayList<String>();
+		toolProfs.add("One Type of Gaming Set");
+		
+		assertEquals(toolProfs, testBackground.getToolProfs());
+		
+		ArrayList<String> equipment = new ArrayList<String>();
+		equipment.add("Set of Fine Clothes");
+		equipment.add("Signet Ring");
+		equipment.add("Scroll of Pedigree");
+		equipment.add("Purse Containing 25 gp");
+		
+		assertEquals(equipment, testBackground.getEquip());
+
+		assertEquals("Position of Privilege", testBackground.getFeature());
+	}
+	
+	//Outlander Tests--------------------------------------------------
+	@Test
+	public void testOutlander() {
+		PC test = new PC();
+		test.setBackground("Outlander");
+		
+		assertEquals("Outlander", test.getBackgroundTitle());
+		
+		assertEquals(0, test.getHP());
+		
+		Background testBackground = new Outlander();
+		
+		ArrayList<String> skillProfs = new ArrayList<String>();
+		skillProfs.add("Athletics");
+		skillProfs.add("Survival");
+		
+		assertEquals(skillProfs, testBackground.getSkillProfs());
+		
+		assertEquals(1, testBackground.getNumLangs());
+		
+		ArrayList<String> toolProfs = new ArrayList<String>();
+		toolProfs.add("One Type of Musical Instrument");
+		
+		assertEquals(toolProfs, testBackground.getToolProfs());
+		
+		ArrayList<String> equipment = new ArrayList<String>();
+		equipment.add("Staff");
+		equipment.add("Hunting Trap");
+		equipment.add("Trophy From an Animal You Killed");
+		equipment.add("Set of Traveler's Clothes");
+		equipment.add("Belt Pouch Containing 10 gp");
+		
+		assertEquals(equipment, testBackground.getEquip());
+
+		assertEquals("Wanderer", testBackground.getFeature());
+	}
+	
+	//Sage Tests--------------------------------------------------
+	@Test
+	public void testSage() {
+		PC test = new PC();
+		test.setBackground("Sage");
+		
+		assertEquals("Sage", test.getBackgroundTitle());
+		
+		assertEquals(0, test.getHP());
+		
+		Background testBackground = new Sage();
+		
+		ArrayList<String> skillProfs = new ArrayList<String>();
+		skillProfs.add("Arcana");
+		skillProfs.add("History");
+		
+		assertEquals(skillProfs, testBackground.getSkillProfs());
+		
+		assertEquals(2, testBackground.getNumLangs());
+		
+		ArrayList<String> equipment = new ArrayList<String>();
+		equipment.add("Bottle of Black Ink");
+		equipment.add("Quill");
+		equipment.add("Small Knife");
+		equipment.add("Letter From a Dead Colleague Posing a Question You Have Not Yet Been Able To Answer");
+		equipment.add("Set of Common Clothes");
+		equipment.add("Belt Pouch Containing 10 gp");
+		
+		assertEquals(equipment, testBackground.getEquip());
+
+		assertEquals("Researcher", testBackground.getFeature());
+	}
+	
+	//Sailor Tests--------------------------------------------------
+	@Test
+	public void testSailor() {
+		PC test = new PC();
+		test.setBackground("Sailor");
+		
+		assertEquals("Sailor", test.getBackgroundTitle());
+		
+		assertEquals(0, test.getHP());
+		
+		Background testBackground = new Sailor();
+		
+		ArrayList<String> skillProfs = new ArrayList<String>();
+		skillProfs.add("Athletics");
+		skillProfs.add("Perception");
+		
+		assertEquals(skillProfs, testBackground.getSkillProfs());
+		
+		assertEquals(0, testBackground.getNumLangs());
+		
+		ArrayList<String> toolProfs = new ArrayList<String>();
+		toolProfs.add("Navigator's Tools");
+		toolProfs.add("Vehicles (Water)");
+		
+		assertEquals(toolProfs, testBackground.getToolProfs());
+		
+		ArrayList<String> equipment = new ArrayList<String>();
+		equipment.add("Belaying Pin (Club)");
+		equipment.add("50 Feet of Silk Rope");
+		equipment.add("Lucky Charm");
+		equipment.add("Set of Common Clothes");
+		equipment.add("Belt Pouch Containing 10 gp");
+		
+		assertEquals(equipment, testBackground.getEquip());
+
+		assertEquals("Ship's Passage", testBackground.getFeature());
+	}
+	
+	//Soldier Tests--------------------------------------------------
+	@Test
+	public void testSoldier() {
+		PC test = new PC();
+		test.setBackground("Soldier");
+		
+		assertEquals("Soldier", test.getBackgroundTitle());
+		
+		assertEquals(0, test.getHP());
+		
+		Background testBackground = new Soldier();
+		
+		ArrayList<String> skillProfs = new ArrayList<String>();
+		skillProfs.add("Athletics");
+		skillProfs.add("Intimidation");
+		
+		assertEquals(skillProfs, testBackground.getSkillProfs());
+		
+		assertEquals(0, testBackground.getNumLangs());
+		
+		ArrayList<String> toolProfs = new ArrayList<String>();
+		toolProfs.add("One Type of Gaming Set");
+		toolProfs.add("Vehicles (Land)");
+		
+		assertEquals(toolProfs, testBackground.getToolProfs());
+		
+		ArrayList<String> equipment = new ArrayList<String>();
+		equipment.add("Insignia of Rank");
+		equipment.add("Trophy Taken From a Fallen Enemy");
+		equipment.add("Set of Bone Dice or Deck of Cards");
+		equipment.add("Set of Common Clothes");
+		equipment.add("Belt Pouch Containing 10 gp");
+		
+		assertEquals(equipment, testBackground.getEquip());
+
+		assertEquals("Military Rank", testBackground.getFeature());
+	}
+	
+	//Urchin Tests--------------------------------------------------
+	@Test
+	public void testUrchin() {
+		PC test = new PC();
+		test.setBackground("Urchin");
+		
+		assertEquals("Urchin", test.getBackgroundTitle());
+		
+		assertEquals(0, test.getHP());
+		
+		Background testBackground = new Urchin();
+		
+		ArrayList<String> skillProfs = new ArrayList<String>();
+		skillProfs.add("Sleight of Hand");
+		skillProfs.add("Stealth");
+		
+		assertEquals(skillProfs, testBackground.getSkillProfs());
+		
+		assertEquals(0, testBackground.getNumLangs());
+		
+		ArrayList<String> toolProfs = new ArrayList<String>();
+		toolProfs.add("Disguise Kit");
+		toolProfs.add("Thieves' Tools");
+		
+		assertEquals(toolProfs, testBackground.getToolProfs());
+		
+		ArrayList<String> equipment = new ArrayList<String>();
+		equipment.add("Small Knife");
+		equipment.add("Map of the City You Grew Up In");
+		equipment.add("Pet Mouse");
+		equipment.add("Token to Remember Your Parents By");
+		equipment.add("Set of Common Clothes");
+		equipment.add("Belt Pouch Containing 10 gp");
+		
+		assertEquals(equipment, testBackground.getEquip());
+
+		assertEquals("City Secrets", testBackground.getFeature());
+	}
 }
