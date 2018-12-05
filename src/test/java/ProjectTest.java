@@ -1246,4 +1246,37 @@ public class ProjectTest {
 
 		assertEquals("Wanderer", testBackground.getFeature());
 	}
+	
+	//Sage Tests--------------------------------------------------
+	@Test
+	public void testSage() {
+		PC test = new PC();
+		test.setBackground("Sage");
+		
+		assertEquals("Sage", test.getBackgroundTitle());
+		
+		assertEquals(0, test.getHP());
+		
+		Background testBackground = new Sage();
+		
+		ArrayList<String> skillProfs = new ArrayList<String>();
+		skillProfs.add("Arcana");
+		skillProfs.add("History");
+		
+		assertEquals(skillProfs, testBackground.getSkillProfs());
+		
+		assertEquals(2, testBackground.getNumLangs());
+		
+		ArrayList<String> equipment = new ArrayList<String>();
+		equipment.add("Bottle of Black Ink");
+		equipment.add("Quill");
+		equipment.add("Small Knife");
+		equipment.add("Letter From a Dead Colleague Posing a Question You Have Not Yet Been Able To Answer");
+		equipment.add("Set of Common Clothes");
+		equipment.add("Belt Pouch Containing 10 gp");
+		
+		assertEquals(equipment, testBackground.getEquip());
+
+		assertEquals("Researcher", testBackground.getFeature());
+	}
 }
