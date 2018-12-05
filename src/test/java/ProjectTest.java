@@ -1317,4 +1317,42 @@ public class ProjectTest {
 
 		assertEquals("Ship's Passage", testBackground.getFeature());
 	}
+	
+	//Soldier Tests--------------------------------------------------
+	@Test
+	public void testSoldier() {
+		PC test = new PC();
+		test.setBackground("Soldier");
+		
+		assertEquals("Soldier", test.getBackgroundTitle());
+		
+		assertEquals(0, test.getHP());
+		
+		Background testBackground = new Soldier();
+		
+		ArrayList<String> skillProfs = new ArrayList<String>();
+		skillProfs.add("Athletics");
+		skillProfs.add("Intimidation");
+		
+		assertEquals(skillProfs, testBackground.getSkillProfs());
+		
+		assertEquals(0, testBackground.getNumLangs());
+		
+		ArrayList<String> toolProfs = new ArrayList<String>();
+		toolProfs.add("One Type of Gaming Set");
+		toolProfs.add("Vehicles (Land)");
+		
+		assertEquals(toolProfs, testBackground.getToolProfs());
+		
+		ArrayList<String> equipment = new ArrayList<String>();
+		equipment.add("Insignia of Rank");
+		equipment.add("Trophy Taken From a Fallen Enemy");
+		equipment.add("Set of Bone Dice or Deck of Cards");
+		equipment.add("Set of Common Clothes");
+		equipment.add("Belt Pouch Containing 10 gp");
+		
+		assertEquals(equipment, testBackground.getEquip());
+
+		assertEquals("Military Rank", testBackground.getFeature());
+	}
 }
