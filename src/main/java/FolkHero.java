@@ -2,7 +2,7 @@ package main.java;
 
 import java.util.ArrayList;
 
-public class FolkHero extends Background {
+//public class FolkHero extends Background {
 	public FolkHero() {
 		setTitle("Folk Hero");
 		
