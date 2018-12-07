@@ -55,10 +55,10 @@ public class PC {
 	
 	String[] allRaces = new String [] {"Hill Dwarf", "Mountain Dwarf", "High Elf", "Wood Elf", "Dark Elf", "Lightfoot Halfling", "Stout Halfling", "Human", "Dragonborn", "Gnome", "Half-Elf", "Half-Orc", "Tiefling"};
 	String[] allClasses = new String[] {"Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"};
-	String[] allBackgrounds = new String[] { "Hello" };
+	String[] allBackgrounds = new String[] {"Acolyte", "Charlatan", "Criminal", "Entertainer", "Folk Hero", "Guild Artisan", "Hermit", "Noble", "Sage", "Sailor", "Soldier", "Urchin"};
 	String[] allSkills = new String[] { "Acrobatics", "Animal Handling", "Arcana", "Athletics", "Deception", "History", "Insight", "Intimidation", "Investigation", "Medicine", "Nature", "Perception", "Persuasion", "Religon",
-			"Sleight of Hand", "Stealth", "Survival" };
 	String[] allSavingThrows = new String[] { "Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma" };
+			"Sleight of Hand", "Stealth", "Survival" };
 	ArrayList<String> languages = new ArrayList<String>();
 	ArrayList<String> weaponArmorProfs = new ArrayList<String>();
 	
@@ -259,6 +259,50 @@ public class PC {
 		alignment = a;
 	}
 	
+	public void setBackground(String background) {
+		switch (background) {
+		case "Acolyte":
+			pcBackground = new Acolyte();
+			break;
+		case "Charlatan":
+			pcBackground = new Charlatan();
+			break;
+		case "Criminal":
+			pcBackground = new Criminal();
+			break;
+		case "Entertainer":
+			pcBackground = new Entertainer();
+			break;
+		case "Folk Hero":
+			pcBackground = new FolkHero();
+			break;
+		case "Guild Artisan":
+			pcBackground = new GuildArtisan();
+			break;
+		case "Hermit":
+			pcBackground = new Hermit();
+			break;
+		case "Noble":
+			pcBackground = new Noble();
+			break;
+		case "Outlander":
+			pcBackground = new Outlander();
+			break;
+		case "Sage":
+			pcBackground = new Sage();
+			break;
+		case "Sailor":
+			pcBackground = new Sailor();
+			break;
+		case "Soldier":
+			pcBackground = new Soldier();
+			break;
+		case "Urchin":
+			pcBackground = new Urchin();
+			break;
+		}
+	}
+	
 	//Get Race information
 	public String getRaceTitle() {
 		return pcRace.getTitle();
@@ -275,6 +319,10 @@ public class PC {
 	
 	public String[] getAllClasses() {
 		return allClasses;
+	}
+	
+	public String getBackgroundTitle() {
+		return pcBackground.getTitle();
 	}
 	
 	

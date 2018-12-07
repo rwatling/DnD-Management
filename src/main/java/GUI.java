@@ -42,7 +42,7 @@ public class GUI extends Application {
 		 
 		 startScreen = createStartScreen();
 		 newCharScene = createPCScreen();
-		 spellScene = createSpellScreen();
+		 
 		 
 		 window.setScene(startScreen);
 		 window.setTitle("D&D Manager");
@@ -447,7 +447,13 @@ public class GUI extends Application {
 		 nextText.setFont(getFont());
 		 Button next = new Button("", nextText);
 		 next.setOnAction( e -> {
-			window.setScene(startScreen);
+			if (true) {
+					spellScene = createSpellScreen(newPC);
+					window.setScene(spellScene);
+				}
+			else {
+				window.setScene(startScreen);
+			}
 		 });
 		 
 		 bottomBtnPane.setLeft(back);
@@ -458,8 +464,83 @@ public class GUI extends Application {
 		 return scene;
 	 }
 	 
-	 private Scene createSpellScreen() {
-		 return null;
+	 private Scene createSpellScreen(PC newPC) {
+		 BorderPane root = new BorderPane();
+		 newPC.setClass("Cleric");
+		 
+		 //Top------------------------------------------------------
+		 ImageView logo = getDnDLogo();
+		 root.setTop(logo);
+		 root.setAlignment(logo, Pos.CENTER);
+		 
+		 //Center------------------------------------------------------
+		 //Row 0
+		 int row = 0;
+		 GridPane spellPane = new GridPane();
+		 spellPane.setHgap(16);
+	   	 spellPane.setVgap(16);
+		 spellPane.setPadding(new Insets(32, 32, 32, 32));
+		 
+		 Text className = new Text("Class: " + newPC.getClassTitle());
+		 className.setFont(getFont(28));
+		 spellPane.addRow(row++, className);
+		 //Row 1
+		 int numCantrips = 0;
+		 if (newPC.getClassTitle() == "Bard" || newPC.getClassTitle() == "Druid" || newPC.getClassTitle() == "Warlock") {
+			numCantrips = 2;
+		 }
+		 else if (newPC.getClassTitle() == "Cleric" || newPC.getClassTitle() == "Wizard") {
+			numCantrips = 3;
+		 }
+		 else if (newPC.getClassTitle() == "Sorcerer") {
+			numCantrips = 4;
+		 }
+		 Text cantrips = new Text("Cantrips: choose " + numCantrips);
+		 cantrips.setFont(getFont(24));
+		 spellPane.addRow(row++, cantrips);
+		 
+		 //Row 2
+		 
+		 
+		 //Row 3
+		 int numSpells = 0;
+		 if (newPC.getClassTitle() == "Bard") {
+			numSpells = 4;
+		 }
+		 else {
+			 numSpells = 2;
+		 }
+		 Text spells = new Text("Spells: choose " + numSpells);
+		 spells.setFont(getFont(24));
+		 spellPane.addRow(row++, spells);
+		 
+		 
+		 ScrollPane scroll = new ScrollPane(spellPane);
+		 root.setCenter(scroll);
+		 
+		 //Bottom-----------------------------------------------------
+		 BorderPane bottomBtnPane = new BorderPane();
+		 
+		 Text backText = new Text("<- Back");
+		 backText.setFont(getFont());
+		 Button back = new Button("", backText);
+		 back.setOnAction(e -> {
+			window.setScene(newCharScene);
+		 });
+		 
+		 Text nextText = new Text("Next ->");
+		 nextText.setFont(getFont());
+		 Button next = new Button("", nextText);
+		 next.setOnAction( e -> {
+			 window.setScene(startScreen);
+		 });
+		 
+		 bottomBtnPane.setLeft(back);
+		 bottomBtnPane.setRight(next);		 
+		 
+		 root.setBottom(bottomBtnPane);
+		 Scene scene = new Scene(root, WIDTH, HEIGHT);
+		 return scene;
 	 }
 	 
 	 private Font getFont() {
