@@ -12,6 +12,7 @@ public class PC {
 	String gender;
 	Race pcRace = null;
 	GameClass pcClass = null;
+	Background pcBackground = null;
 	int hitPoints = 0;
 	
 	//Ability scores -----------------------------------
@@ -22,6 +23,14 @@ public class PC {
 	AbilityScore wisdom = new AbilityScore("WIS");
 	AbilityScore charisma = new AbilityScore("CHA");
 
+	//Saving Throws ------------------------------------
+	SavingThrow strengthSave = new SavingThrow("STR", strength);
+	SavingThrow dexteritySave = new SavingThrow("DEX", dexterity);
+	SavingThrow constitutionSave = new SavingThrow("CON", constitution);
+	SavingThrow intelligenceSave = new SavingThrow("INT", intelligence);
+	SavingThrow wisdomSave = new SavingThrow("WIS", wisdom);
+	SavingThrow charismaSave = new SavingThrow("CHA", charisma);
+	
 	//Skills--------------------------------------------
 	//Proficiency bonus is applied in skill class
 	Skill acrobatics = new  Skill("Acrobatics", dexterity);
@@ -46,6 +55,10 @@ public class PC {
 	
 	String[] allRaces = new String [] {"Hill Dwarf", "Mountain Dwarf", "High Elf", "Wood Elf", "Dark Elf", "Lightfoot Halfling", "Stout Halfling", "Human", "Dragonborn", "Gnome", "Half-Elf", "Half-Orc", "Tiefling"};
 	String[] allClasses = new String[] {"Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"};
+	String[] allBackgrounds = new String[] { "Hello" };
+	String[] allSkills = new String[] { "Acrobatics", "Animal Handling", "Arcana", "Athletics", "Deception", "History", "Insight", "Intimidation", "Investigation", "Medicine", "Nature", "Perception", "Persuasion", "Religon",
+			"Sleight of Hand", "Stealth", "Survival" };
+	String[] allSavingThrows = new String[] { "Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma" };
 	ArrayList<String> languages = new ArrayList<String>();
 	ArrayList<String> weaponArmorProfs = new ArrayList<String>();
 	
@@ -232,6 +245,12 @@ public class PC {
 		}
 	}
 	
+	//Background
+	public String[] getAllBackgrounds() {
+		return allBackgrounds;
+	}
+	
+	//Alignment
 	public String getAlignment() {
 		return alignment;
 	}
@@ -240,6 +259,7 @@ public class PC {
 		alignment = a;
 	}
 	
+	//Get Race information
 	public String getRaceTitle() {
 		return pcRace.getTitle();
 	}
@@ -248,6 +268,7 @@ public class PC {
 		return allRaces;
 	}
 	
+	//Class
 	public String getClassTitle() {
 		return pcClass.getTitle();
 	}
@@ -256,6 +277,8 @@ public class PC {
 		return allClasses;
 	}
 	
+	
+	//Ability Scores
 	public int getHP() {
 		return hitPoints;
 	}
@@ -306,6 +329,23 @@ public class PC {
 	
 	public int getCHAMod() {
 		return charisma.getMod();
+	}
+	//SavingThrow
+	public void setSavingThrowProficiency(String s, boolean b) {
+		//TO DO
+	}
+	
+	public String[] getAllSavingThrows() {
+		return allSavingThrows;
+	}
+	
+	//Skills
+	public String[] getAllSkills() {
+		return allSkills;
+	}
+	
+	public void setSkillProficiency(String s, boolean b) {
+		//Needs implementations
 	}
 	
 	public Skill getAcrobatics() {
@@ -380,10 +420,12 @@ public class PC {
 		return survival;
 	}
 	
+	//Languages
 	public ArrayList<String> getLanguages() {
 		return languages;
 	}
 	
+	//Proficiencies
 	public ArrayList<String> getProficiencies() {
 		return weaponArmorProfs;
 	}

@@ -32,9 +32,9 @@ public class Skill extends Attribute {
 	
 	private void setMod(int i) {	// setMod method will be called whenever corresponding ability score is set or proficiency is gained/lost
 		mod = i;
-		if (profcy) {
-			mod += 2;			// we add the proficiency bonus if the PC has proficiency in this skill
-		}
+//		if (profcy) {
+//			mod += 2;			// we add the proficiency bonus if the PC has proficiency in this skill
+//		}
 	}
 	
 	public boolean getProfcy() {
@@ -43,7 +43,7 @@ public class Skill extends Attribute {
 	
 	public void setProfcy(boolean b) {
 		profcy = b;
-		setMod(getMod());		// modifier must be re-evaluated when proficiency is gained/lost
+		setMod(getMod() + 2);		// modifier must be re-evaluated when proficiency is gained/lost
 	}
 	
 	public void updateAbilityScore(AbilityScore updated) {

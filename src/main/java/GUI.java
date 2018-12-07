@@ -35,6 +35,7 @@ public class GUI extends Application {
 	 Scene spellScene;
 	 Stage window;
 	 String namesFile = "PC_Names.txt";
+	 PC newPC = null;
 	 @Override
 	 public void start(Stage primaryStage) {
 		 window = primaryStage;
@@ -107,7 +108,7 @@ public class GUI extends Application {
 	 
 	 private Scene createPCScreen() {
 		 BorderPane root = new BorderPane();
-		 PC newPC = new PC();
+		 newPC = new PC();
 		 
 		 //Top------------------------------------------------------
 		 ImageView logo = getDnDLogo();
@@ -126,17 +127,25 @@ public class GUI extends Application {
 		 basicInfo.setFont(getFont(28));
 		 newCharPane.addRow(row++, basicInfo);
 		 
-		 //Row 1
+		 //Character Name and Level
 		 Text charNameText = new Text("Character Name: ");
 		 charNameText.setFont(getFont());
 		 TextField charName = getGenericTextField();
+		 charName.setOnAction(e -> {
+			 String name = charName.getText();
+			 if (!name.isEmpty()) {
+				 newPC.setName(name);
+			 }
+		 });		 
 		 
 		 Text levelText = new Text("Level: ");
 		 levelText.setFont(getFont());
 		 TextField level = getGenericTextField();
+		 level.setText("1");
+		 level.setEditable(false);
 		 newCharPane.addRow(row++, charNameText, charName, levelText, level);
 		 
-		 //Row 2
+		 //Race and Gender
 		 Text raceText = new Text("Race: ");
 		 raceText.setFont(getFont());
 		 ComboBox<String> raceCombo = new ComboBox<String>();
@@ -145,13 +154,16 @@ public class GUI extends Application {
 			 raceCombo.getItems().add(allRaces[i]);
 		 }
 		 raceCombo.setPrefSize(WIDTH/4, 16);
+		 raceCombo.setOnAction(e -> {
+			 newPC.setRace(raceCombo.getValue());
+		 });
 		 
 		 Text genderText = new Text("Gender: ");
 		 genderText.setFont(getFont());
 		 TextField gender = getGenericTextField();
 		 newCharPane.addRow(row++, raceText, raceCombo, genderText, gender);
 		 
-		 //Row 3
+		 //Alignment
 		 Text alignment = new Text("Alignment:");
 		 alignment.setFont(getFont());
 		 newCharPane.addRow(row, alignment);
@@ -191,14 +203,16 @@ public class GUI extends Application {
 		 innerAlignmentGP.addRow(2, lawfulEvil, neutralEvil, chaoticEvil);
 		 newCharPane.addRow(row, innerAlignmentGP);
 		 
+		 //Size
 		 Text sizeText = new Text("Size: ");
 		 sizeText.setFont(getFont());
 		 ArrayList<String> sizes = new ArrayList<String>();
 		 ComboBox<String> size = new ComboBox<String>();
 		 size.getItems().addAll("Small", "Medium", "Large");
+		 size.setPrefSize(WIDTH/4, 16);
 		 newCharPane.addRow(row++, sizeText, size);
 		 
-		 //Row 4
+		 //Hair and Age
 		 Text hairText = new Text("Hair: ");
 		 hairText.setFont(getFont());
 		 TextField hair = getGenericTextField();
@@ -209,8 +223,8 @@ public class GUI extends Application {
 		 TextField age = getGenericTextField();
 		 newCharPane.addRow(row++, ageText, age);
 		 
-		 //Row 5
-		 Text classTitle =   new Text("Class");
+		 //Class and Background
+		 Text classTitle = new Text("Class");
 		 classTitle.setFont(getFont());
 		 newCharPane.addRow(row, classTitle);
 		 
@@ -220,14 +234,34 @@ public class GUI extends Application {
 			 classCombo.getItems().addAll(allClasses[i]);
 		 }
 		 classCombo.setPrefSize(WIDTH/4, 16);
-		 newCharPane.addRow(row++, classCombo);
+		 newCharPane.addRow(row, classCombo);
 		 
-		 //Row 7
+		 Text backgroundText = new Text("Background");
+		 backgroundText.setFont(getFont());
+		 ComboBox<String> backgroundCombo = new ComboBox<String>();
+		 String[] allBackgrounds = newPC.getAllBackgrounds();
+		 for (int i = 0; i < allBackgrounds.length; i++) {
+			 backgroundCombo.getItems().addAll(allBackgrounds[i]);
+		 }
+		 backgroundCombo.setPrefSize(WIDTH/4, 16);
+		 newCharPane.addRow(row++, backgroundText, backgroundCombo);
+		 
+		 //Spacer
+		 Text spacer1 = getRowSpacer();
+		 newCharPane.addRow(row++, spacer1);
+		 
+		 //Ability Scores and Saving Throws Titles
 		 Text abilityTitle = new Text("Ability Scores");
 		 abilityTitle.setFont(getFont(28));
-		 newCharPane.addRow(row++, abilityTitle);
 		 
-		 //Row 8 ability score selection
+		 Text spacer5 = getRowSpacer();	//Not actually a row spacer but a column spacer
+		 
+		 Text savingTitle = new Text("Saving Throw");
+		 savingTitle.setFont(getFont(28));
+		 newCharPane.addRow(row++, abilityTitle, spacer5, savingTitle);
+		 //newCharPane.addRow(row++, savingTitle);
+		 
+		 //Ability Scores and Saving Throws
 		 GridPane abilityPane = new GridPane();
 		 abilityPane.setHgap(16);
 		 abilityPane.setVgap(16);
@@ -266,23 +300,23 @@ public class GUI extends Application {
 		 ToggleGroup intelToggleGroup = new ToggleGroup();
 		 ToggleGroup wisToggleGroup = new ToggleGroup();
 		 ToggleGroup chaToggleGroup = new ToggleGroup();
-		 RadioButton[][] radioButtons = new RadioButton[6][6];
+		 RadioButton[][] abilityRadioButtons = new RadioButton[6][6];
 		 
 		 for (int i = 0; i < 6; i++) {
 			 for (int j = 0; j < 6; j++) {
-				 radioButtons[i][j] = new RadioButton();
+				 abilityRadioButtons[i][j] = new RadioButton();
 				 if (i == 0) {
-					 radioButtons[i][j].setToggleGroup(strToggleGroup);
+					 abilityRadioButtons[i][j].setToggleGroup(strToggleGroup);
 				 } else if (i == 1) {
-					 radioButtons[i][j].setToggleGroup(dexToggleGroup);
+					 abilityRadioButtons[i][j].setToggleGroup(dexToggleGroup);
 				 } else if (i == 2) {
-					 radioButtons[i][j].setToggleGroup(conToggleGroup);
+					 abilityRadioButtons[i][j].setToggleGroup(conToggleGroup);
 				 } else if (i == 3) {
-					 radioButtons[i][j].setToggleGroup(intelToggleGroup);
+					 abilityRadioButtons[i][j].setToggleGroup(intelToggleGroup);
 				 } else if (i == 4) {
-					 radioButtons[i][j].setToggleGroup(wisToggleGroup);
+					 abilityRadioButtons[i][j].setToggleGroup(wisToggleGroup);
 				 } else if (i == 5) {
-					 radioButtons[i][j].setToggleGroup(chaToggleGroup);
+					 abilityRadioButtons[i][j].setToggleGroup(chaToggleGroup);
 				 }
 			 }
 		 }
@@ -304,12 +338,97 @@ public class GUI extends Application {
 						 abilityPane.add(cha, j, i);
 					 }
 				 } else if (i > 0 && j > 0){
-					 abilityPane.add(radioButtons[i-1][j-1], j, i);
+					 abilityPane.add(abilityRadioButtons[i-1][j-1], j, i);
 				 }
 			 }
 		 }
 		 
-		 newCharPane.addRow(row++, abilityPane);
+		 GridPane savingPane = new GridPane();
+		 savingPane.setHgap(16);
+		 savingPane.setVgap(16);
+		 Text savingThrowDirections = new Text("(Check if proficient)");
+		 savingThrowDirections.setFont(getFont(16));
+		 savingPane.addRow(0, savingThrowDirections);
+		 
+		 String[] allSavingThrows = newPC.getAllSavingThrows();
+		 ArrayList<CheckBox> savingThrowCheckBoxes = new ArrayList<>();
+		 for (int i = 0; i < allSavingThrows.length; i++) {
+			 Text t = new Text(allSavingThrows[i]);
+			 t.setFont(getFont());
+			 CheckBox cb = new CheckBox();
+			 savingThrowCheckBoxes.add(cb);
+			 savingPane.addRow(i+1, t, cb);
+		 }
+		 Text spacer4 = getRowSpacer();
+		 newCharPane.addRow(row++, abilityPane, spacer4, savingPane);
+		 
+		 //Spacer
+		 Text spacer3 = getRowSpacer();
+		 newCharPane.addRow(row++, spacer3);
+		 
+		 //Skills Title
+		 Text skillsHeader = new Text("Skill Proficiency");
+		 skillsHeader.setFont(getFont(28));
+		 newCharPane.addRow(row++, skillsHeader);
+		 
+		 //Skills
+		 String[] allSkills = newPC.getAllSkills();
+		 ArrayList<CheckBox> skillCheckBoxes = new ArrayList<>();
+		 for (int i = 0; i < allSkills.length; i++) {
+			 Text skill = new Text(allSkills[i]);
+			 skill.setFont(getFont());
+			 CheckBox cb = new CheckBox();
+			 skillCheckBoxes.add(cb);
+			 newCharPane.addRow(row++, skill, cb);
+		 }
+		 
+		 int backToBottom = row; //We reset the row after we add the languages
+		 row -= allSkills.length + 1;
+		 
+		 //Languages Title
+		 Text languagesTitle = new Text("Languages");
+		 languagesTitle.setFont(getFont(28));
+		 Text spacer6 = getRowSpacer();
+		 newCharPane.addRow(row++, spacer6, languagesTitle);
+		 
+		 //Add Languages
+		 ArrayList<String> languages = newPC.getLanguages();
+		 for (int i = 0; i < languages.size(); i++) {
+			 Text langText = new Text(languages.get(i));
+			 Text langSpace = new Text(" ");
+			 newCharPane.addRow(row++, langSpace, langText);
+		 }
+		 
+		 
+		 Text langDirections = new Text("Add other languages as a comma separated list");
+		 langDirections.setFont(getFont(16));
+		 newCharPane.addRow(row++, langDirections);
+		 
+		 
+		 TextField addMoreLangs = getGenericTextField();
+		 newCharPane.addRow(row++, addMoreLangs);
+		 
+		//reset
+		 row = backToBottom;
+		 row++;	//spacer
+		 
+		 // Weapons and Armor
+		 Text weaponArmorTitle = new Text("Weapon and Armor");
+		 weaponArmorTitle.setFont(getFont(28));
+		 newCharPane.addRow(row++, weaponArmorTitle);
+		 
+		 ArrayList<String> weaponArmorProfs = newPC.getProficiencies();
+		 for (int i =0; i < weaponArmorProfs.size(); i++) {
+			 Text t = new Text(weaponArmorProfs.get(i));
+			 newCharPane.addRow(row++, t);
+		 }
+		 
+		 Text weaponArmorDirections = new Text("Add other weapon/armor proficiencies as a comma separated list");
+		 langDirections.setFont(getFont(16));;
+		 newCharPane.addRow(row++, weaponArmorDirections);
+		 
+		 TextField addMoreProfs = getGenericTextField();
+		 newCharPane.addRow(row++, addMoreProfs);
 		 
 		 ScrollPane scroll = new ScrollPane(newCharPane);
 		 root.setCenter(scroll);
@@ -363,5 +482,11 @@ public class GUI extends Application {
 		 tf.setFont(getFont());
 		 
 		 return tf;
+	 }
+	 
+	 private Text getRowSpacer() {
+		 Text temp = new Text(" ");
+		 temp.setFont(getFont());
+		 return temp;
 	 }
  }
