@@ -7,10 +7,6 @@ public class SavingThrow extends Attribute {
 	boolean profcy = false;		// the boolean denoting whether the PC has proficiency in this saving throw
 	AbilityScore reliesOn;
 	
-	public SavingThrow() {
-		setType("SavingThrow");
-	}
-	
 	public SavingThrow(String title, AbilityScore relies) {
 		setType("SavingThrow");
 		setTitle(title);

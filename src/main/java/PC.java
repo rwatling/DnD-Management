@@ -57,8 +57,8 @@ public class PC {
 	String[] allClasses = new String[] {"Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"};
 	String[] allBackgrounds = new String[] {"Acolyte", "Charlatan", "Criminal", "Entertainer", "Folk Hero", "Guild Artisan", "Hermit", "Noble", "Sage", "Sailor", "Soldier", "Urchin"};
 	String[] allSkills = new String[] { "Acrobatics", "Animal Handling", "Arcana", "Athletics", "Deception", "History", "Insight", "Intimidation", "Investigation", "Medicine", "Nature", "Perception", "Persuasion", "Religon",
+			"Sleight of Hand", "Stealth", "Survival"};
 	String[] allSavingThrows = new String[] { "Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma" };
-			"Sleight of Hand", "Stealth", "Survival" };
 	ArrayList<String> languages = new ArrayList<String>();
 	ArrayList<String> weaponArmorProfs = new ArrayList<String>();
 	
