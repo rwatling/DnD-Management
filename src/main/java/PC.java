@@ -14,6 +14,7 @@ public class PC {
 	GameClass pcClass = null;
 	Background pcBackground = null;
 	int hitPoints = 0;
+	Inventory pcInventory = new Inventory();
 	
 	//Ability scores -----------------------------------
 	AbilityScore strength = new AbilityScore("STR");
