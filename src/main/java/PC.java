@@ -7,14 +7,17 @@ import javafx.util.Pair;
 //import main.java.*;
 
 public class PC {
-	String name;
-	String alignment;
-	String gender;
-	Race pcRace = null;
-	GameClass pcClass = null;
-	Background pcBackground = null;
+	private String name;
+	private String alignment;
+	private String gender;
+	private String hair;
+	private String size;
+	int age;
+	private Race pcRace = null;
+	private GameClass pcClass = null;
+	private Background pcBackground = null;
 	int hitPoints = 0;
-	Inventory pcInventory = new Inventory();
+	private Inventory pcInventory = new Inventory();
 	
 	//Ability scores -----------------------------------
 	AbilityScore strength = new AbilityScore("STR");
@@ -71,12 +74,29 @@ public class PC {
 		return name;
 	}
 	
+	public void setHair(String hair) {
+		System.out.println(hair);
+		this.hair = hair;
+	}
+	
+	public String getHair() {
+		return hair;
+	}
+	
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
 	
 	public String getGender() {
 		return gender;
+	}
+	
+	public void setSize(String s) {
+		size = s;
+	}
+	
+	public void setAge(String s) {
+		age = Integer.parseInt(s);
 	}
 	
 	public void setAbilityScores(int str, int dex, int con, int intel, int wis, int cha) {
@@ -472,6 +492,10 @@ public class PC {
 	//Languages
 	public ArrayList<String> getLanguages() {
 		return languages;
+	}
+	
+	public void addLanguage(String language) {
+		languages.add(language);
 	}
 	
 	//Proficiencies

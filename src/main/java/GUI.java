@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 import java.io.PrintWriter;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.io.File;
 
@@ -135,6 +136,16 @@ public class GUI extends Application {
 			 String name = charName.getText();
 			 if (!name.isEmpty()) {
 				 newPC.setName(name);
+				 charName.setDisable(true);
+				 
+				 PrintWriter pw = null;
+				 try {
+					 pw = new PrintWriter(new FileOutputStream(new File(namesFile), true)); //true to append
+					 pw.println(name);
+					 pw.close();
+				 } catch (FileNotFoundException ex) {
+					 ex.printStackTrace();
+				 }
 			 }
 		 });		 
 		 
@@ -156,11 +167,21 @@ public class GUI extends Application {
 		 raceCombo.setPrefSize(WIDTH/4, 16);
 		 raceCombo.setOnAction(e -> {
 			 newPC.setRace(raceCombo.getValue());
+			 
+			 ArrayList<String> languages = newPC.getLanguages();
+			 for (int i = 0; i < languages.size(); i++) {
+				 Text langText = new Text(languages.get(i));
+				 Text langSpace = new Text(" ");
+				 //newCharPane.addRow(row++, langSpace, langText);
+			 }
 		 });
 		 
 		 Text genderText = new Text("Gender: ");
 		 genderText.setFont(getFont());
 		 TextField gender = getGenericTextField();
+		 gender.setOnAction(e -> {
+			 newPC.setGender(gender.getText());
+		 });
 		 newCharPane.addRow(row++, raceText, raceCombo, genderText, gender);
 		 
 		 //Alignment
@@ -169,37 +190,72 @@ public class GUI extends Application {
 		 newCharPane.addRow(row, alignment);
 		 
 		 GridPane innerAlignmentGP = new GridPane();
-		 Text lg = new Text("Lawful Good   ");
+		 Text lg = new Text("Lawful Good");
 		 lg.setFont(getFont(12));
 		 Button lawfulGood = new Button("", lg);
+		 lawfulGood.setOnAction(e -> {
+			 newPC.setAlignment(lg.getText());
+		 });
+		 
 		 Text ng = new Text("Neutral Good");
 		 ng.setFont(getFont(12));
 		 Button neutralGood = new Button("", ng);
-		 Text cg = new Text("Chaotic Good   ");
+		 neutralGood.setOnAction(e -> {
+			 newPC.setAlignment(ng.getText());
+		 });
+		 
+		 Text cg = new Text("Chaotic Good");
 		 cg.setFont(getFont(12));
 		 Button chaoticGood = new Button("", cg);
+		 chaoticGood.setOnAction(e -> {
+			 newPC.setAlignment(cg.getText());
+		 });
 		 innerAlignmentGP.addRow(0, lawfulGood, neutralGood, chaoticGood);
+		 //--------------------------------------------------------------------------
 		 
 		 Text ln = new Text("Lawful Neutral");
 		 ln.setFont(getFont(12));
 		 Button lawfulNeutral = new Button("", ln);
-		 Text n = new Text("Neutral     ");
+		 lawfulNeutral.setOnAction(e -> {
+			 newPC.setAlignment(ln.getText());
+		 });
+		 
+		 Text n = new Text("Neutral");
 		 n.setFont(getFont(12));
 		 Button neutral = new Button("", n);
+		 neutral.setOnAction(e -> {
+			 newPC.setAlignment(n.getText());
+		 });
+		 
 		 Text cn = new Text("Chaotic Neutral");
 		 cn.setFont(getFont(12));
 		 Button chaoticNeutral = new Button("", cn);
+		 chaoticNeutral.setOnAction(e -> {
+			 newPC.setAlignment(cn.getText());
+		 });
 		 innerAlignmentGP.addRow(1, lawfulNeutral, neutral, chaoticNeutral);
+		 //--------------------------------------------------------------------------
 		 
-		 Text le = new Text("Lawful Evil   ");
+		 Text le = new Text("Lawful Evil");
 		 le.setFont(getFont(12));
 		 Button lawfulEvil = new Button("", le);
+		 lawfulEvil.setOnAction(e -> {
+			 newPC.setAlignment(le.getText());
+		 });
+		 
 		 Text ne = new Text("Neutral Evil");
 		 ne.setFont(getFont(12));
 		 Button neutralEvil = new Button("", ne);
-		 Text ce = new Text("Chaotic Evil   ");
+		 neutralEvil.setOnAction(e -> {
+			 newPC.setAlignment(ne.getText());
+		 });
+		 
+		 Text ce = new Text("Chaotic Evil");
 		 ce.setFont(getFont(12));
 		 Button chaoticEvil = new Button("", ce);
+		 chaoticEvil.setOnAction(e -> {
+			 newPC.setAlignment(ce.getText());
+		 });
 		 innerAlignmentGP.addRow(2, lawfulEvil, neutralEvil, chaoticEvil);
 		 newCharPane.addRow(row, innerAlignmentGP);
 		 
@@ -210,17 +266,26 @@ public class GUI extends Application {
 		 ComboBox<String> size = new ComboBox<String>();
 		 size.getItems().addAll("Small", "Medium", "Large");
 		 size.setPrefSize(WIDTH/4, 16);
+		 size.setOnAction(e -> {
+			 newPC.setSize(size.getValue());
+		 });
 		 newCharPane.addRow(row++, sizeText, size);
 		 
 		 //Hair and Age
 		 Text hairText = new Text("Hair: ");
 		 hairText.setFont(getFont());
 		 TextField hair = getGenericTextField();
+		 hair.setOnAction( e -> {
+			 newPC.setHair(hair.getText());
+		 });
 		 newCharPane.addRow(row, hairText, hair);
 		 
 		 Text ageText = new Text("Age: ");
 		 ageText.setFont(getFont());
 		 TextField age = getGenericTextField();
+		 age.setOnAction( e -> {
+			 newPC.setAge(age.getText());
+		 });
 		 newCharPane.addRow(row++, ageText, age);
 		 
 		 //Class and Background
@@ -398,7 +463,6 @@ public class GUI extends Application {
 			 Text langSpace = new Text(" ");
 			 newCharPane.addRow(row++, langSpace, langText);
 		 }
-		 
 		 
 		 Text langDirections = new Text("Add other languages as a comma separated list");
 		 langDirections.setFont(getFont(16));
