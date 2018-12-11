@@ -172,7 +172,6 @@ public class GUI extends Application {
 			 for (int i = 0; i < languages.size(); i++) {
 				 Text langText = new Text(languages.get(i));
 				 Text langSpace = new Text(" ");
-				 //newCharPane.addRow(row++, langSpace, langText);
 			 }
 		 });
 		 
@@ -299,6 +298,9 @@ public class GUI extends Application {
 			 classCombo.getItems().addAll(allClasses[i]);
 		 }
 		 classCombo.setPrefSize(WIDTH/4, 16);
+		 classCombo.setOnAction(e -> {
+			 newPC.setClass(classCombo.getValue());
+		 });
 		 newCharPane.addRow(row, classCombo);
 		 
 		 Text backgroundText = new Text("Background");
@@ -309,6 +311,9 @@ public class GUI extends Application {
 			 backgroundCombo.getItems().addAll(allBackgrounds[i]);
 		 }
 		 backgroundCombo.setPrefSize(WIDTH/4, 16);
+		 backgroundCombo.setOnAction(e -> {
+			newPC.setBackground(backgroundCombo.getValue()); 
+		 });
 		 newCharPane.addRow(row++, backgroundText, backgroundCombo);
 		 
 		 //Spacer
@@ -324,7 +329,6 @@ public class GUI extends Application {
 		 Text savingTitle = new Text("Saving Throw");
 		 savingTitle.setFont(getFont(28));
 		 newCharPane.addRow(row++, abilityTitle, spacer5, savingTitle);
-		 //newCharPane.addRow(row++, savingTitle);
 		 
 		 //Ability Scores and Saving Throws
 		 GridPane abilityPane = new GridPane();
@@ -421,6 +425,9 @@ public class GUI extends Application {
 			 Text t = new Text(allSavingThrows[i]);
 			 t.setFont(getFont());
 			 CheckBox cb = new CheckBox();
+			 cb.setOnAction(e-> {
+				 newPC.setSavingThrowProficiency(t.getText(), cb.isSelected());
+			 });
 			 savingThrowCheckBoxes.add(cb);
 			 savingPane.addRow(i+1, t, cb);
 		 }
@@ -443,6 +450,9 @@ public class GUI extends Application {
 			 Text skill = new Text(allSkills[i]);
 			 skill.setFont(getFont());
 			 CheckBox cb = new CheckBox();
+			 cb.setOnAction(e -> {
+				 newPC.setSkillProficiency(skill.getText(), cb.isSelected());
+			 });
 			 skillCheckBoxes.add(cb);
 			 newCharPane.addRow(row++, skill, cb);
 		 }
@@ -482,7 +492,7 @@ public class GUI extends Application {
 		 newCharPane.addRow(row++, weaponArmorTitle);
 		 
 		 ArrayList<String> weaponArmorProfs = newPC.getProficiencies();
-		 for (int i =0; i < weaponArmorProfs.size(); i++) {
+		 for (int i = 0; i < weaponArmorProfs.size(); i++) {
 			 Text t = new Text(weaponArmorProfs.get(i));
 			 newCharPane.addRow(row++, t);
 		 }

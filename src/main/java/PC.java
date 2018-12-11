@@ -399,9 +399,29 @@ public class PC {
 	public int getCHAMod() {
 		return charisma.getMod();
 	}
+	
 	//SavingThrow
 	public void setSavingThrowProficiency(String s, boolean b) {
-		//TO DO
+		switch (s) {
+		case "Strength":
+			strengthSave.setProfcy(b);
+			break;
+		case "Dexterity":
+			dexteritySave.setProfcy(b);
+			break;
+		case "Constitution":
+			constitutionSave.setProfcy(b);
+			break;
+		case "Intelligence":
+			intelligenceSave.setProfcy(b);
+			break;
+		case "Wisdom":
+			wisdomSave.setProfcy(b);
+			break;
+		case "Charisma":
+			charismaSave.setProfcy(b);
+			break;
+		}
 	}
 	
 	public String[] getAllSavingThrows() {
@@ -414,7 +434,59 @@ public class PC {
 	}
 	
 	public void setSkillProficiency(String s, boolean b) {
-		//Needs implementations
+		switch (s) {
+		case "Acrobatics":
+			acrobatics.setProfcy(b);
+			break;
+		case "Animal Handling":
+			animalHandling.setProfcy(b);
+			break;
+		case "Arcana":
+			arcana.setProfcy(b);
+			break;
+		case "Athletics":
+			athletics.setProfcy(b);
+			break;
+		case "Deception":
+			deception.setProfcy(b);
+			break;
+		case "History":
+			history.setProfcy(b);
+			break;
+		case "Insight":
+			insight.setProfcy(b);
+			break;
+		case "Intimidation":
+			intimidation.setProfcy(b);
+			break;
+		case "Investigation":
+			investigation.setProfcy(b);
+			break;
+		case "Medicine":
+			medicine.setProfcy(b);
+			break;
+		case "Nature":
+			nature.setProfcy(b);
+			break;
+		case "Perception":
+			perception.setProfcy(b);
+			break;
+		case "Persuasion":
+			persuasion.setProfcy(b);
+			break;
+		case "Religon":
+			religon.setProfcy(b);
+			break;
+		case "Sleight of Hand":
+			sleightOfHand.setProfcy(b);
+			break;
+		case "Stealth":
+			stealth.setProfcy(b);
+			break;
+		case "Survival":
+			survival.setProfcy(b);
+			break;
+		}
 	}
 	
 	public Skill getAcrobatics() {
