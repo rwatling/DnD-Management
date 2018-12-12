@@ -43,6 +43,7 @@ public class SavingThrow extends Attribute {
 	}
 	
 	public void setProfcy(boolean b) {
+		System.out.println("Proficiency " + title + " has been changed to " + b);
 		profcy = b;
 		setMod(getMod() + 2);		// modifier must be re-evaluated when proficiency is gained/lost
 	}

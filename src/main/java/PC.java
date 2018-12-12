@@ -13,9 +13,9 @@ public class PC {
 	private String hair;
 	private String size;
 	int age;
-	private Race pcRace = null;
-	private GameClass pcClass = null;
-	private Background pcBackground = null;
+	public Race pcRace = null;
+	public GameClass pcClass = null;
+	public Background pcBackground = null;
 	int hitPoints = 0;
 	private Inventory pcInventory = new Inventory();
 	
@@ -75,7 +75,6 @@ public class PC {
 	}
 	
 	public void setHair(String hair) {
-		System.out.println(hair);
 		this.hair = hair;
 	}
 	
@@ -95,8 +94,16 @@ public class PC {
 		size = s;
 	}
 	
+	public String getSize() {
+		return size;
+	}
+	
 	public void setAge(String s) {
 		age = Integer.parseInt(s);
+	}
+	
+	public int getAge() {
+		return age;
 	}
 	
 	public void setAbilityScores(int str, int dex, int con, int intel, int wis, int cha) {
@@ -278,48 +285,62 @@ public class PC {
 	
 	public void setAlignment(String a) {
 		alignment = a;
+		System.out.println("Alignment is " + alignment);
 	}
 	
 	public void setBackground(String background) {
 		switch (background) {
 		case "Acolyte":
 			pcBackground = new Acolyte();
+			pcBackground.setTitle("Acolyte");
 			break;
 		case "Charlatan":
 			pcBackground = new Charlatan();
+			pcBackground.setTitle("Charlatan");
 			break;
 		case "Criminal":
 			pcBackground = new Criminal();
+			pcBackground.setTitle("Criminal");
 			break;
 		case "Entertainer":
 			pcBackground = new Entertainer();
+			pcBackground.setTitle("Entertainer");
 			break;
 		case "Folk Hero":
 			pcBackground = new FolkHero();
+			pcBackground.setTitle("Folk Hero");
 			break;
 		case "Guild Artisan":
 			pcBackground = new GuildArtisan();
+			pcBackground.setTitle("Guild Artisan");
 			break;
 		case "Hermit":
 			pcBackground = new Hermit();
+			pcBackground.setTitle("Hermit");
 			break;
 		case "Noble":
 			pcBackground = new Noble();
+			pcBackground.setTitle("Noble");
 			break;
 		case "Outlander":
 			pcBackground = new Outlander();
+			pcBackground.setTitle("Outlander");
 			break;
 		case "Sage":
 			pcBackground = new Sage();
+			pcBackground.setTitle("Sage");
 			break;
 		case "Sailor":
 			pcBackground = new Sailor();
+			pcBackground.setTitle("Sailor");
 			break;
 		case "Soldier":
 			pcBackground = new Soldier();
+			pcBackground.setTitle("Soldier");
 			break;
 		case "Urchin":
 			pcBackground = new Urchin();
+			pcBackground.setTitle("Urchin");
 			break;
 		}
 	}
@@ -570,8 +591,20 @@ public class PC {
 		languages.add(language);
 	}
 	
+	public void removeLanguages(ArrayList<String> langs) {
+		languages.removeAll(langs);
+	}
+	
 	//Proficiencies
 	public ArrayList<String> getProficiencies() {
 		return weaponArmorProfs;
+	}
+	
+	public void addWeaponArmorProfs(String s) {
+		weaponArmorProfs.add(s);
+	}
+	
+	public void removeProfs(ArrayList<String> profs) {
+		weaponArmorProfs.removeAll(profs);
 	}
 }

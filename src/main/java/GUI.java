@@ -28,7 +28,6 @@ public class GUI extends Application {
 		 launch(args);
 	 }
 	 
-	 
 	 double WIDTH = 1400;
 	 double HEIGHT = 840;
 	 Scene startScreen;
@@ -42,8 +41,7 @@ public class GUI extends Application {
 		 window = primaryStage;
 		 
 		 startScreen = createStartScreen();
-		 newCharScene = createPCScreen();
-		 
+		 newCharScene = createPCScreen(null); 
 		 
 		 window.setScene(startScreen);
 		 window.setTitle("D&D Manager");
@@ -107,9 +105,13 @@ public class GUI extends Application {
 		 return scene;
 	 }
 	 
-	 private Scene createPCScreen() {
+	 private Scene createPCScreen(PC character) {
 		 BorderPane root = new BorderPane();
-		 newPC = new PC();
+		 if (character == null) {
+			 newPC = new PC();
+		 } else {
+			 newPC = character;
+		 }
 		 
 		 //Top------------------------------------------------------
 		 ImageView logo = getDnDLogo();
@@ -132,6 +134,10 @@ public class GUI extends Application {
 		 Text charNameText = new Text("Character Name: ");
 		 charNameText.setFont(getFont());
 		 TextField charName = getGenericTextField();
+		 if (newPC.getName() != null) {
+			 charName.setText(newPC.getName());
+			 charName.setDisable(true);
+		 }
 		 charName.setOnAction(e -> {
 			 String name = charName.getText();
 			 if (!name.isEmpty()) {
@@ -173,7 +179,11 @@ public class GUI extends Application {
 				 Text langText = new Text(languages.get(i));
 				 Text langSpace = new Text(" ");
 			 }
+			 refresh();
 		 });
+		 if (newPC.pcRace != null) {
+			 raceCombo.setValue(newPC.getRaceTitle());
+		 }
 		 
 		 Text genderText = new Text("Gender: ");
 		 genderText.setFont(getFont());
@@ -181,6 +191,9 @@ public class GUI extends Application {
 		 gender.setOnAction(e -> {
 			 newPC.setGender(gender.getText());
 		 });
+		 if (newPC.getGender() != null) {
+			 gender.setText(newPC.getGender());
+		 }
 		 newCharPane.addRow(row++, raceText, raceCombo, genderText, gender);
 		 
 		 //Alignment
@@ -268,6 +281,9 @@ public class GUI extends Application {
 		 size.setOnAction(e -> {
 			 newPC.setSize(size.getValue());
 		 });
+		 if (newPC.getSize() != null) {
+			 size.setValue(newPC.getSize());
+		 }
 		 newCharPane.addRow(row++, sizeText, size);
 		 
 		 //Hair and Age
@@ -277,6 +293,10 @@ public class GUI extends Application {
 		 hair.setOnAction( e -> {
 			 newPC.setHair(hair.getText());
 		 });
+		 if (newPC.getHair() != null) {
+			 hair.setText(newPC.getHair());
+		 }
+		 
 		 newCharPane.addRow(row, hairText, hair);
 		 
 		 Text ageText = new Text("Age: ");
@@ -285,6 +305,9 @@ public class GUI extends Application {
 		 age.setOnAction( e -> {
 			 newPC.setAge(age.getText());
 		 });
+		 if (newPC.getAge() != 0) {
+			 age.setText(""+newPC.getAge());
+		 }
 		 newCharPane.addRow(row++, ageText, age);
 		 
 		 //Class and Background
@@ -300,7 +323,12 @@ public class GUI extends Application {
 		 classCombo.setPrefSize(WIDTH/4, 16);
 		 classCombo.setOnAction(e -> {
 			 newPC.setClass(classCombo.getValue());
+			 refresh();
 		 });
+		 
+		 if (newPC.pcClass != null) {
+			 classCombo.setValue(newPC.getClassTitle());
+		 }
 		 newCharPane.addRow(row, classCombo);
 		 
 		 Text backgroundText = new Text("Background");
@@ -312,8 +340,13 @@ public class GUI extends Application {
 		 }
 		 backgroundCombo.setPrefSize(WIDTH/4, 16);
 		 backgroundCombo.setOnAction(e -> {
-			newPC.setBackground(backgroundCombo.getValue()); 
+			newPC.setBackground(backgroundCombo.getValue());
+			refresh();
 		 });
+		 
+		 if (newPC.pcBackground != null) {
+			 backgroundCombo.setValue(newPC.getBackgroundTitle());
+		 }
 		 newCharPane.addRow(row++, backgroundText, backgroundCombo);
 		 
 		 //Spacer
@@ -470,8 +503,8 @@ public class GUI extends Application {
 		 ArrayList<String> languages = newPC.getLanguages();
 		 for (int i = 0; i < languages.size(); i++) {
 			 Text langText = new Text(languages.get(i));
-			 Text langSpace = new Text(" ");
-			 newCharPane.addRow(row++, langSpace, langText);
+			 langText.setFont(getFont());
+			 newCharPane.addRow(row++, langText);
 		 }
 		 
 		 Text langDirections = new Text("Add other languages as a comma separated list");
@@ -480,6 +513,16 @@ public class GUI extends Application {
 		 
 		 
 		 TextField addMoreLangs = getGenericTextField();
+		 addMoreLangs.setOnAction(e -> {
+			 Scanner scan = new Scanner(addMoreLangs.getText());
+			 scan.useDelimiter(",");
+			 while (scan.hasNext()) {
+				 String s = scan.next();
+				 s = s.replaceAll(" ", "");
+				 newPC.addLanguage(s);
+			 }
+			 refresh();
+		 });
 		 newCharPane.addRow(row++, addMoreLangs);
 		 
 		//reset
@@ -494,6 +537,7 @@ public class GUI extends Application {
 		 ArrayList<String> weaponArmorProfs = newPC.getProficiencies();
 		 for (int i = 0; i < weaponArmorProfs.size(); i++) {
 			 Text t = new Text(weaponArmorProfs.get(i));
+			 t.setFont(getFont());
 			 newCharPane.addRow(row++, t);
 		 }
 		 
@@ -502,6 +546,16 @@ public class GUI extends Application {
 		 newCharPane.addRow(row++, weaponArmorDirections);
 		 
 		 TextField addMoreProfs = getGenericTextField();
+		 addMoreProfs.setOnAction(e -> {
+			 Scanner scan = new Scanner(addMoreProfs.getText());
+			 scan.useDelimiter(",");
+			 while (scan.hasNext()) {
+				 String s = scan.next();
+				 s = s.replaceAll(" ", "");
+				 newPC.addWeaponArmorProfs(s);
+			 }
+			 refresh();
+		 });
 		 newCharPane.addRow(row++, addMoreProfs);
 		 
 		 ScrollPane scroll = new ScrollPane(newCharPane);
@@ -531,11 +585,16 @@ public class GUI extends Application {
 		 });
 		 
 		 bottomBtnPane.setLeft(back);
-		 bottomBtnPane.setRight(next);		 
+		 bottomBtnPane.setRight(next);	
 		 
 		 root.setBottom(bottomBtnPane);
 		 Scene scene = new Scene(root, WIDTH, HEIGHT);
 		 return scene;
+	 }
+	 
+	 private void refresh() {
+		 newCharScene = createPCScreen(newPC);
+		 window.setScene(newCharScene);
 	 }
 	 
 	 private Scene createSpellScreen(PC newPC) {
