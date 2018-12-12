@@ -599,7 +599,6 @@ public class GUI extends Application {
 	 
 	 private Scene createSpellScreen(PC newPC) {
 		 BorderPane root = new BorderPane();
-		 newPC.setClass("Cleric");
 		 
 		 //Top------------------------------------------------------
 		 ImageView logo = getDnDLogo();
@@ -633,8 +632,255 @@ public class GUI extends Application {
 		 spellPane.addRow(row++, cantrips);
 		 
 		 //Row 2
+		 GridPane cantripPane = new GridPane();
+		 cantripPane.setHgap(16);
+		 cantripPane.setVgap(16);
+		 int cantripCount = 0;
 		 
+		 if (newPC.getClassTitle() == "Sorcerer" || newPC.getClassTitle() == "Wizard") {
+			Text acidSplash = new Text("Acid Splash ");
+			acidSplash.setFont(getFont(20));
+			cantripPane.add(acidSplash, cantripCount++, 0);
+			
+			RadioButton btn = new RadioButton();
+			cantripPane.add(btn, cantripCount++, 0);
+		 }
 		 
+		 if (newPC.getClassTitle() == "Bard" || newPC.getClassTitle() == "Sorcerer" || newPC.getClassTitle() == "Warlock" || newPC.getClassTitle() == "Wizard") {
+			Text bladeWard = new Text("Blade Ward ");
+			bladeWard.setFont(getFont(20));
+			cantripPane.add(bladeWard, cantripCount++, 0);
+			
+			RadioButton btn = new RadioButton();
+			cantripPane.add(btn, cantripCount++, 0);
+		 }
+		 
+		 if (newPC.getClassTitle() == "Sorcerer" || newPC.getClassTitle() == "Warlock" || newPC.getClassTitle() == "Wizard") {
+			Text chillTouch = new Text("Chill Touch ");
+			chillTouch.setFont(getFont(20));
+			cantripPane.add(chillTouch, cantripCount++, 0);
+			
+			RadioButton btn = new RadioButton();
+			cantripPane.add(btn, cantripCount++, 0);
+		 }
+		 
+		 if (newPC.getClassTitle() == "Bard" || newPC.getClassTitle() == "Sorcerer" || newPC.getClassTitle() == "Wizard") {
+			Text dancingLights = new Text("Dancing Lights ");
+			dancingLights.setFont(getFont(20));
+			cantripPane.add(dancingLights, cantripCount++, 0);
+			
+			RadioButton btn = new RadioButton();
+			cantripPane.add(btn, cantripCount++, 0);
+		 }
+		 
+		 if (newPC.getClassTitle() == "Druid") {
+			Text druidcraft = new Text("Druidcraft ");
+			druidcraft.setFont(getFont(20));
+			cantripPane.add(druidcraft, cantripCount++, 0);
+			
+			RadioButton btn = new RadioButton();
+			cantripPane.add(btn, cantripCount++, 0);
+		 }
+		 
+		 if (newPC.getClassTitle() == "Warlock") {
+			Text eldritchBlast = new Text("Eldritch Blast ");
+			eldritchBlast.setFont(getFont(20));
+			cantripPane.add(eldritchBlast, cantripCount++, 0);
+			
+			RadioButton btn = new RadioButton();
+			cantripPane.add(btn, cantripCount++, 0);
+		 }
+		 
+		 if (newPC.getClassTitle() == "Sorcerer" || newPC.getClassTitle() == "Wizard") {
+			Text fireBolt = new Text("Fire Bolt ");
+			fireBolt.setFont(getFont(20));
+			cantripPane.add(fireBolt, cantripCount++, 0);
+			
+			RadioButton btn = new RadioButton();
+			cantripPane.add(btn, cantripCount++, 0);
+		 }
+		 
+		 if (newPC.getClassTitle() == "Bard" || newPC.getClassTitle() == "Sorcerer" || newPC.getClassTitle() == "Warlock" || newPC.getClassTitle() == "Wizard") {
+			Text friends = new Text("Friends ");
+			friends.setFont(getFont(20));
+			cantripPane.add(friends, cantripCount++, 0);
+			
+			RadioButton btn = new RadioButton();
+			cantripPane.add(btn, cantripCount++, 0);
+		 }
+		 
+		 if (newPC.getClassTitle() == "Cleric" || newPC.getClassTitle() == "Druid") {
+			Text guidance = new Text("Guidance ");
+			guidance.setFont(getFont(20));
+			cantripPane.add(guidance, cantripCount++, 0);
+			
+			RadioButton btn = new RadioButton();
+			cantripPane.add(btn, cantripCount++, 0);
+		 }
+		 
+		 if (newPC.getClassTitle() == "Bard" || newPC.getClassTitle() == "Cleric" || newPC.getClassTitle() == "Sorcerer" ||  newPC.getClassTitle() == "Wizard") {
+			Text light = new Text("Light ");
+			light.setFont(getFont(20));
+			cantripPane.add(light, cantripCount++, 0);
+			
+			RadioButton btn = new RadioButton();
+			cantripPane.add(btn, cantripCount++, 0);
+		 }
+		 
+		 if (newPC.getClassTitle() == "Bard" || newPC.getClassTitle() == "Sorcerer" || newPC.getClassTitle() == "Warlock" || newPC.getClassTitle() == "Wizard") {
+			Text mageHand = new Text("Mage Hand ");
+			mageHand.setFont(getFont(20));
+			cantripPane.add(mageHand, cantripCount++, 0);
+			
+			RadioButton btn = new RadioButton();
+			cantripPane.add(btn, cantripCount++, 0);
+		 }
+		 
+		 if (newPC.getClassTitle() == "Bard" || newPC.getClassTitle() == "Cleric" || newPC.getClassTitle() == "Druid" || newPC.getClassTitle() == "Sorcerer" || newPC.getClassTitle() == "Wizard") {
+			Text mending = new Text("Mending ");
+			mending.setFont(getFont(20));
+			cantripPane.add(mending, cantripCount++, 0);
+			
+			RadioButton btn = new RadioButton();
+			cantripPane.add(btn, cantripCount++, 0);
+		 }
+		 
+		 if (newPC.getClassTitle() == "Bard" || newPC.getClassTitle() == "Sorcerer" || newPC.getClassTitle() == "Wizard") {
+			Text message = new Text("Message ");
+			message.setFont(getFont(20));
+			cantripPane.add(message, cantripCount++, 0);
+			
+			RadioButton btn = new RadioButton();
+			cantripPane.add(btn, cantripCount++, 0);
+		 }
+		 
+		 if (newPC.getClassTitle() == "Bard" || newPC.getClassTitle() == "Sorcerer" || newPC.getClassTitle() == "Warlock" || newPC.getClassTitle() == "Wizard") {
+			Text minorIllusion = new Text("Minor Illusion ");
+			minorIllusion.setFont(getFont(20));
+			cantripPane.add(minorIllusion, cantripCount++, 0);
+			
+			RadioButton btn = new RadioButton();
+			cantripPane.add(btn, cantripCount++, 0);
+		 }
+		 
+		 if (newPC.getClassTitle() == "Druid" || newPC.getClassTitle() == "Sorcerer" || newPC.getClassTitle() == "Warlock" || newPC.getClassTitle() == "Wizard") {
+			Text poisonSpray = new Text("Poison Spray ");
+			poisonSpray.setFont(getFont(20));
+			cantripPane.add(poisonSpray, cantripCount++, 0);
+			
+			RadioButton btn = new RadioButton();
+			cantripPane.add(btn, cantripCount++, 0);
+		 }
+		 
+		 if (newPC.getClassTitle() == "Bard" || newPC.getClassTitle() == "Sorcerer" || newPC.getClassTitle() == "Warlock" || newPC.getClassTitle() == "Wizard") {
+			Text prestidigitation = new Text("Prestidigitation ");
+			prestidigitation.setFont(getFont(20));
+			cantripPane.add(prestidigitation, cantripCount++, 0);
+			
+			RadioButton btn = new RadioButton();
+			cantripPane.add(btn, cantripCount++, 0);
+		 }
+		 
+		 if (newPC.getClassTitle() == "Druid") {
+			Text produceFlame = new Text("Produce Flame ");
+			produceFlame.setFont(getFont(20));
+			cantripPane.add(produceFlame, cantripCount++, 0);
+			
+			RadioButton btn = new RadioButton();
+			cantripPane.add(btn, cantripCount++, 0);
+		 }
+		 
+		 if (newPC.getClassTitle() == "Sorcerer" || newPC.getClassTitle() == "Wizard") {
+			Text rayOfFrost = new Text("Ray of Frost ");
+			rayOfFrost.setFont(getFont(20));
+			cantripPane.add(rayOfFrost, cantripCount++, 0);
+			
+			RadioButton btn = new RadioButton();
+			cantripPane.add(btn, cantripCount++, 0);
+		 }
+		 
+		 if (newPC.getClassTitle() == "Cleric" || newPC.getClassTitle() == "Druid") {
+			Text resistance = new Text("Resistance ");
+			resistance.setFont(getFont(20));
+			cantripPane.add(resistance, cantripCount++, 0);
+			
+			RadioButton btn = new RadioButton();
+			cantripPane.add(btn, cantripCount++, 0);
+		 }
+		 
+		 if (newPC.getClassTitle() == "Cleric") {
+			Text sacredFlame = new Text("Sacred Flame ");
+			sacredFlame.setFont(getFont(20));
+			cantripPane.add(sacredFlame, cantripCount++, 0);
+			
+			RadioButton btn = new RadioButton();
+			cantripPane.add(btn, cantripCount++, 0);
+		 }
+		 
+		 if (newPC.getClassTitle() == "Druid") {
+			Text shillelagh = new Text("Shillelagh ");
+			shillelagh.setFont(getFont(20));
+			cantripPane.add(shillelagh, cantripCount++, 0);
+			
+			RadioButton btn = new RadioButton();
+			cantripPane.add(btn, cantripCount++, 0);
+		 }
+		 
+		 if (newPC.getClassTitle() == "Sorcerer" || newPC.getClassTitle() == "Wizard") {
+			Text shockingGrasp = new Text("Shocking Grasp ");
+			shockingGrasp.setFont(getFont(20));
+			cantripPane.add(shockingGrasp, cantripCount++, 0);
+			
+			RadioButton btn = new RadioButton();
+			cantripPane.add(btn, cantripCount++, 0);
+		 }
+		 
+		 if (newPC.getClassTitle() == "Cleric") {
+			Text spareTheDying = new Text("Spare the Dying ");
+			spareTheDying.setFont(getFont(20));
+			cantripPane.add(spareTheDying, cantripCount++, 0);
+			
+			RadioButton btn = new RadioButton();
+			cantripPane.add(btn, cantripCount++, 0);
+		 }
+		 
+		 if (newPC.getClassTitle() == "Cleric") {
+			Text thaumaturgy = new Text("Thaumaturgy ");
+			thaumaturgy.setFont(getFont(20));
+			cantripPane.add(thaumaturgy, cantripCount++, 0);
+			
+			RadioButton btn = new RadioButton();
+			cantripPane.add(btn, cantripCount++, 0);
+		 }
+		 
+		 if (newPC.getClassTitle() == "Druid") {
+			Text thornWhip = new Text("Thorn Whip ");
+			thornWhip.setFont(getFont(20));
+			cantripPane.add(thornWhip, cantripCount++, 0);
+			
+			RadioButton btn = new RadioButton();
+			cantripPane.add(btn, cantripCount++, 0);
+		 }
+		 
+		 if (newPC.getClassTitle() == "Bard" || newPC.getClassTitle() == "Sorcerer" || newPC.getClassTitle() == "Warlock" || newPC.getClassTitle() == "Wizard") {
+			Text trueStrike = new Text("True Strike ");
+			trueStrike.setFont(getFont(20));
+			cantripPane.add(trueStrike, cantripCount++, 0);
+			
+			RadioButton btn = new RadioButton();
+			cantripPane.add(btn, cantripCount++, 0);
+		 }
+		 
+		 if (newPC.getClassTitle() == "Bard") {
+			Text viciousMockery = new Text("Vicious Mockery ");
+			viciousMockery.setFont(getFont(20));
+			cantripPane.add(viciousMockery, cantripCount++, 0);
+			
+			RadioButton btn = new RadioButton();
+			cantripPane.add(btn, cantripCount++, 0);
+		 }
+		 
+		 spellPane.addRow(row++, cantripPane);
 		 //Row 3
 		 int numSpells = 0;
 		 if (newPC.getClassTitle() == "Bard") {
