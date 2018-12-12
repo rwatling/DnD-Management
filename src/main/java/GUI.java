@@ -575,13 +575,12 @@ public class GUI extends Application {
 		 nextText.setFont(getFont());
 		 Button next = new Button("", nextText);
 		 next.setOnAction( e -> {
-			if (true) {
-					spellScene = createSpellScreen(newPC);
-					window.setScene(spellScene);
-				}
-			else {
-				window.setScene(startScreen);
-			}
+			 try {
+				spellScene = createSpellScreen(newPC);
+				window.setScene(spellScene);
+			 } catch (NullPointerException ex) {
+				 System.out.println("Character not finished");
+			 }
 		 });
 		 
 		 bottomBtnPane.setLeft(back);
